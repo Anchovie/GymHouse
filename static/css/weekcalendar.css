@@ -144,9 +144,21 @@ body {font-family: Verdana, sans-serif;}
 .time{
     padding-top: 5px;
     padding-bottom: 5px;
+	padding-left: 5px;
     background-color: #e6fff2;
     border: 1px solid #b3ffd9;
     height: 50px;
+}
+
+.timeevents{
+    padding-top: 5px;
+    padding-bottom: 5px;
+	padding-left: 5px;
+    background-color: #e6fff2;
+    border: 1px solid #b3ffd9;
+    height: 50px;
+	font-size: 12px; 
+	text-align: left;
 }
 
 .time:hover {
