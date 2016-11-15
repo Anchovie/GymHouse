@@ -10,6 +10,8 @@
   <script>
     var db_events = {{ events|safe }};
     var db_classes = {{ classes|safe }};
+    var users = {{ users|safe }};
+    var levels = {{ levels|safe }};
   </script>
 {% endblock head %}
 
@@ -24,7 +26,7 @@
 {% block content %}
 
   <h1> This is the Schedule page </h1>
-<!--	
+
   JSON EVENTS:
   {{events}}
   <hr/>
@@ -32,7 +34,15 @@
   JSON CLASSES:
   {{classes}}
   <hr/>
--->
+
+  USERS:
+  {{users}}
+  <hr/>
+
+  LEVELS:
+  {{levels}}
+  <hr/>
+
   <hr/>
   <div class="week_calendar">
     <div class="week"> 
