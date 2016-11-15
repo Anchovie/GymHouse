@@ -81,6 +81,8 @@ function getWeekRange(dateStr) {
 
 
 addDatesToCalendar = function(week, year, label){
+	var formatted_curr_date;
+	var classes_this_week = {};
     /*
     var date = new Date();
 
@@ -135,6 +137,13 @@ addDatesToCalendar = function(week, year, label){
 
 
     var lastDay = currentMonday.clone().add(6,'days').date();
+	
+	classes_this_week = db_classes.filter(function(elem){
+		if((currentMonday.isoWeek() >= moment(elem.fields.begin_date).isoWeek()) && (currentMonday.isoWeek() <= moment(elem.fields.end_date).isoWeek()))
+			return elem;
+	});
+		
+	console.log(classes_this_week);
 
     for(var i = 0; i < 7; i++){
         var currentDay = currentMonday.clone().add(i,'days');   
@@ -169,8 +178,8 @@ addDatesToCalendar = function(week, year, label){
         }
         */
         console.log("Calculating days i="+i+". Current: "+currentDay+", NEWlast"+lastDay);
-        
-
+		
+		formatted_curr_date = year + "-" + currentMonth + "-"  + currentDay;
 
         $dayElement = $(
             "<div class='dayElement' id="+i+">" +
@@ -219,18 +228,72 @@ addDatesToCalendar = function(week, year, label){
         );
     */
 
-
-
-
-
-
         for (var j = 8; j<20; j++){
-            $dayElement.find(".timeSlots").append(
-                "<div id='"+ (j-8) +"' class='time'>" + 
-                    "Timeslot from " + j +". " +
-                "</div>"
-                //HERE WILL BE DATA FOR CLASSES ETC
-            );
+			var events_flag = false;
+			var class_flag = false;
+			
+			if(events_dict[formatted_curr_date] || classes_this_week.length > 0) {
+				if(events_dict[formatted_curr_date]) {
+					if(events_dict[formatted_curr_date][0].has(j.toString())){
+						$dayElement.find(".timeSlots").append(
+						"<div id='"+ (j-8) +"' class='timeevents'>" +
+							 "Event Name: "+ events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "<br />" +
+							 "Trainer: " + events_dict[formatted_curr_date][0].get(j.toString()).fields.trainer + "<br />" +
+							 "Level: " + events_dict[formatted_curr_date][0].get(j.toString()).fields.level + "<br />"
+						);
+						events_flag = true;
+					} 
+				}
+				if(classes_this_week.length > 0) {
+					var class_str = "";
+					for(var i_cls = 0; i_cls < classes_this_week.length; i_cls++){
+						if((classes_this_week[i_cls].fields.days).includes(i + 1)) {
+							
+							if(classes_this_week[i_cls].fields.time == j.toString()) {
+								if(events_flag == false) {
+									/*
+									$dayElement.find(".timeSlots").append(
+									"<div id='"+ (j-8) +"' class='timeevents'>");
+									*/
+									class_str = "<div id='"+ (j-8) +"' class='timeevents'>";
+								} else {
+									//$dayElement.find(".timeSlots").append("--------");
+									class_str = "--------";
+								}
+								/*
+								$dayElement.find(".timeSlots").append(
+									 "Class Name: "+ classes_this_week[i_cls].fields.name + "<br />" +
+									 "Trainer: " + classes_this_week[i_cls].fields.trainer + "<br />" +
+									 "Level: " + classes_this_week[i_cls].fields.level + "<br />"
+								);
+								*/
+								class_str += "Class Name: "+ classes_this_week[i_cls].fields.name + "<br />" +
+									 "Trainer: " + classes_this_week[i_cls].fields.trainer + "<br />" +
+									 "Level: " + classes_this_week[i_cls].fields.level + "<br />"
+								class_flag = true;
+							}
+							
+						}
+					}
+					class_str += "</div>";
+					//$dayElement.find(".timeSlots").append("</div>");
+					$dayElement.find(".timeSlots").append(class_str);
+				}
+				
+				if(events_flag == false && class_flag == false) {			
+					$dayElement.find(".timeSlots").append(
+						"<div id='"+ (j-8) +"' class='time'>" + 
+							"No events" +
+						"</div>"
+					);
+				}
+			} else {			
+				$dayElement.find(".timeSlots").append(
+					"<div id='"+ (j-8) +"' class='time'>" + 
+						"No events" +
+					"</div>"
+				);
+			}
         }
         console.log("---------__");
         $(".dayElementContainer").append($dayElement);
@@ -266,6 +329,9 @@ addDatesToCalendar = function(week, year, label){
 	return [nextWeekMoment.isoWeek(),nextWeekMoment.isoWeekYear()];
 };
 
+var events_dict = {};
+var classes_dict = {};
+
 
 $(document).ready(function(){
     /*
@@ -298,14 +364,28 @@ $(document).ready(function(){
     console.log(db_events);
     console.log("\nDB_CLASSES:");
     console.log(db_classes);
-
-    for (event in db_events){
-        console.log(event);
+	var m;
+    for (var i = 0 ; i < db_events.length ; i++){
+        //console.log(db_events[i].fields.date);
+		if(!events_dict[db_events[i].fields.date]) {
+			m = new Map();
+			events_dict[db_events[i].fields.date] = [];
+			events_dict[db_events[i].fields.date].push(m.set(db_events[i].fields.time, db_events[i]));
+		} else {
+			m = events_dict[db_events[i].fields.date][0];
+			m.set(db_events[i].fields.time, db_events[i]);
+		}
+		
     }
-
-
-    
-    
+	
+	console.log(events_dict);
+	
+	console.log("\nISO WEEK OF start date \n" + (moment(db_classes[0].fields.begin_date)).isoWeek());
+	
+	
+	for (var i = 0 ; i < db_classes.length ; i++) {
+		classes_dict[i] = new Array(db_classes[i], moment(db_classes[i].fields.begin_date).isoWeek(), moment(db_classes[i].fields.end_date).isoWeek());
+	}
 
     var m = new moment();
     console.log("MOMENT : " + m.format("DD/MM/YYYY"));

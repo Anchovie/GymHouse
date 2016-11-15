@@ -223,6 +223,12 @@ class Event(models.Model):
             choices = LEVEL_TYPE_CHOICES, 
             default = BEGINNER
     )
+	
+    time = models.CharField(
+           max_length=4, 
+           choices = HOUR_CHOICES, 
+           default = HOUR08
+    )
 
 
     def __unicode__(self):
