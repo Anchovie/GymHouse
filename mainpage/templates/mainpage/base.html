@@ -4,8 +4,76 @@
   {% load static %} {# load static files like css, images etc #}
   <title>{% block title %} GymHouse - the gym of the future! {% endblock title %}</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
-  <link rel="icon" type="image/vnd.microsoft.icon"
-     href="{% static 'images/favicon.ico' %}" />
+  <link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'images/favicon.ico' %}" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+
+  <!-- Load CSS 
+  ================================================== -->
+  <link href="{% static 'css/css/reset.css' %}" rel="stylesheet">
+  <link href="{% static 'css/css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/css/animate.css' %}" rel="stylesheet">
+  <link href="{% static 'fonts/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/css/flaticon.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'css/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/css/responsive.css' %}" rel="stylesheet">
+
+  <!-- Skin Colors -->
+  <link href="{% static 'css/css/color-schemes/green.css' %}" id="changeable-colors" rel="stylesheet" type="text/css" />
+  
+  <!-- Google Fonts  
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,300italic,700,900' rel='stylesheet' type='text/css'>
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
+  ================================================== -->
+  <script src="{% static 'scripts/js/ie10-viewport-bug-workaround.js' %}"></script>
+  
+  <script src="{% static 'scripts/js/modernizr.js' %}"></script>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+  ================================================== -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+    <!-- Javascrit Core
+  ================================================== -->        
+  <script src="{% static 'scripts/js/jquery-1.11.1.min.js' %}"></script>
+  <script src="{% static 'scripts/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'scripts/js/jquery.easing.1.3.js' %}"></script>    
+  <script src="{% static 'scripts/js/jquery.flexisel.js' %}"></script>
+  <script src="{% static 'scripts/js/jquery.appear.js' %}"></script>
+  <script src="{% static 'scripts/js/jquery.custom.js' %}"></script>   
+
+  <!-- Color -->
+
+
+
+
+  <!-- Bootstrap Core CSS -->
+  <link href="{% static 'css/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="{% static 'css/css/sb-admin.css' %}" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="{% static 'fonts/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
   {% block head %} {% endblock head %}
 </head>
 <body>
@@ -39,7 +107,7 @@ bpabpabpa
 
 -->
 
-
+{% block menu %}
 <div id="menu">
   <ul>
     <li><a href= "{% url 'mainpage:main_view_not_logged_in' %}"> Main </a></li>
@@ -48,7 +116,6 @@ bpabpabpa
     <li><a href= "{% url 'services:services_view' %}"> Services </a></li>
     <li><a href= "{% url 'online:online_view' %}"> Online </a></li>
     <li><a href= "{% url 'create:show_forms' %}"> New Entry </a></li>
-
 
     {% if user.is_authenticated %}
       <li class="right"><a href= "{% url 'authenticate:logout' %}"> Logout </a></li>
@@ -62,35 +129,211 @@ bpabpabpa
     <h3 class="welcome"> Welcome {{user}}! </h3>
   {% endif %}
 </div>
+{% endblock menu %}
 
 
 
 
-</br></br>
-
-<p>Login(admin panel): ...:8000/admin. user=admin, password=bpabpabpa</p>
-
-<!-- The variable is received from mainpage/views.py, 
-which renders this view -->
-user = {{user}}
-logged_in = {{logged_in}}
-
-
-<hr/>
-{% block content %}
-<h1>PLAIN MAINPAGE_BASE.HTML; NOTHING EXTENDED</h1>
-
-  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+{% block test %}
+  <br/><br/>
+  <p>Login(admin panel): ...:8000/admin. user=admin, password=bpabpabpa</p>
+  user = {{user}}
+  logged_in = {{logged_in}}
+  <hr/>
+{% endblock test %}
 
 
 
-{% endblock content %}
-<hr/>
+
+{% if user.is_authenticated %}
+<div id="wrapper">
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">User Page</a>
+      </div>
+      <!-- Top Menu Items -->
+      <ul class="nav navbar-right top-nav">
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+              <ul class="dropdown-menu message-dropdown">
+                  <li class="message-preview">
+                      <a href="#">
+                          <div class="media">
+                              <span class="pull-left">
+                                  <img class="media-object" src="http://placehold.it/50x50" alt="">
+                              </span>
+                              <div class="media-body">
+                                  <h5 class="media-heading">
+                                      <strong>John Smith</strong>
+                                  </h5>
+                                  <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                  <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                              </div>
+                          </div>
+                      </a>
+                  </li>
+                  <li class="message-preview">
+                      <a href="#">
+                          <div class="media">
+                              <span class="pull-left">
+                                  <img class="media-object" src="http://placehold.it/50x50" alt="">
+                              </span>
+                              <div class="media-body">
+                                  <h5 class="media-heading">
+                                      <strong>John Smith</strong>
+                                  </h5>
+                                  <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                  <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                              </div>
+                          </div>
+                      </a>
+                  </li>
+                  <li class="message-preview">
+                      <a href="#">
+                          <div class="media">
+                              <span class="pull-left">
+                                  <img class="media-object" src="http://placehold.it/50x50" alt="">
+                              </span>
+                              <div class="media-body">
+                                  <h5 class="media-heading">
+                                      <strong>John Smith</strong>
+                                  </h5>
+                                  <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                  <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                              </div>
+                          </div>
+                      </a>
+                  </li>
+                  <li class="message-footer">
+                      <a href="#">Read All New Messages</a>
+                  </li>
+              </ul>
+          </li>
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+              <ul class="dropdown-menu alert-dropdown">
+                  <li>
+                      <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                  </li>
+                  <li>
+                      <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                  </li>
+                  <li>
+                      <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                  </li>
+                  <li>
+                      <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                  </li>
+                  <li>
+                      <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                  </li>
+                  <li>
+                      <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                      <a href="#">View All</a>
+                  </li>
+              </ul>
+          </li>
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li>
+                      <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                  </li>
+                  <li>
+                      <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                  </li>
+                  <li>
+                      <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                      <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+      <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav side-nav">
+              <li class="active">
+                  <a href="{% url 'mainpage:main_view_not_logged_in' %}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+              </li>
+              <li>
+                  <a href="{% url 'diary:diary_view' %}"><i class="fa fa-fw fa-bar-chart-o"></i> Exercise Diary</a>
+              </li>
+              <li>
+                  <a href="{% url 'schedule:calendar_view' %}"><i class="fa fa-fw fa-table"></i> Schedule</a>
+              </li>
+              <li>
+                  <a href="{% url 'services:services_view' %}"><i class="fa fa-fw fa-edit"></i> Services</a>
+              </li>
+              <li>
+                  <a href="{% url 'online:online_view' %}"><i class="fa fa-fw fa-desktop"></i> Online</a>
+              </li>
+              <li>
+                  <a href="{% url 'create:show_forms' %}"><i class="fa fa-fw fa-wrench"></i> New Entries</a>
+              </li>
+              
+             
+          </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+  </nav>
+
+  <div id="page-wrapper">
+
+      <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="row">
+              <div class="col-lg-12">
+                  <h1 class="page-header">
+                      Page Heading
+                      <small>Subheading</small>
+                  </h1>
+                  <ol class="breadcrumb">
+                      <li>
+                          <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                      </li>
+                      
+                  </ol>
+
+                  {% block content %}
+                    <h1>PLAIN BASE.HTML; NOTHING EXTENDED</h1>
 
 
-<div class='footer'>
-  <p> Some footer here? </p>
-</div>    
+                  {% endblock content %}
+
+
+              </div>
+          </div>
+          <!-- /.row -->
+
+      </div>
+      <!-- /.container-fluid -->
+
+  </div>
+  <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+{% else %}
+  {% block content2 %}
+    <h1>PLAIN BASE.HTML; NOTHING EXTENDED</h1>
+  {% endblock content2 %}
+{% endif %}
+<!-- endif user is authenticated -->
 
 </body>
 </html>

@@ -68,7 +68,7 @@ class NewClassForm(ModelForm):
         widgets = {
                 'begin_date': forms.DateInput(attrs={'class': 'datepicker'}),
                 'end_date': forms.DateInput(attrs={'class': 'datepicker'}),
-                #'days': forms.CheckboxSelectMultiple()
+                'days': forms.CheckboxSelectMultiple()
         }
         #days = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
         days = forms.ModelMultipleChoiceField(queryset=Days.objects.all(), widget=forms.CheckboxSelectMultiple)

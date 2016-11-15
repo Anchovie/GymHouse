@@ -1,15 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-  {% load static %} {# load static files like css, images etc #}
-  <title>GymHouse - LOGIN </title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
-  <link rel="icon" type="image/vnd.microsoft.icon"
-     href="{% static 'images/favicon.ico' %}" />
-  <script src="{% static 'scripts/jquery-3.1.1.min.js' %}"></script>
+{% extends 'mainpage/base.html' %}
+{% load static %} {# load static files like css, images etc #}
+  {% block title %} GymHouse - LOGIN {% endblock title %}
 
-</head>
-<body>
+  {% block head %}
+  <!-- <script src="{% static 'scripts/jquery-3.1.1.min.js' %}"></script> -->
+  <link rel="stylesheet" type="text/css" href=" {% static 'css/form_login_css.css' %}" />
+  {% endblock head %}
+
+
+{% block menu %} NO MENU HERE {% endblock menu %}
+
+{% block test %} NO TESTS {% endblock test %}
+
+{% block footer %} NO FOOTER {% endblock footer %}
+
+{% block content2 %}
+<!--  -->
+<div class="login-box">
+  <div class="login-logo">
+         <a href="">Login Page</a>
+  </div>
+  <div class="login-box-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+
+
+
+      <form method="post">
+            {% csrf_token %}
+            <div class="form-group has-feedback">
+                <input type="text" name="username" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+            </div>
+          <div class="row">
+              <div class="col-xs-8">
+                  <div class="checkbox icheck">
+                      <label><input type="checkbox"> Remember Me</label>
+                  </div>
+              </div>
+              <!-- /.col -->
+              <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+              </div>
+              <!-- /.col -->
+          </div>
+      
+              
+      </form>
+
+
+    <a href="#">I forgot my password</a><br>
+    </div>
+</div>
+<!--  -->
+{% endblock content2 %}
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
 
   <h2>Login</h2>
   <form method="post">
@@ -17,8 +75,4 @@
     {{ form.as_p }}
     <button type="submit">Login</button>
   </form>
-
-
-
-</body>
-</html>
+-->
