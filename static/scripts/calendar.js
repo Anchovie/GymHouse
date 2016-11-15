@@ -231,23 +231,22 @@ addDatesToCalendar = function(week, year, label){
         for (var j = 8; j<20; j++){
 			var events_flag = false;
 			var class_flag = false;
+			var class_str = "";
 			
 			if(events_dict[formatted_curr_date] || classes_this_week.length > 0) {
 				if(events_dict[formatted_curr_date]) {
 					if(events_dict[formatted_curr_date][0].has(j.toString())){
-						$dayElement.find(".timeSlots").append(
-						"<div id='"+ i + "_" + (j-8) +"' class='timeevents'>" +
+						class_str +=
+						"<div id='"+ i + "_" + (j-8) +"' class='timeevents' data-placement='top' data-popover-content='#events_dialog_" + i + "_" + j + "' data-toggle='popover' data-trigger='focus'>" +
 							 events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "<br />" +
 							 users[events_dict[formatted_curr_date][0].get(j.toString()).fields.trainer] + "<br />" +
 							 levels[events_dict[formatted_curr_date][0].get(j.toString()).fields.level] + "<br />" +
-							 "</div>"
-						);
-						
+							 "</div>";
+							 
 						events_flag = true;
 					} 
 				}
 				if(classes_this_week.length > 0) {
-					var class_str = "";
 					for(var i_cls = 0; i_cls < classes_this_week.length; i_cls++){
 						if((classes_this_week[i_cls].fields.days).includes(i + 1)) {
 							
@@ -257,10 +256,22 @@ addDatesToCalendar = function(week, year, label){
 									$dayElement.find(".timeSlots").append(
 									"<div id='"+ (j-8) +"' class='timeevents'>");
 									*/
-									class_str = "<div id='"+ (j-8) +"' class='timeevents'>";
+									class_str = "<div id='"+ i + "_" + (j-8) +"' class='timeevents'>";
+									class_str += classes_this_week[i_cls].fields.name + "<br />" +
+									 users[classes_this_week[i_cls].fields.trainer] + "<br />" +
+									 levels[classes_this_week[i_cls].fields.level] + "<br />" 
+									class_str += "</div>";
 								} else {
 									//$dayElement.find(".timeSlots").append("--------");
-									class_str = "--------";
+									class_str = "";
+									
+									class_str = "<div id='"+ i + "_" + (j-8) +"' class='timeevents'>";
+									class_str += events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "<br />" +
+										"-----<br />" +
+										classes_this_week[i_cls].fields.name;
+										
+									class_str += "</div>";
+									
 								}
 								/*
 								$dayElement.find(".timeSlots").append(
@@ -269,26 +280,23 @@ addDatesToCalendar = function(week, year, label){
 									 "Level: " + classes_this_week[i_cls].fields.level + "<br />"
 								);
 								*/
-								class_str += classes_this_week[i_cls].fields.name + "<br />" +
-									 users[classes_this_week[i_cls].fields.trainer] + "<br />" +
-									 levels[classes_this_week[i_cls].fields.level] + "<br />"
+								
 								class_flag = true;
 							}
 							
 						}
 					}
-					class_str += "</div>";
 					//$dayElement.find(".timeSlots").append("</div>");
-					$dayElement.find(".timeSlots").append(class_str);
+					//$dayElement.find(".timeSlots").append(class_str);
 				}
 				
-				if(events_flag == false && class_flag == false) {			
-					$dayElement.find(".timeSlots").append(
+				if(events_flag == false && class_flag == false) {
+					class_str +=
 						"<div id='"+ (j-8) +"' class='time'>" + 
 							"No events" +
-						"</div>"
-					);
+						"</div>";
 				}
+				$dayElement.find(".timeSlots").append(class_str);
 			} else {			
 				$dayElement.find(".timeSlots").append(
 					"<div id='"+ (j-8) +"' class='time'>" + 
@@ -450,5 +458,4 @@ $(document).ready(function(){
         mweek = ar[0];
         myear = ar[1];
     });
-
 });
