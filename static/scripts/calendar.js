@@ -236,11 +236,13 @@ addDatesToCalendar = function(week, year, label){
 				if(events_dict[formatted_curr_date]) {
 					if(events_dict[formatted_curr_date][0].has(j.toString())){
 						$dayElement.find(".timeSlots").append(
-						"<div id='"+ (j-8) +"' class='timeevents'>" +
-							 "Event Name: "+ events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "<br />" +
-							 "Trainer: " + events_dict[formatted_curr_date][0].get(j.toString()).fields.trainer + "<br />" +
-							 "Level: " + events_dict[formatted_curr_date][0].get(j.toString()).fields.level + "<br />"
+						"<div id='"+ i + "_" + (j-8) +"' class='timeevents'>" +
+							 events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "<br />" +
+							 users[events_dict[formatted_curr_date][0].get(j.toString()).fields.trainer] + "<br />" +
+							 levels[events_dict[formatted_curr_date][0].get(j.toString()).fields.level] + "<br />" +
+							 "</div>"
 						);
+						
 						events_flag = true;
 					} 
 				}
@@ -267,9 +269,9 @@ addDatesToCalendar = function(week, year, label){
 									 "Level: " + classes_this_week[i_cls].fields.level + "<br />"
 								);
 								*/
-								class_str += "Class Name: "+ classes_this_week[i_cls].fields.name + "<br />" +
-									 "Trainer: " + classes_this_week[i_cls].fields.trainer + "<br />" +
-									 "Level: " + classes_this_week[i_cls].fields.level + "<br />"
+								class_str += classes_this_week[i_cls].fields.name + "<br />" +
+									 users[classes_this_week[i_cls].fields.trainer] + "<br />" +
+									 levels[classes_this_week[i_cls].fields.level] + "<br />"
 								class_flag = true;
 							}
 							

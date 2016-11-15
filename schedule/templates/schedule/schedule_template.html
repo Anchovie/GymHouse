@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/weekcalendar.css' %}" />
   <script src="{% static 'scripts/jquery-3.1.1.min.js' %}"></script>
   <script src="{% static 'scripts/moment-with-locales.js' %}"></script>
-  <script src="{% static 'scripts/calendar.js' %}"></script>
+  
 
   <script>
     var db_events = {{ events|safe }};
@@ -24,7 +24,7 @@
 
 
 {% block content %}
-
+<!--
   <h1> This is the Schedule page </h1>
 
   JSON EVENTS:
@@ -44,6 +44,7 @@
   <hr/>
 
   <hr/>
+-->
   <div class="week_calendar">
     <div class="week"> 
         <div class="prev">&#10094;</div>
@@ -77,5 +78,7 @@
 
 
   </div>
+  
+  <script src="{% static 'scripts/calendar.js' %}"></script>
 
 {% endblock content %}
