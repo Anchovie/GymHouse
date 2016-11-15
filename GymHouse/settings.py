@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 LOGIN_URL = '/authenticate/login'
-LOGIN_REDIRECT_URL = '/.'
+LOGIN_REDIRECT_URL = '/'
 
 
 # Quick-start development settings - unsuitable for production
@@ -69,7 +69,7 @@ ROOT_URLCONF = 'GymHouse.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ #THIS NEEDS TO BE SORTED OUT, TEMPLATES NOT WORKING
+        'DIRS': [ 
             os.path.join(BASE_DIR, 'templates/'),
             #'/mainpage/templates/mainpage',
             #'GymHouse/mainpage/templates/mainpage/',

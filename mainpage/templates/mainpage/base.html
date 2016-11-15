@@ -3,18 +3,26 @@
 <head>
   {% load static %} {# load static files like css, images etc #}
   <title>{% block title %} GymHouse - the gym of the future! {% endblock title %}</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
-  <link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'images/favicon.ico' %}" />
+
+  <!-- REMEMBER, THIS IS THE BASE TEMPLATE WHICH EVERY OTHER PAGE EXTENDS. LIST HERE ONLY THINGS (CSS,JS,etc) 
+       THAT ARE NECESSARY FOR EVERY PAGE. DO __NOT__ ADD PAGE-SPECIFIC STUFF HERE. (Rather, put them inside the 
+       respective pages' "block head" tag)
+  -->
+  
+
+  <!-- Meta and Favicon 
+  ================================================== -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="{% static 'images/favicon.ico' %}">
+  <link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'images/favicon.ico' %}" />
 
 
   <!-- Load CSS 
   ================================================== -->
+  <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" />
   <link href="{% static 'css/css/reset.css' %}" rel="stylesheet">
   <link href="{% static 'css/css/bootstrap.css' %}" rel="stylesheet">
   <link href="{% static 'css/css/animate.css' %}" rel="stylesheet">
@@ -70,15 +78,12 @@
 
 
 
-
-
-
-
-  {% block head %} {% endblock head %}
+  {% block head %} <!-- Child templates add their "block head" lines inside here --> {% endblock head %}
 </head>
+
 <body>
 
-<!--
+<!-- CURRENT USERS IN FIXTURE2
 Regular:
 Terry
 Terry Test1
@@ -99,13 +104,13 @@ Tara
 Tara Test4
 taratara
 
-Admin (superuser):
+Admin (superuser, no profile):
 admin
 - -
 bpabpabpa
-
-
 -->
+
+
 
 {% block menu %}
 <div id="menu">
@@ -133,7 +138,6 @@ bpabpabpa
 
 
 
-
 {% block test %}
   <br/><br/>
   <p>Login(admin panel): ...:8000/admin. user=admin, password=bpabpabpa</p>
@@ -157,10 +161,12 @@ bpabpabpa
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">User Page</a>
+          <a class="navbar-brand" href={% url 'mainpage:main_view_not_logged_in' %}>User Page</a>
       </div>
       <!-- Top Menu Items -->
+
       <ul class="nav navbar-right top-nav">
+          <!-- WE ARE NOT GOING TO IMPLEMENT MESSAGING
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
               <ul class="dropdown-menu message-dropdown">
@@ -217,6 +223,7 @@ bpabpabpa
                   </li>
               </ul>
           </li>
+          -->
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
               <ul class="dropdown-menu alert-dropdown">
@@ -245,10 +252,10 @@ bpabpabpa
               </ul>
           </li>
           <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{user}} <b class="caret"></b></a>
               <ul class="dropdown-menu">
                   <li>
-                      <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                      <a href="{% url 'mainpage:main_view_not_logged_in' %}"><i class="fa fa-fw fa-user"></i> Profile</a>
                   </li>
                   <li>
                       <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
@@ -258,7 +265,7 @@ bpabpabpa
                   </li>
                   <li class="divider"></li>
                   <li>
-                      <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                      <a href="{% url 'authenticate:logout' %}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                   </li>
               </ul>
           </li>
@@ -304,7 +311,7 @@ bpabpabpa
                   </h1>
                   <ol class="breadcrumb">
                       <li>
-                          <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                          <i class="fa fa-dashboard"></i>  <a href={% url 'mainpage:main_view_not_logged_in' %}>Dashboard</a>
                       </li>
                       
                   </ol>
@@ -328,12 +335,13 @@ bpabpabpa
 
 </div>
 <!-- /#wrapper -->
+<!-- endif user is authenticated -->
 {% else %}
   {% block content2 %}
     <h1>PLAIN BASE.HTML; NOTHING EXTENDED</h1>
   {% endblock content2 %}
 {% endif %}
-<!-- endif user is authenticated -->
+<!-- endif else -->
 
 </body>
 </html>

@@ -6,11 +6,8 @@ GymHouse - Frontpage
 {% endblock title %}
 
 {% block head %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{% static 'image/favicon.ico' %}">
+    
+    <!-- THINGS INSIDE THIS "BLOCK HEAD" WILL BE ADDED TO THE PAGES <head>.  -->
 
     <!-- Load CSS 
     ================================================== -->
@@ -40,11 +37,13 @@ GymHouse - Frontpage
     <script src="{% static 'scripts/js/modernizr.js' %}"></script>
 {% endblock head %}
 
+<!-- Overwrite the original menu and test prints from base.html with nothing -->
 {% block test %} {% endblock test %}
 {% block menu %} {% endblock menu %}
 
+<!-- This will be the actual content for the page -->
 {% block content %}
 
-	ASHIQ CREATE THE MAINPAGE FOR THE LOGGED IN USER HERE
+	USER MAINPAGE
 
 {% endblock content %}

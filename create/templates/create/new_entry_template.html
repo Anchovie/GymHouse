@@ -20,6 +20,10 @@
   GymHouse - Create New Entry
 {% endblock title %}
 
+<!-- Overwrite the original menu and test prints from base.html with nothing -->
+{% block test %} {% endblock test %}
+{% block menu %} {% endblock menu %}
+
 {% block content %}
 <h2> Create new Event </h2>
 <form action="{% url 'create:create_new_event' %}" method="post">
