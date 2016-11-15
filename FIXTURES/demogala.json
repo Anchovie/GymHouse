@@ -1,0 +1,2244 @@
+[
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 3,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 3,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 3,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 4,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 4,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 4,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 5,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 5,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 5,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 6,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 6,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 6,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can add event",
+        "content_type": 7,
+        "codename": "add_event"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can change event",
+        "content_type": 7,
+        "codename": "change_event"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can delete event",
+        "content_type": 7,
+        "codename": "delete_event"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can add profile",
+        "content_type": 8,
+        "codename": "add_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can change profile",
+        "content_type": 8,
+        "codename": "change_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can delete profile",
+        "content_type": 8,
+        "codename": "delete_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add class",
+        "content_type": 9,
+        "codename": "add_class"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change class",
+        "content_type": 9,
+        "codename": "change_class"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete class",
+        "content_type": 9,
+        "codename": "delete_class"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can add days",
+        "content_type": 10,
+        "codename": "add_days"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can change days",
+        "content_type": 10,
+        "codename": "change_days"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can delete days",
+        "content_type": 10,
+        "codename": "delete_days"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$30000$EFjibPxQ8Ikz$UJUNMn0c8R8Ayc+f36K6s+Fgn0cEl2EKNyVPru1mLyI=",
+        "last_login": "2016-11-15T23:05:04.026Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "panajis.rantala@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2016-10-24T22:40:39.742Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$30000$reNay6LszOCp$vTKWLS4kKX2TPOTncmdhktAww3bt1f+M6Eyzc4vunOI=",
+        "last_login": "2016-11-15T23:07:14.984Z",
+        "is_superuser": false,
+        "username": "Terry",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-10-24T23:00:27.273Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$30000$ZUvTSJT8cSu6$esb3qrFLumYERpR+q5zsCTFtBtfbt/vyslYn+rznHzA=",
+        "last_login": "2016-11-15T22:54:02.006Z",
+        "is_superuser": false,
+        "username": "Tina",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-10-24T23:01:04.391Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$30000$23aRcj4A9eyt$ovks8KDVBV4/4RPwPB0TQUdk0/qE+v0grfbSm8+o7pQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Token",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-10-24T23:01:38.910Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$30000$loDA6IX0NmiA$0kOuARO1cBiOM9N1Odv2B7QsWOb147/f8H/KlRyIznI=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "Tara",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2016-10-24T23:04:29.912Z",
+        "groups": [],
+        "user_permissions": [
+            7
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$30000$WYfS5xcW5QOJ$i2R6caIrtWMCugG/iYL9vQfecZThJ4+dcSBY4hJ0K14=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Chloe",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-11-15T22:00:38.840Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$30000$ZoQT0uzpSRjn$Ou0DiA22wriwbc5lt/jMqJBkmxoxRO5TWh28iExw2OI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Dylan",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-11-15T22:02:26.178Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$30000$d6HRLaz4br6Y$sMnTz+DmyxFy6+lmy+/rESt06Z4Q8bCJs54yNA/7ko8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Mike",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-11-15T22:03:22.299Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "94zy8jbpaeus59cj7icf9tpji1tycjgr",
+    "fields": {
+        "session_data": "ODYzODNjNTg2NGE4YWFjYjQxYzg1YTU5YTI5ZTg4MmM4OTFhMmQ1YTp7Il9hdXRoX3VzZXJfaGFzaCI6ImNjMTIxOWZlYmI2N2I0MDI5MTYxZjJmMGI2NTgyYzE1ZjE1YWFiMGQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2016-11-16T11:37:01.847Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "bs5v5zhv15wqmb1o46qpbmn7yssbc61x",
+    "fields": {
+        "session_data": "ODYzODNjNTg2NGE4YWFjYjQxYzg1YTU5YTI5ZTg4MmM4OTFhMmQ1YTp7Il9hdXRoX3VzZXJfaGFzaCI6ImNjMTIxOWZlYmI2N2I0MDI5MTYxZjJmMGI2NTgyYzE1ZjE1YWFiMGQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2016-11-08T10:24:57.790Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "d0usayd2u0bg3or615af9cjt2ml455ka",
+    "fields": {
+        "session_data": "Y2JlNmNlZTdkZTc5OTAxM2RhY2YxNDkxYzU0ZDkxOWJkYTMzNjk2Njp7Il9hdXRoX3VzZXJfaGFzaCI6IjMxY2Q0OTI0ZTJhYmI0NWViZDNhOGFhMTlmNWM3OTFmYjBmNjhkMjYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+        "expire_date": "2016-11-29T23:07:15.070Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hqds4pcoiwfumq339r5e9dntp7u11rfb",
+    "fields": {
+        "session_data": "M2RkMzc5MzNiZWRlMzQ2N2M0ZGRiMzA2N2ZkNzA4OTZhMjkxNjJjOTp7fQ==",
+        "expire_date": "2016-11-28T11:37:01.031Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "i6ivonca8kdfwrlaj5iynmt50pdshocn",
+    "fields": {
+        "session_data": "Y2JlNmNlZTdkZTc5OTAxM2RhY2YxNDkxYzU0ZDkxOWJkYTMzNjk2Njp7Il9hdXRoX3VzZXJfaGFzaCI6IjMxY2Q0OTI0ZTJhYmI0NWViZDNhOGFhMTlmNWM3OTFmYjBmNjhkMjYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+        "expire_date": "2016-11-16T12:30:23.525Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "tt5lb86xh88dqgz4dfxh6u7vgbqdl5vp",
+    "fields": {
+        "session_data": "Y2JlNmNlZTdkZTc5OTAxM2RhY2YxNDkxYzU0ZDkxOWJkYTMzNjk2Njp7Il9hdXRoX3VzZXJfaGFzaCI6IjMxY2Q0OTI0ZTJhYmI0NWViZDNhOGFhMTlmNWM3OTFmYjBmNjhkMjYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+        "expire_date": "2016-11-22T13:17:06.531Z"
+    }
+},
+{
+    "model": "mainpage.days",
+    "pk": 1,
+    "fields": {
+        "name": "Monday",
+        "day": "0"
+    }
+},
+{
+    "model": "mainpage.days",
+    "pk": 2,
+    "fields": {
+        "name": "Tuesday",
+        "day": "1"
+    }
+},
+{
+    "model": "mainpage.days",
+    "pk": 3,
+    "fields": {
+        "name": "Wednesday",
+        "day": "2"
+    }
+},
+{
+    "model": "mainpage.days",
+    "pk": 4,
+    "fields": {
+        "name": "Thursday",
+        "day": "3"
+    }
+},
+{
+    "model": "mainpage.days",
+    "pk": 5,
+    "fields": {
+        "name": "Friday",
+        "day": "4"
+    }
+},
+{
+    "model": "mainpage.days",
+    "pk": 6,
+    "fields": {
+        "name": "Saturday",
+        "day": "5"
+    }
+},
+{
+    "model": "mainpage.days",
+    "pk": 7,
+    "fields": {
+        "name": "Sunday",
+        "day": "6"
+    }
+},
+{
+    "model": "mainpage.profile",
+    "pk": 1,
+    "fields": {
+        "user": 2,
+        "status": "REG",
+        "level": "1",
+        "date_created": "2016-11-15T21:58:23.747Z",
+        "first_name": "Terry",
+        "last_name": "Rogers",
+        "age": 22,
+        "height": 170,
+        "weight": 70
+    }
+},
+{
+    "model": "mainpage.profile",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "status": "TRN",
+        "level": "4",
+        "date_created": "2016-11-15T21:58:56.248Z",
+        "first_name": "Tina",
+        "last_name": "Wilton",
+        "age": 30,
+        "height": 160,
+        "weight": 60
+    }
+},
+{
+    "model": "mainpage.profile",
+    "pk": 3,
+    "fields": {
+        "user": 4,
+        "status": "TRN",
+        "level": "3",
+        "date_created": "2016-11-15T21:59:11.789Z",
+        "first_name": "Token",
+        "last_name": "Nowell",
+        "age": 33,
+        "height": 180,
+        "weight": 80
+    }
+},
+{
+    "model": "mainpage.profile",
+    "pk": 4,
+    "fields": {
+        "user": 5,
+        "status": "ADM",
+        "level": "4",
+        "date_created": "2016-11-15T21:57:59.860Z",
+        "first_name": "Tara",
+        "last_name": "Riley",
+        "age": 50,
+        "height": 170,
+        "weight": 70
+    }
+},
+{
+    "model": "mainpage.profile",
+    "pk": 6,
+    "fields": {
+        "user": 7,
+        "status": "REG",
+        "level": "3",
+        "date_created": "2016-11-15T22:00:38.921Z",
+        "first_name": "Chloe",
+        "last_name": "Warrick",
+        "age": 19,
+        "height": 157,
+        "weight": 55
+    }
+},
+{
+    "model": "mainpage.profile",
+    "pk": 7,
+    "fields": {
+        "user": 8,
+        "status": "TRN",
+        "level": "2",
+        "date_created": "2016-11-15T22:02:26.258Z",
+        "first_name": "Dylan",
+        "last_name": "Waterman",
+        "age": 25,
+        "height": 172,
+        "weight": 69
+    }
+},
+{
+    "model": "mainpage.profile",
+    "pk": 8,
+    "fields": {
+        "user": 9,
+        "status": "REG",
+        "level": "4",
+        "date_created": "2016-11-15T22:03:22.381Z",
+        "first_name": "Mike",
+        "last_name": "Towner",
+        "age": 41,
+        "height": 181,
+        "weight": 88
+    }
+},
+{
+    "model": "mainpage.event",
+    "pk": 15,
+    "fields": {
+        "name": "Fit Your Life",
+        "description": "Join us for a quick seminar on taking control of your life!",
+        "date": "2016-11-18",
+        "date_created": "2016-11-15T22:05:52.724Z",
+        "creator": 4,
+        "trainer": 4,
+        "level": "1",
+        "time": "10",
+        "participants": [
+            4,
+            6
+        ]
+    }
+},
+{
+    "model": "mainpage.event",
+    "pk": 16,
+    "fields": {
+        "name": "Demo Gala",
+        "description": "Remember to showcase our page!",
+        "date": "2016-11-16",
+        "date_created": "2016-11-15T22:06:50.245Z",
+        "creator": 2,
+        "trainer": 2,
+        "level": "4",
+        "time": "12",
+        "participants": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "mainpage.event",
+    "pk": 17,
+    "fields": {
+        "name": "Zen of buffness",
+        "description": "We will explore how to be ripped but still stay zen",
+        "date": "2016-11-19",
+        "date_created": "2016-11-15T22:08:01.836Z",
+        "creator": 6,
+        "trainer": 8,
+        "level": "2",
+        "time": "15",
+        "participants": [
+            1,
+            6,
+            8
+        ]
+    }
+},
+{
+    "model": "mainpage.event",
+    "pk": 18,
+    "fields": {
+        "name": "Gym 101",
+        "description": "Learn the ropes of training",
+        "date": "2016-11-14",
+        "date_created": "2016-11-15T22:08:56.546Z",
+        "creator": 2,
+        "trainer": 2,
+        "level": "1",
+        "time": "18",
+        "participants": [
+            2
+        ]
+    }
+},
+{
+    "model": "mainpage.event",
+    "pk": 19,
+    "fields": {
+        "name": "Pro lifter tips",
+        "description": "Guest appearance by heavyweight lifter Derpson",
+        "date": "2016-11-15",
+        "date_created": "2016-11-15T22:10:14.241Z",
+        "creator": 4,
+        "trainer": 4,
+        "level": "3",
+        "time": "11",
+        "participants": [
+            3,
+            4,
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "mainpage.event",
+    "pk": 20,
+    "fields": {
+        "name": "Dieting for dummies #2",
+        "description": "We shall create monthly diets for all participants",
+        "date": "2016-11-16",
+        "date_created": "2016-11-15T22:11:25.322Z",
+        "creator": 3,
+        "trainer": 3,
+        "level": "2",
+        "time": "8",
+        "participants": [
+            2,
+            3,
+            8
+        ]
+    }
+},
+{
+    "model": "mainpage.event",
+    "pk": 21,
+    "fields": {
+        "name": "Lean Christmas",
+        "description": "Celebrate christmas without the added mass",
+        "date": "2016-12-24",
+        "date_created": "2016-11-15T22:24:09.922Z",
+        "creator": 6,
+        "trainer": 6,
+        "level": "1",
+        "time": "14",
+        "participants": [
+            1,
+            4,
+            6,
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "mainpage.event",
+    "pk": 22,
+    "fields": {
+        "name": "Weightlifting competition",
+        "description": "Discover who can lift the most BRUH",
+        "date": "2016-12-07",
+        "date_created": "2016-11-15T22:25:17.952Z",
+        "creator": 3,
+        "trainer": 3,
+        "level": "4",
+        "time": "15",
+        "participants": [
+            2,
+            3,
+            4,
+            8
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 14,
+    "fields": {
+        "name": "Yoga",
+        "description": "Relax your mind, soul and spirit",
+        "creator": 6,
+        "trainer": 6,
+        "level": "1",
+        "date_created": "2016-11-15T22:12:52.686Z",
+        "begin_date": "2016-11-01",
+        "end_date": "2016-12-31",
+        "weekly_recurrence": true,
+        "times_per_week": 3,
+        "time": "9",
+        "days": [
+            1,
+            3,
+            5
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 15,
+    "fields": {
+        "name": "Yoga Advanced",
+        "description": "Learn the true secrets to peace",
+        "creator": 6,
+        "trainer": 6,
+        "level": "3",
+        "date_created": "2016-11-15T22:13:51.014Z",
+        "begin_date": "2016-11-01",
+        "end_date": "2016-12-31",
+        "weekly_recurrence": true,
+        "times_per_week": 2,
+        "time": "13",
+        "days": [
+            2,
+            5
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 16,
+    "fields": {
+        "name": "Spinning",
+        "description": "Put the pedal to the metal with us!",
+        "creator": 2,
+        "trainer": 2,
+        "level": "2",
+        "date_created": "2016-11-15T22:14:43.668Z",
+        "begin_date": "2016-11-01",
+        "end_date": "2016-11-30",
+        "weekly_recurrence": true,
+        "times_per_week": 3,
+        "time": "19",
+        "days": [
+            2,
+            5,
+            7
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 17,
+    "fields": {
+        "name": "Pet Acrobatics",
+        "description": "Experience something never seen before",
+        "creator": 6,
+        "trainer": 6,
+        "level": "4",
+        "date_created": "2016-11-15T22:15:43.243Z",
+        "begin_date": "2016-11-01",
+        "end_date": "2016-11-30",
+        "weekly_recurrence": true,
+        "times_per_week": 2,
+        "time": "16",
+        "days": [
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 18,
+    "fields": {
+        "name": "Supervised Gym",
+        "description": "Professional present on all classes",
+        "creator": 3,
+        "trainer": 3,
+        "level": "1",
+        "date_created": "2016-11-15T22:17:10.894Z",
+        "begin_date": "2016-11-01",
+        "end_date": "2016-12-31",
+        "weekly_recurrence": true,
+        "times_per_week": 5,
+        "time": "12",
+        "days": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 19,
+    "fields": {
+        "name": "Zumba",
+        "description": "Feel the spanish or whatever vibes!",
+        "creator": 4,
+        "trainer": 4,
+        "level": "2",
+        "date_created": "2016-11-15T22:18:20.369Z",
+        "begin_date": "2016-11-13",
+        "end_date": "2016-12-10",
+        "weekly_recurrence": false,
+        "times_per_week": 2,
+        "time": "17",
+        "days": [
+            2,
+            6
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 20,
+    "fields": {
+        "name": "Stretching Basics",
+        "description": "Learn all the proper stretches",
+        "creator": 8,
+        "trainer": 8,
+        "level": "1",
+        "date_created": "2016-11-15T22:19:59.931Z",
+        "begin_date": "2016-11-20",
+        "end_date": "2016-12-17",
+        "weekly_recurrence": true,
+        "times_per_week": 4,
+        "time": "20",
+        "days": [
+            1,
+            3,
+            5,
+            7
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 21,
+    "fields": {
+        "name": "Pilates #2",
+        "description": "We will continue working on stuff",
+        "creator": 2,
+        "trainer": 2,
+        "level": "2",
+        "date_created": "2016-11-15T22:26:31.335Z",
+        "begin_date": "2016-11-20",
+        "end_date": "2016-12-17",
+        "weekly_recurrence": true,
+        "times_per_week": 4,
+        "time": "16",
+        "days": [
+            1,
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 22,
+    "fields": {
+        "name": "Christmas Gym",
+        "description": "Have a nice yuletide workout with carols to pump you up!",
+        "creator": 6,
+        "trainer": 6,
+        "level": "2",
+        "date_created": "2016-11-15T22:43:30.224Z",
+        "begin_date": "2016-11-28",
+        "end_date": "2016-12-31",
+        "weekly_recurrence": true,
+        "times_per_week": 7,
+        "time": "11",
+        "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 23,
+    "fields": {
+        "name": "Late Night Pump",
+        "description": "The night is long so there's always time for a workout",
+        "creator": 3,
+        "trainer": 3,
+        "level": "1",
+        "date_created": "2016-11-15T23:06:26.569Z",
+        "begin_date": "2016-10-01",
+        "end_date": "2017-01-31",
+        "weekly_recurrence": false,
+        "times_per_week": 3,
+        "time": "20",
+        "days": [
+            1,
+            3,
+            6
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 24,
+    "fields": {
+        "name": "Judo",
+        "description": "One month intensive course on the basics of Judo",
+        "creator": 4,
+        "trainer": 4,
+        "level": "1",
+        "date_created": "2016-11-15T22:48:07.962Z",
+        "begin_date": "2016-11-30",
+        "end_date": "2016-12-31",
+        "weekly_recurrence": false,
+        "times_per_week": 4,
+        "time": "18",
+        "days": [
+            2,
+            3,
+            5,
+            6
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 25,
+    "fields": {
+        "name": "Kettlebell Training",
+        "description": "Join the movement that got Finland kettle-crazy",
+        "creator": 2,
+        "trainer": 2,
+        "level": "2",
+        "date_created": "2016-11-15T23:06:34.546Z",
+        "begin_date": "2016-11-28",
+        "end_date": "2017-01-31",
+        "weekly_recurrence": true,
+        "times_per_week": 3,
+        "time": "13",
+        "days": [
+            2,
+            4,
+            7
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 26,
+    "fields": {
+        "name": "HIIT Morning",
+        "description": "High intensity interval training to start your morning with a blast!",
+        "creator": 7,
+        "trainer": 7,
+        "level": "3",
+        "date_created": "2016-11-15T23:06:41.486Z",
+        "begin_date": "2016-11-20",
+        "end_date": "2017-01-31",
+        "weekly_recurrence": true,
+        "times_per_week": 6,
+        "time": "8",
+        "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    }
+},
+{
+    "model": "mainpage.class",
+    "pk": 27,
+    "fields": {
+        "name": "Salsa",
+        "description": "Fiery moves and grooves. Come and dance the weekend away.",
+        "creator": 6,
+        "trainer": 6,
+        "level": "2",
+        "date_created": "2016-11-15T23:06:08.587Z",
+        "begin_date": "2016-10-01",
+        "end_date": "2016-11-28",
+        "weekly_recurrence": false,
+        "times_per_week": 2,
+        "time": "9",
+        "days": [
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2016-10-24T23:00:27.360Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "Terry",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"object\": \"Terry\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2016-10-24T23:01:04.478Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "3",
+        "object_repr": "Tina",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"object\": \"Tina\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2016-10-24T23:01:38.990Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "4",
+        "object_repr": "Token",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"object\": \"Token\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2016-10-24T23:04:29.993Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Tara",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"object\": \"Tara\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2016-10-24T23:05:10.596Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Tara",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"is_staff\", \"is_superuser\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2016-10-24T23:07:40.618Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "TestEvent1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2016-10-24T23:08:26.463Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "2",
+        "object_repr": "TestEvent2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2016-11-09T11:38:02.998Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "TestClass1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2016-11-09T23:51:04.173Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "0",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2016-11-09T23:51:07.375Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2016-11-09T23:51:10.045Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "3",
+        "object_repr": "2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2016-11-09T23:51:12.471Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "4",
+        "object_repr": "3",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2016-11-09T23:51:15.034Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "5",
+        "object_repr": "4",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2016-11-09T23:51:17.857Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "6",
+        "object_repr": "5",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2016-11-09T23:51:20.464Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "7",
+        "object_repr": "6",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2016-11-11T13:44:46.525Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "7",
+        "object_repr": "Sunday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2016-11-11T13:44:53.592Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "6",
+        "object_repr": "Saturday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2016-11-11T13:44:57.013Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "6",
+        "object_repr": "Saturday",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2016-11-11T13:45:02.740Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "5",
+        "object_repr": "Friday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2016-11-11T13:45:08.844Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "4",
+        "object_repr": "Thursday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2016-11-11T13:45:16.151Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "3",
+        "object_repr": "Wednesday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2016-11-11T13:45:26.504Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "Tuesday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2016-11-11T13:57:53.421Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "9",
+        "object_repr": "TESTFROMPANEL",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2016-11-15T19:11:43.601Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "TestTrainer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"object\": \"Test\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2016-11-15T19:12:08.631Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "TestTrainer",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"is_staff\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2016-11-15T21:57:59.875Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Tara",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"last_name\"], \"object\": \"Tara\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2016-11-15T21:58:23.753Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "Terry",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"last_name\"], \"object\": \"Terry\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2016-11-15T21:58:31.815Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "TestTrainer",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2016-11-15T21:58:56.255Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "3",
+        "object_repr": "Tina",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"last_name\"], \"object\": \"Tina\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2016-11-15T21:59:11.796Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "4",
+        "object_repr": "Token",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"last_name\"], \"object\": \"Token\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2016-11-15T22:00:38.923Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "7",
+        "object_repr": "Chloe",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"object\": \"Chloe\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2016-11-15T22:02:26.259Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Dylan",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"object\": \"Dylan\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2016-11-15T22:03:22.382Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "9",
+        "object_repr": "Mike",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"object\": \"Mike\", \"name\": \"profile\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2016-11-15T22:04:11.552Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "14",
+        "object_repr": "WAWPAWPAPAP",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2016-11-15T22:04:11.695Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "13",
+        "object_repr": "wwww",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2016-11-15T22:04:11.784Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "12",
+        "object_repr": "wwww",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2016-11-15T22:04:11.887Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "11",
+        "object_repr": "wwww",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2016-11-15T22:04:11.955Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "10",
+        "object_repr": "wwww",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2016-11-15T22:04:12.035Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "9",
+        "object_repr": "wwww",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2016-11-15T22:04:12.113Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "8",
+        "object_repr": "wwww",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2016-11-15T22:04:12.191Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "7",
+        "object_repr": "asdasd",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2016-11-15T22:04:12.254Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "6",
+        "object_repr": "ASDASD",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2016-11-15T22:04:28.728Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "TestEvent5",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2016-11-15T22:04:28.875Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "4",
+        "object_repr": "TestEvent4",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2016-11-15T22:04:28.964Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "TestEvent3",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2016-11-15T22:04:29.041Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "2",
+        "object_repr": "TestEvent2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2016-11-15T22:04:29.108Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "TestEvent1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2016-11-15T22:05:52.730Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "15",
+        "object_repr": "Fit Your Life",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2016-11-15T22:06:50.253Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "16",
+        "object_repr": "Demo Gala",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2016-11-15T22:08:01.842Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "17",
+        "object_repr": "Zen of buffness",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2016-11-15T22:08:56.554Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "18",
+        "object_repr": "Gym 101",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2016-11-15T22:10:14.249Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "19",
+        "object_repr": "Pro lifter tips",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2016-11-15T22:11:25.328Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "20",
+        "object_repr": "Dieting for dummies #2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2016-11-15T22:11:59.642Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "13",
+        "object_repr": "llllllllllllllllllllllllasdsasd",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2016-11-15T22:11:59.909Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "12",
+        "object_repr": "1111111111",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2016-11-15T22:11:59.986Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "11",
+        "object_repr": "qqqqqqq",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2016-11-15T22:12:00.050Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "10",
+        "object_repr": "FROMAPP X",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2016-11-15T22:12:00.116Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "9",
+        "object_repr": "TESTFROMPANEL",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2016-11-15T22:12:00.183Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "8",
+        "object_repr": "FROM APP 2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2016-11-15T22:12:00.249Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "7",
+        "object_repr": "FROM APP",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2016-11-15T22:12:00.327Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "6",
+        "object_repr": "TEST",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2016-11-15T22:12:00.408Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "5",
+        "object_repr": "aa",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2016-11-15T22:12:00.497Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "4",
+        "object_repr": "aa",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2016-11-15T22:12:00.585Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "3",
+        "object_repr": "TESTCLASS1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2016-11-15T22:12:00.716Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "2",
+        "object_repr": "aaa",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2016-11-15T22:12:00.807Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "TestClass1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2016-11-15T22:12:52.692Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "14",
+        "object_repr": "Yoga",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2016-11-15T22:13:51.023Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "15",
+        "object_repr": "Yoga Advanced",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2016-11-15T22:14:43.673Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "16",
+        "object_repr": "Spinning",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2016-11-15T22:15:43.249Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "17",
+        "object_repr": "Pet Acrobatics",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2016-11-15T22:17:10.907Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "18",
+        "object_repr": "Supervised Gym",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2016-11-15T22:18:20.375Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "19",
+        "object_repr": "Zumba",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2016-11-15T22:19:59.938Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "20",
+        "object_repr": "Stretching Basics",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2016-11-15T22:24:09.928Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "21",
+        "object_repr": "Lean Christmas",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2016-11-15T22:25:17.960Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "22",
+        "object_repr": "Weightlifting competition",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2016-11-15T22:26:31.343Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "21",
+        "object_repr": "Pilates #2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2016-11-15T22:43:30.230Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "22",
+        "object_repr": "Christmas Gym",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2016-11-15T22:46:18.759Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "23",
+        "object_repr": "Late night pump",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2016-11-15T22:48:07.970Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "24",
+        "object_repr": "Judo",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2016-11-15T22:50:22.703Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "25",
+        "object_repr": "Kettlebell training",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2016-11-15T22:52:32.614Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "26",
+        "object_repr": "HIIT morning",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2016-11-15T22:53:38.556Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "26",
+        "object_repr": "HIIT morning",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2016-11-15T22:55:37.021Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "25",
+        "object_repr": "Kettlebell training",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2016-11-15T22:55:59.769Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "26",
+        "object_repr": "HIIT morning",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2016-11-15T23:06:08.593Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "27",
+        "object_repr": "Salsa",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2016-11-15T23:06:26.573Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "23",
+        "object_repr": "Late Night Pump",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2016-11-15T23:06:34.552Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "25",
+        "object_repr": "Kettlebell Training",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2016-11-15T23:06:41.491Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "26",
+        "object_repr": "HIIT Morning",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+    }
+}
+]

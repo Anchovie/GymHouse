@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from mainpage.models import Event
 from mainpage.models import Class
-from mainpage.models import *
+from mainpage.models import Profile
 import json
 from django.core import serializers
 
