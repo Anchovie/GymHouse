@@ -141,6 +141,12 @@ addDatesToCalendar = function(week, year, label){
 	classes_this_week = db_classes.filter(function(elem){
 		if((currentMonday.isoWeek() >= moment(elem.fields.begin_date).isoWeek()) && (currentMonday.isoWeek() <= moment(elem.fields.end_date).isoWeek()))
 			return elem;
+		else if((currentMonday.isoWeek() >= moment(elem.fields.begin_date).isoWeek()) && (currentMonday.year() < moment(elem.fields.end_date).year()) && (currentMonday.year() == moment(elem.fields.begin_date).year())) 
+			return elem;
+		else if((currentMonday.year() > moment(elem.fields.begin_date).year()) && (currentMonday.isoWeek() <= moment(elem.fields.end_date).isoWeek()) && (currentMonday.year() == moment(elem.fields.end_date).year()))
+			return elem;
+		else if((currentMonday.year() > moment(elem.fields.begin_date).year()) && (currentMonday.year() < moment(elem.fields.end_date).year()))
+			return elem;
 	});
 		
 	console.log(classes_this_week);
@@ -293,14 +299,14 @@ addDatesToCalendar = function(week, year, label){
 				if(events_flag == false && class_flag == false) {
 					class_str +=
 						"<div id='"+ (j-8) +"' class='time'>" + 
-							"No events" +
+							"" +
 						"</div>";
 				}
 				$dayElement.find(".timeSlots").append(class_str);
 			} else {			
 				$dayElement.find(".timeSlots").append(
 					"<div id='"+ (j-8) +"' class='time'>" + 
-						"No events" +
+						"" +
 					"</div>"
 				);
 			}
