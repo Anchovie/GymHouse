@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
+from django.conf import settings
 
 from mainpage.models import Profile
 
@@ -15,9 +16,18 @@ def login_view(request):
     if(request.POST):
         username = request.POST.get('username')
         password = request.POST.get('password')
+        remember = request.POST.get('remember')
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
+
+
+            if not remember:
+                settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+                print("NO REMEMBER")
+            else:
+                settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+                print("YEEEEEESSSS REMEMBER")
             
             context = {'user': user, 
                 'logged_in': request.user.is_authenticated}

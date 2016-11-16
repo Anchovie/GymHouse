@@ -24,6 +24,10 @@
 {% block test %} {% endblock test %}
 {% block menu %} {% endblock menu %}
 
+{% block pagetitle %}
+    Create New Entry
+{% endblock pagetitle %}
+
 {% block content %}
 <h2> Create new Event </h2>
 <form action="{% url 'create:create_new_event' %}" method="post">

@@ -174,7 +174,7 @@ bpabpabpa
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href={% url 'mainpage:main_view_not_logged_in' %}>User Page</a>
+          <a class="navbar-brand" href={% url 'mainpage:main_view_not_logged_in' %}><!--User Page--> </a>
       </div>
       <!-- Top Menu Items -->
 
@@ -287,7 +287,7 @@ bpabpabpa
       <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
               <li class="active">
-                  <a href="{% url 'mainpage:main_view_not_logged_in' %}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                  <a href="{% url 'mainpage:main_view_not_logged_in' %}"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
               </li>
               <li>
                   <a href="{% url 'diary:diary_view' %}"><i class="fa fa-fw fa-bar-chart-o"></i> Exercise Diary</a>
@@ -319,16 +319,19 @@ bpabpabpa
           <div class="row">
               <div class="col-lg-12">
                   <h1 class="page-header">
-                      Page Heading
-                      <small>Subheading</small>
+                      <br/>
+                      {% block pagetitle %}
+                      {% endblock pagetitle %}
+                      <!--<small>Subheading</small>-->
                   </h1>
+                  <!--
                   <ol class="breadcrumb">
                       <li>
                           <i class="fa fa-dashboard"></i>  <a href={% url 'mainpage:main_view_not_logged_in' %}>Dashboard</a>
                       </li>
                       
                   </ol>
-
+                  -->
                   {% block content %}
                     <h1>PLAIN BASE.HTML; NOTHING EXTENDED</h1>
 

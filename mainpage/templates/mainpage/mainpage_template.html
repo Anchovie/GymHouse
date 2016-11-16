@@ -40,10 +40,10 @@ GymHouse - Frontpage
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="#top" class="scroll">Home</a></li>
 							<li><a href="#services" class="scroll">About Us</a></li>
-							<li><a href="#projects" class="scroll">Classes</a></li>
-							<li><a href="#facts" class="scroll">Schedule</a></li>
+							<!--<li><a href="#projects" class="scroll">Classes</a></li>-->
+							<li><a href="#facts" class="scroll">Classes</a></li>
 							<li><a href="#pricing" class="scroll">Pricing</a></li>
-							<li><a href="#blog" class="scroll">Blog</a></li>
+							<!--<li><a href="#blog" class="scroll">Blog</a></li>-->
 							<li><a href="#team" class="scroll">Team</a></li>
 							<li><a href="#contact" class="scroll">Contact</a></li>
 							<li><a href="{% url 'authenticate:login' %}" class="scroll">LOGIN</a></li>
@@ -81,13 +81,12 @@ GymHouse - Frontpage
 							</div>
 							<div class="col-md-6 slide1-text">				
 								<!-- Content -->
-								<h1 class="fw-600"> We <i class="fa fa-1x fa-heart"></i> Bodybuiding</h1>
+								<h1 class="fw-600"> We <i class="fa fa-1x fa-heart"></i> Bodybuilding</h1>
 								<h6 class="fw-400">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit praesent egestas justo sed sagittis interdum 
-									pellentesque sed ipsum eu risus sagittis varius. Suspendisse sed sapien dictum.
+									We are an independent gym that is committed to working with you to gain the results you want. Whether your aim is to loose weight, tone up, build bulk or gain weight we can put together a gym programme or recommend the right classes for you to attend in our studios.
 								</h6>
 								<span>
-									<a href="#" class="btn btn-cyan">Learn More</a>
+									<a href="{% url 'mainpage:main_view_not_logged_in' %}" class="btn btn-cyan">Learn More</a>
 								</span>
 							</div>
 						</div>
@@ -96,9 +95,10 @@ GymHouse - Frontpage
 						<div class="item">
 							<div class="col-md-6 slide2-text">
 								<h1 class="fw-600">Optimize Your Health</h1>
-								<h6 class="fw-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit praesent egestas justo sed sagittis interdum pellentesque sed ipsum eu risus sagittis varius. Suspendisse sed sapien dictum.</h6>						
+								<h6 class="fw-600">Our members benefit from a free gym programme and review every month, free studio classes and price reductions on our personal training sessions. As a member you can also access our pool for free and have priority for booking any of the pre-book activities, classes or sessions that we run.
+ 								</h6>						
 								<span>
-									<a href="#" class="btn btn-cyan">Learn More</a>
+									<a href="{% url 'mainpage:main_view_not_logged_in' %}" class="btn btn-cyan">Learn More</a>
 								</span>
 							</div>
 							<div class="col-md-6 slide2-img">
@@ -117,11 +117,10 @@ GymHouse - Frontpage
 								<!-- Content -->
 								<h1 class="fw-600"> Fitness Is the key </h1>
 								<h6 class="fw-400">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit praesent egestas justo sed sagittis interdum 
-									pellentesque sed ipsum eu risus sagittis varius. Suspendisse sed sapien dictum.
+									If you don’t want to commit to being a member you can still use all of our facilities but you will need to have an introduction session before using the facilities to ensure that Health and Safety requirements are met – you don’t want to injure yourself on your first visit and ruin all your good intentions!
 								</h6>
 								<span>
-									<a href="#" class="btn btn-cyan">Learn More</a>
+									<a href="{% url 'mainpage:main_view_not_logged_in' %}" class="btn btn-cyan">Learn More</a>
 								</span>					
 							</div>
 						</div><!-- Item Ends -->
@@ -150,11 +149,10 @@ GymHouse - Frontpage
 					</div>
 			   		<!-- Descriptions -->
 					<p class="text-center lead animated" data-animation="fadeIn" data-animation-delay="400">
-						Nemo enim ipsam <span class="span-color">voluptatem</span> quia voluptas sit aspernatur
+						We provide <span class="span-color">you</span> the tools that you need.
 					</p>
 					<p class="title-description text-center animated" data-animation="fadeIn" data-animation-delay="400">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore
-						magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						Our gym facilitates a plethora of top quality workout equipment. No matter your preference, we carry the proper tools for a light workout to heavy lifting. From our classes, everybody finds their favourite, be it yoga or just plain supervised exercising.
 					</p>				
 				</div><!-- end col-md-12 -->
 		  
@@ -171,12 +169,13 @@ GymHouse - Frontpage
 					<div class="col-md-6 pull-left animated" data-animation="fadeIn" data-animation-delay="400">
 						<h4 class="fw-200"><span class="fw-600">FITNESS </span> AND HEALTH</h4>
 						<h5 class="fw-300">
-							Sed ut perspiciatis unde <span class="span-color"> omnis iste</span> natus error sit voluptatem
+							We employ expert <span class="span-color"> trainers</span> to maximize your fitness and health.
 						</h5>
 						<p>
-							Architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+							Our experts have years of experience in different fields of expertise. This ensures that you will always get professional guidance if you need it. We require vigorous tests from our staff, and hire only the best trainers.
 						</p>
-						<p><a href="#" class="services-learn-more">Learn more this service <i class="flaticon-arrow209"></i></a></p>
+						<!--
+						<p><a href="#" class="services-learn-more">Learn more this service <i class="flaticon-arrow209"></i></a></p>-->
 					</div><!-- end col-xs-6" -->	 
 				  
 				</div><!-- end col-md-12 -->
@@ -194,12 +193,12 @@ GymHouse - Frontpage
 					<div class="col-md-6 pull-right animated" data-animation="fadeIn" data-animation-delay="400">
 						<h4 class="fw-200"><span class="fw-600">LIGHTWEIGHT </span> ATHLETICS</h4>
 						<h5 class="fw-300">
-							Sed ut perspiciatis unde <span class="span-color"> omnis iste</span> natus error sit voluptatem
+							Gain a little <span class="span-color"> skip</span> in your steps.
 						</h5>
 						<p>
-							Architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+							Everybody nowadays wishes to get into shape. And they should! Not because of media beauty standards but for their health. We provide you with all the tools necessary for quick and healthy weightloss.
 						</p>
-						<p><a href="#" class="services-learn-more">Learn more this service <i class="flaticon-arrow209"></i></a></p>
+						<!--<p><a href="#" class="services-learn-more">Learn more this service <i class="flaticon-arrow209"></i></a></p> -->
 					
 				  </div><!-- end col-md-6" -->    
 				  
@@ -222,12 +221,13 @@ GymHouse - Frontpage
 					<div class="col-md-6 pull-left animated" data-animation="fadeIn" data-animation-delay="400">
 						<h4 class="fw-200"><span class="fw-600">HEALTH</span> IS WEALTH</h4>
 						<h5 class="fw-300">
-							Sed ut perspiciatis unde <span class="span-color"> omnis iste</span> natus error sit voluptatem
+							Gain more <span class="span-color"> years</span> by moving.
 						</h5>
 						<p>
-							Architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+							Obesity kills, that's for sure. But even if you look thin you can be in bad shape on the inside! Doctors all around the world suggest that people moved at least two hours vigorously per day. Are you doing that?
 						</p>
-						<p><a href="#" class="services-learn-more">Learn more this service <i class="flaticon-arrow209"></i></a></p>
+						<!--
+						<p><a href="#" class="services-learn-more">Learn more this service <i class="flaticon-arrow209"></i></a></p>-->
 					</div><!-- end col-xs-6" -->					   
 				  
 				</div><!-- end col-md-12 -->
@@ -239,21 +239,24 @@ GymHouse - Frontpage
 
 	<!-- Project Area
 	================================================== -->
+	<!--
 	<section id="projects" class="bg-blue">	  
 		<div class="container">
-		
+			
 			<div class="row">							  
 				<div class="col-md-12">
-					<!-- Title -->
+
 					<h2 class="text-center animated" data-animation="fadeIn" data-animation-delay="400">Featured Classes</h2>
-			   		<!-- Devider -->
+
 					<div class="devider">
 						<div class="devider-line-h devider-line-h-dark-blue animated" data-animation="zoomIn" data-animation-delay="1000"></div>
 						<div class="devider-round-out devider-round-out-dark-blue animated" data-animation="zoomIn" data-animation-delay="700">
 							<div class="devider-round-in devider-round-in-dark-blue"></div>
 						</div>
 					</div>
+			-->
 	                <!-- Description -->
+	        <!--
 					<p class="text-center lead animated" data-animation="fadeIn" data-animation-delay="400">
 						Nemo enim ipsam voluptatem quia voluptas sit aspernatur
 					</p>
@@ -263,15 +266,14 @@ GymHouse - Frontpage
 					</p>
 				</div>
 			</div>
-				
-			<!-- feature class area -->
+			
 		
 
 
-
-		</div><!-- end container -->			
-	</section><!-- end projects -->
-
+			
+		</div>			
+	</section>
+	-->
 
 	<!-- Fun Fact Area
 	================================================== -->
@@ -291,12 +293,14 @@ GymHouse - Frontpage
 					</div>
 	                <!-- Description -->
 					<p class="text-center lead animated" data-animation="fadeIn" data-animation-delay="400">
-						Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+						With over a hundred different classes per year, and dozens of events and seminars, everybody has a reason to use our gym.
 					</p>
+					<!--
 					<p class="text-center animated" data-animation="fadeIn" data-animation-delay="400">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore 
 						magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 					</p>
+					-->
 				</div>
 	  			<!-- Fun Fact Box 1 -->
 	  			<div class="class-schedule schedule-page padding-space">
@@ -430,7 +434,7 @@ GymHouse - Frontpage
 				
 				<div class="col-md-12 title-top">							        
 			 		<!-- Title -->
-					<h2 class="text-center animated" data-animation="fadeIn" data-animation-delay="400">Our Services Price</h2>
+					<h2 class="text-center animated" data-animation="fadeIn" data-animation-delay="400">Our Membership Prices</h2>
 		   			<!-- Devider -->
 					<div class="devider">
 						<div class="devider-line-h devider-line-h-sea-green animated" data-animation="zoomIn" data-animation-delay="1000"></div>
@@ -440,10 +444,10 @@ GymHouse - Frontpage
 					</div>
 		   			<!-- Description -->
 					<p class="text-center lead animated" data-animation="fadeIn" data-animation-delay="400">
-	                	Nemo enim ipsam <span class="span-color">voluptatem</span> quia voluptas sit aspernatur
+	                	Pay only for what <span class="span-color">you</span> want.
 	                </p>
 					<p class="text-center title-description animated" data-animation="fadeIn" data-animation-delay="400">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						We offer three different levels of membership so everyone can find their preference. Are you a casual gym-goer? Settle for silver! A hardcore fitness enthusiasts? Make the best of our services and become a platinum member!
 					</p>			   
 				</div><!-- end col-md-12 -->
 		  
@@ -468,10 +472,10 @@ GymHouse - Frontpage
 								<span class="fw-500 white price">$39</span>								</div>
 			  				<!-- Price Details -->
 							<ul class="text-center white">
-								<li>Lorem ipsum dolor</li>
-								<li>Lorem ipsum dolor</li>
-								<li>Lorem ipsum dolor</li>
-								<li>Lorem ipsum dolor</li>
+								<li>Access to site with loads of info</li>
+								<li>Access to dynamic scheduler</li>
+								<li>One free class per week</li>
+								<li>Join our thriving fitness community</li>
 							</ul>
 			  				<!-- Order Now -->
 							<a href="#" class="btn btn-green">ORDER NOW</a>
@@ -496,10 +500,10 @@ GymHouse - Frontpage
 								<span class="fw-500 white price">$59</span>								</div>
 			  				<!-- Price Details -->
 							<ul class="text-center white fw-200">
-								<li>Lorem ipsum dolor</li>
-								<li>Lorem ipsum dolor</li>
-								<li>Lorem ipsum dolor</li>
-								<li>Lorem ipsum dolor</li>
+								<li>Record your progress</li>
+								<li>Access to fitness diary</li>
+								<li>Price discounts</li>
+								<li>Three free classes per week</li>
 							</ul>
 			  				<!-- Order Now -->
 							<a href="#" class="btn btn-blue">ORDER NOW</a>
@@ -524,10 +528,10 @@ GymHouse - Frontpage
 								<span class="fw-500 white price">$199</span>								</div>
 			  				<!-- Price Details -->
 							<ul class="text-center white fw-200">
-								<li>Lorem ipsum dolor</li>
-								<li>Lorem ipsum dolor</li>
-								<li>Lorem ipsum dolor</li>
-								<li>Lorem ipsum dolor</li>
+								<li>Access to Online Trainer</li>
+								<li>Personalized fitness regime</li>
+								<li>Possibility for becoming a trainer</li>
+								<li>MAD GAINS</li>
 							</ul>
 			  				<!-- Order Now -->
 							<a href="#" class="btn btn-red">ORDER NOW</a>
@@ -542,6 +546,7 @@ GymHouse - Frontpage
 
 	<!-- Blog Area
 	================================================== -->
+	<!--
 	<section id="blog" class="bg-red">
 
 		<div class="container">
@@ -565,11 +570,12 @@ GymHouse - Frontpage
 						magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 					</p>
 		   
-				</div><!-- end col-md-12 -->
-		
+				</div>--><!-- end col-md-12 -->
+		<!--
 				<div class="col-md-12 load-more active">
-					
+		-->
 					<!-- Blog 1 -->
+		<!--
 					<div class="col-md-4 col-sm-4 animated" data-animation="zoomIn" data-animation-delay="500">
 						<div class="blog-container">
 							<img src="{% static 'images/blog/1.jpg' %}" alt="photo blog" class="img-responsive pull-left blog-image">
@@ -583,9 +589,10 @@ GymHouse - Frontpage
 	                        
 							<div class="clearfix"></div>
 						</div>                        
-					</div><!-- end col-md-4 -->
+					</div>--><!-- end col-md-4 -->
 		  			
 					<!-- Blog 2 -->
+		<!--
 					<div class="col-md-4 col-sm-4 animated" data-animation="zoomIn" data-animation-delay="300">
 						<div class="blog-container">
 							<img src="{% static 'images/blog/2.jpg' %}" alt="photo blog" class="img-responsive pull-left blog-image">
@@ -598,9 +605,10 @@ GymHouse - Frontpage
 						
 						  	<div class="clearfix"></div>
 						</div>                        
-					</div><!-- end col-md-4 -->
+					</div>--><!-- end col-md-4 -->
 					
 					<!-- Blog 3 -->
+		<!--
 					<div class="col-md-4 col-sm-4 animated" data-animation="zoomIn" data-animation-delay="500">
 						<div class="blog-container">
 							<img src="{% static 'images/blog/3.jpg' %}" alt="photo blog" class="img-responsive pull-left blog-image">
@@ -614,14 +622,16 @@ GymHouse - Frontpage
 	                        
 						  	<div class="clearfix"></div>
 						</div>                        
-					</div><!-- end col-md-4 -->
+					</div>--><!-- end col-md-4 -->
 		
-				</div><!-- end col-md-12 -->
+				<!--</div>--><!-- end col-md-12 -->
 				
 				<!-- Blog Bottom Begins -->
+		<!--
 				<div class="col-md-12 load-more">
-			
+		-->
 					<!-- Blog 4 -->
+		<!--
 					<div class="col-md-4 col-sm-4">
 						<div class="blog-container">
 							<img src="{% static 'images/blog/1.jpg' %}" alt="photo blog" class="img-responsive pull-left blog-image">
@@ -636,8 +646,9 @@ GymHouse - Frontpage
 							<div class="clearfix"></div>
 						</div>
 					</div>
-				
+		-->
 					<!-- Blog 5 -->
+		<!--
 					<div class="col-md-4 col-sm-4">
 						<div class="blog-container">
 							<img src="{% static 'images/blog/2.jpg' %}" alt="photo blog" class="img-responsive pull-left blog-image">
@@ -651,8 +662,9 @@ GymHouse - Frontpage
 							<div class="clearfix"></div>
 						</div>
 					</div>
-					
+		-->
 					<!-- Blog 6 -->
+		<!--
 					<div class="col-md-4 col-sm-4">
 						<div class="blog-container">
 							<img src="{% static 'images/blog/3.jpg' %}" alt="photo blog" class="img-responsive pull-left blog-image">
@@ -667,27 +679,29 @@ GymHouse - Frontpage
 							<div class="clearfix"></div>
 						</div>
 					</div>
-					
-				</div><!-- Blog Bottom Ends -->
+		-->
+				<!--</div>--><!-- Blog Bottom Ends -->
 				
 				<!-- Load More Post Button -->
+		<!--
 				<div class="col-md-12 load-post text-center">
 					<button class="btn load-posts" type="button">Load More Post <i class="flaticon-arrow209"></i></button>
-				</div><!-- Load More Button Ends -->			
-		
-			</div><!-- end row -->
-		</div><!-- end container -->
+				</div>--><!-- Load More Button Ends -->			
+		<!--
+			</div>--><!-- end row -->
+		<!--</div>--><!-- end container -->
 	  
 	</section>
 
 	<!-- Newsletter Area
 	================================================== -->
+	<!--
 	<section id="newsletter" class="bg-yellow">
 		<form name="newsletter" action="#" method="post" class="animated" data-animation="zoomIn" data-animation-delay="300">
 			<input type="text" placeholder="Enter your email address here to subscribe our update, and press Enter!">
 		</form>
 	</section>
-
+	-->
 	<!-- About Us And Team Area
 	================================================== -->
 	<section id="team">
@@ -706,10 +720,10 @@ GymHouse - Frontpage
 					</div>
 	   
 					<p class="text-center lead op08 animated" data-animation="fadeIn" data-animation-delay="400">
-						Nemo <span class="span-color">enim ipsam</span> voluptatem quia voluptas sit aspernatur
+						Join our <span class="span-color">professional</span> entourage to better yourself!
 					</p>
 					<p class="text-center title-description animated" data-animation="fadeIn" data-animation-delay="400">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						From our array of experts you'll be guaranteed to find someone who clicks with you. Embark on a physical journey together with someone who always has your back!
 					</p>
 	   
 				</div><!-- end col-md-12 -->      
@@ -737,11 +751,11 @@ GymHouse - Frontpage
 					<li><a href="#" class="dark-cyan"><i class="fa fa-rss"></i></a></li>
 				</ul>
 				<p class="team-content pull-left dark-cyan">      	 
-					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
+					I discovered yoga when I was twenty years old. After that, nothing's been the same. I practice every day to enlighten myself more. After feeling that I had achieved what mere mortals could only dream for, I decided to become a trainer here and spread Yoga.
 				</p>
 				<div class="team-name pull-left">
 					<i class="fa fa-camera fa-2x white pull-left"></i>
-					<h5 class="white">Jone Doe</h5>
+					<h5 class="white">Tara Riley</h5>
 					<span class="team-title dark-cyan pull-left">Yoga Expert</span>
 				</div>
 			
@@ -764,11 +778,11 @@ GymHouse - Frontpage
 					<li><a href="#" class="dark-green"><i class="fa fa-rss"></i></a></li>
 				</ul>
 				<p class="team-content pull-right text-right dark-green">      	 
-					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.. 
+					I LIFT WEIGHTS. I EAT PROTEIN. GOTTA HAVE GAINS! YOU EAT PROTEIN TOO. 
 				</p>
 				<div class="team-name pull-right">
 					<i class="fa fa-desktop fa-2x white pull-right"></i>
-					<h5 class="white text-right">Jonathan Doe</h5>
+					<h5 class="white text-right">Terry Rogers</h5>
 					<span class="team-title dark-green text-right">Body Builder</span>
 				</div>     
 				
@@ -801,12 +815,12 @@ GymHouse - Frontpage
 					<li><a href="#" class="dark-blue"><i class="fa fa-rss"></i></a></li>
 				</ul>
 				<p class="team-content pull-left dark-blue">      	 
-					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.. 
+					Ever since I was 20, I could feel my body just withering away. I knew I needed to do something so I started training! Today, I'm glad I took the path that my body needed so I can further my skills everyday.
 				</p>
 				<div class="team-name pull-left">
 					<i class="fa fa-code fa-2x white pull-left"></i>
-					<h5 class="white">kitte Doe</h5>
-					<span class="team-title dark-blue pull-left">Running Trainer</span>
+					<h5 class="white">Tina Wilton</h5>
+					<span class="team-title dark-blue pull-left">Running/Fitness</span>
 				</div>
 				
 				<div class="clearfix"></div>
@@ -827,11 +841,11 @@ GymHouse - Frontpage
 					<li><a href="#" class="dark-purple"><i class="fa fa-rss"></i></a></li>
 				</ul>
 				<p class="team-content pull-right text-right dark-purple">      	 
-					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.. 
+					Don't let my blue eyes confuse you, I'm a hardcore lifter. I started working out in my dad's garage when I was 10. We lived on a farm so I restled with pigs by day, and bent steel rods by night. Never thought I'd become a trainer but hey! Here we are.
 				</p>
 				<div class="team-name pull-right">
 					<i class="fa fa-gamepad fa-2x white pull-right"></i>
-					<h5 class="white text-right">Yoonas Doe</h5>
+					<h5 class="white text-right">Token Nowel</h5>
 					<span class="team-title dark-purple text-right">Weight Lifting</span>
 				</div>
 				
@@ -868,11 +882,10 @@ GymHouse - Frontpage
 					</div>
 		   
 					<p class="text-center lead op08 animated" data-animation="fadeIn" data-animation-delay="400">
-						Nemo enim ipsam <span class="span-color">voluptatem</span> quia voluptas sit aspernatur
+						Our gym is located in the <span class="span-color">heart</span> of the city
 					</p>
 					<p class="text-center title-description animated" data-animation="fadeIn" data-animation-delay="400">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore 
-						magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						No matter how far you come from, You will find joy at our establishment. And hey, if you're a metropolitan, why not warm up your muscles and run here!
 					</p>
 		   
 					<div class="clearfix"></div>
@@ -907,20 +920,20 @@ GymHouse - Frontpage
 			
 						<div class="contact-info animated" data-animation="fadeInUp" data-animation-delay="500">
 							<i class="fa fa-3x fa-envelope pull-left text-center"></i>
-							<h6 class="fw-200">General Enquiry</h6>
-							<h5>info@website.com</h5>
+							<h6 class="fw-200">General Enquiries</h6>
+							<h5>info@gymhouse.com</h5>
 						</div>
 			
 						<div class="contact-info animated" data-animation="fadeInUp" data-animation-delay="700">
 							<i class="fa fa-3x fa-map-marker pull-left text-center"></i>
 							<h6 class="fw-200">Address Location</h6>
-							<h5>Otanami 2<br>Finland</h5>
+							<h5>Otaniemi 99<br>Finland</h5>
 						</div>
 			
 						<div class="contact-info animated" data-animation="fadeInUp" data-animation-delay="900">
 							<i class="fa fa-3x fa-skype pull-left"></i>
 							<h6 class="fw-200">Skype Account</h6>
-							<h5>Account.Name</h5>
+							<h5>Gymhouse.skype</h5>
 						</div>
 			
 					</div><!-- end col-md-6-->
