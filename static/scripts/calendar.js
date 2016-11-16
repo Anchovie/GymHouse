@@ -243,10 +243,9 @@ addDatesToCalendar = function(week, year, label){
 				if(events_dict[formatted_curr_date]) {
 					if(events_dict[formatted_curr_date][0].has(j.toString())){
 						class_str +=
-						"<div id='"+ i + "_" + (j-8) +"' class='timeevents' data-placement='top' data-popover-content='#events_dialog_" + i + "_" + j + "' data-toggle='popover' data-trigger='focus'>" +
-							 events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "<br />" +
-							 users[events_dict[formatted_curr_date][0].get(j.toString()).fields.trainer] + "<br />" +
-							 levels[events_dict[formatted_curr_date][0].get(j.toString()).fields.level] + "<br />" +
+						"<div id='"+ i + "_" + (j-8) +"' class='timeevents'>" +
+							 "<em>" + events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "</em><br />" +
+							 "<span class='trainer'>" + users[events_dict[formatted_curr_date][0].get(j.toString()).fields.trainer] + "</span><br />" +
 							 "</div>";
 							 
 						events_flag = true;
@@ -262,19 +261,18 @@ addDatesToCalendar = function(week, year, label){
 									$dayElement.find(".timeSlots").append(
 									"<div id='"+ (j-8) +"' class='timeevents'>");
 									*/
-									class_str = "<div id='"+ i + "_" + (j-8) +"' class='timeevents'>";
-									class_str += classes_this_week[i_cls].fields.name + "<br />" +
-									 users[classes_this_week[i_cls].fields.trainer] + "<br />" +
-									 levels[classes_this_week[i_cls].fields.level] + "<br />" 
+									class_str = "<div id='"+ i + "_" + (j-8) +"' class='timeclasses " + levels[classes_this_week[i_cls].fields.level] +"'>";
+									class_str += "<em>" + classes_this_week[i_cls].fields.name + "</em><br />" +
+									 "<span class='trainer'>" + users[classes_this_week[i_cls].fields.trainer] + "</span><br />";
 									class_str += "</div>";
 								} else {
 									//$dayElement.find(".timeSlots").append("--------");
 									class_str = "";
 									
 									class_str = "<div id='"+ i + "_" + (j-8) +"' class='timeevents'>";
-									class_str += events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "<br />" +
+									class_str += "<em>" + events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "</em><br />" +
 										"-----<br />" +
-										classes_this_week[i_cls].fields.name;
+										"<em>" + classes_this_week[i_cls].fields.name + "</em>";
 										
 									class_str += "</div>";
 									
@@ -340,6 +338,11 @@ addDatesToCalendar = function(week, year, label){
     
     console.log("nextWeekMoment = " + nextWeekMoment.format("DD/MM/YYYY"));
     console.log("Isoweek: " + nextWeekMoment.isoWeek());
+	
+	$( "div.Beginner" ).css( "background", "#C2FFDF" );
+	$( "div.Intermediate" ).css( "background", "#70FFB5" );
+	$( "div.Advanced" ).css( "background", "#1FFF8B" );
+	$( "div.Expert" ).css( "background", "#00CC63" );
 
     //return [nextWeekMoment.isoWeek(),year];
 	return [nextWeekMoment.isoWeek(),nextWeekMoment.isoWeekYear()];
@@ -464,4 +467,5 @@ $(document).ready(function(){
         mweek = ar[0];
         myear = ar[1];
     });
+	
 });
