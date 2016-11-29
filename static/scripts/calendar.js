@@ -45,6 +45,7 @@ getMonthName = function(month){
     ];
     return monthNames[(month-1)];
 };
+
 /*
 Date.prototype.getDayOfWeek = function() {
     return (new Date().getDay() || 7 - 1);
