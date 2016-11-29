@@ -1,42 +1,5 @@
 /*global db_events*/
-/**
- *  Add a getWeek() method in Javascript inbuilt Date object.
- * This function is the colsest I could find which is ISO-8601 compatible. This is what php's `Date->format('w')` uses.
- * ISO-8601 means.
- *    Week starts from Monday.
- *    Week 1 is the week with first thurday of the year or the week which has 4th jan in it.
- * @param  {[Date]}   Prototype binding with Date Object. 
- * @return {[Int]}    Integer from 1 - 53 which denotes the week of the year.
- */
-/*
-Date.prototype.getWeek = function() { 
 
-  // Create a copy of this date object  
-  var target  = new Date(this.valueOf());  
-
-  // ISO week date weeks start on monday, so correct the day number  
-  var dayNr   = (this.getDay() + 6) % 7;  
-
-  // Set the target to the thursday of this week so the  
-  // target date is in the right year  
-  target.setDate(target.getDate() - dayNr + 3);  
-
-  // ISO 8601 states that week 1 is the week with january 4th in it  
-  var jan4    = new Date(target.getFullYear(), 0, 4);  
-
-  // Number of days between target date and january 4th  
-  var dayDiff = (target - jan4) / 86400000;    
-
-  if(new Date(target.getFullYear(), 0, 1).getDay() < 5) {
-    // Calculate week number: Week 1 (january 4th) plus the    
-    // number of weeks between target date and january 4th    
-    return 1 + Math.ceil(dayDiff / 7);    
-  }
-  else {  // jan 4th is on the next week (so next week is week 1)
-    return Math.ceil(dayDiff / 7); 
-  }
-};
-*/
 //Month number 1...12
 getMonthName = function(month){
     var monthNames = [
@@ -45,68 +8,61 @@ getMonthName = function(month){
     ];
     return monthNames[(month-1)];
 };
-/*
-Date.prototype.getDayOfWeek = function() {
-    return (new Date().getDay() || 7 - 1);
+
+expand = function(entry){
+    var entryType;
+    var pk;
+    var entryObj;
+
+    if ($(entry).hasClass('multiple')){     //TWO IN ONE
+        console.log("multiple entries in one clicked pk=???");
+
+    } else if ($(entry).hasClass('timeevents')){    //EVENT
+        pk = parseInt(entry.attr("data-event-pk"));
+        entryObj = event_pk_mapper[pk];
+        entryType = "EVENT";
+
+    } else if ($(entry).hasClass('timeclasses')){   //CLASS
+        pk = parseInt(entry.attr("data-class-pk"));
+        entryObj = class_pk_mapper[pk];
+        entryType = "CLASS";
+    }
+
+    $expand_dialog = $(
+        "<div class='dialog' data-entry-pk='"+pk+"'>  "+
+            "<b>" + entryType + "</b><br/>" +
+            " "+ entryObj.fields.name + "<br/> " +
+            " "+ users[entryObj.fields.trainer] + "<br/> " +
+            "Description: " + entryObj.fields.description + " <br/>" +
+            "click to close <br/>"+
+            "<button class='register'>Register</button>"+
+        "</div> " +
+        " "
+    );
+
+  
+
+    $(".col-lg-12").append($expand_dialog);
+    $(".register").click(function(){
+        console.log("REGISTER PRESSED");
+        register(entryObj);
+    });
+    $(".dialog").click(function(e){
+        if (e.target != $(".register"))
+            $(".dialog").remove();
+    });
 };
 
-
-function daysInMonth(month, year) {
-  return new Date(year, month, 0).getDate();
-}
-
-//DOESNT WORK
-function getWeekRange(weekNo){
-    var d1 = new Date();
-    var d2 = new Date();
-    var numOfdaysPastSinceLastMonday = d1.getDay()- 1;
-    d1.setDate(d1.getDate() - numOfdaysPastSinceLastMonday);
-    var weekNoToday = d1.getWeek();
-    var weeksInTheFuture = weekNo - weekNoToday;
-    d1.setDate(d1.getDate() + ( 7 * weeksInTheFuture ));
-    d2.setDate(d1.getDate() + 6);
-    return [d1.getDate(),d1.getMonth()+1,d2.getDate(),d2.getMonth()+1];
-}
-*/
-/*
-function getWeekRange(dateStr) {
-    if (!dateStr) dateStr = new Date().getTime();
-    var dt = new Date(dateStr);
-    dt = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
-    dt = new Date(dt.getTime() - (dt.getDay() > 0 ? (dt.getDay() - 1) * 1000 * 60 * 60 * 24 : 6 * 1000 * 60 * 60 * 24));
-    dt2 = new Date(dt.getTime() + 1000 * 60 * 60 * 24 * 7 - 1);
-    return [dt.getDate(), dt.getMonth()+1, dt2.getDate(), dt2.getMonth()+1];
-}
-*/
+register = function(entryObj){
+    console.log("AJAX MAGIC HERE");
+    console.log(entryObj);
+};
 
 
 addDatesToCalendar = function(week, year, label){
 	var formatted_curr_date;
 	var classes_this_week = {};
-    /*
-    var date = new Date();
-
-    //var dt = new Date(year, )
-
-    //var month = date.getMonth() + 1; // month eg, 11
-
-    //gets the month from the last day of the current week
-    var month = getWeekRange(week)[1];
-    var month2 =getWeekRange(week)[3];
-    console.log("THE WEEK WERE CURRENTLY OBSERVING IS " + week + "," +year);
-    console.log("MONTHS: " + month + ", " + month2);
-    console.log("Week range: " + getWeekRange(week));
-    console.log("Week range2 = " + getWeekRange(week));
-    
-    var dayToday = date.getDate();       //day eg. 21
-    var firstDay = getWeekRange(week)[0];
-    //var weekDay = date.getDayOfWeek();    //day of the week eg. 1. (monday)
-    
-
-
-    console.log("day = " + dayToday + "firstDay = " + firstDay);
-    console.log("month =" + month);
-    */
+   
 
     console.log("creating new moment with week " + week +" and year " + year);
     var currentMonday = new moment().year(year).isoWeek(week);
@@ -162,28 +118,11 @@ addDatesToCalendar = function(week, year, label){
         if(i==6){
             month2=currentMonth;
         }
+        
 
 
-        //A new month started but the month variable holds the new month
-        /*
-        if (getWeekRange(week)[1]!=getWeekRange(week)[3]){
-            console.log("MONTH CHANGED");
-            if (currentDay <= lastDay) {
-                currentMonth=month;
-                console.log("CURRENTDAY NOT OF NEW MONTH");
-            }
-            else{
-                currentMonth=month+1;
-                if (month > 12) month = 1;
-                if (month < 1 ) month = 12;
-                currentDay = currentDay%lastDay;
-                console.log("currentday IS NEW MONTH");
-            }
-            lastDay = daysInMonth(currentMonth, year);
-            console.log("month: " + month +" currentmonth = " + currentMonth);
-        }
-        */
-        console.log("Calculating days i="+i+". Current: "+currentDay+", NEWlast"+lastDay);
+        
+        //console.log("Calculating days i="+i+". Current: "+currentDay+", NEWlast"+lastDay);
 		
 		formatted_curr_date = year + "-" + currentMonth + "-"  + currentDay;
 
@@ -195,44 +134,12 @@ addDatesToCalendar = function(week, year, label){
                 "</div>" +
             "</div>"
         );
-
-
-    /*
-    for(var i = 0; i < 7; i++){
-        var currentDay = firstDay+i;
-        var currentMonth = month;
-        var lastDay = daysInMonth(currentMonth,year);
-        console.log("month: " + month +" currentmonth = " + currentMonth);
-        //A new month started but the month variable holds the new month
-        if (getWeekRange(week)[1]!=getWeekRange(week)[3]){
-            console.log("MONTH CHANGED");
-            if (currentDay <= lastDay) {
-                currentMonth=month;
-                console.log("CURRENTDAY NOT OF NEW MONTH");
-            }
-            else{
-                currentMonth=month+1;
-                if (month > 12) month = 1;
-                if (month < 1 ) month = 12;
-                currentDay = currentDay%lastDay;
-                console.log("currentday IS NEW MONTH");
-            }
-            lastDay = daysInMonth(currentMonth, year);
-            console.log("month: " + month +" currentmonth = " + currentMonth);
+        var mom = new moment();
+        if (currentDay == mom.date() && currentMonth == mom.month()+1){
+            $dayElement.find(".dayOfMonth").addClass("active");
+            //$(".weekdays").find("#"+i).addClass("active");
         }
-        console.log("Calculating days i="+i+". Current: "+currentDay+", NEWlast"+lastDay);
-        
 
-
-        $dayElement = $(
-            "<div class='dayElement' id="+i+">" +
-                "<div class='dayOfMonth'>"+currentDay+"."+currentMonth+".</div>" +
-                "<div class='classes'>" +
-                    "<div class='timeSlots'></div>" +
-                "</div>" +
-            "</div>"
-        );
-    */
 
         for (var j = 8; j<20; j++){
 			var events_flag = false;
@@ -242,10 +149,15 @@ addDatesToCalendar = function(week, year, label){
 			if(events_dict[formatted_curr_date] || classes_this_week.length > 0) {
 				if(events_dict[formatted_curr_date]) {
 					if(events_dict[formatted_curr_date][0].has(j.toString())){
+                        var currEventPk = events_dict[formatted_curr_date][0].get(j.toString()).pk;
+                        var currEventName = event_pk_mapper[currEventPk].fields.name;
+                        var currEventTrainerPk = event_pk_mapper[currEventPk].fields.trainer;
+                        var currEventTrainer = users[currEventTrainerPk];
+
 						class_str +=
-						"<div id='"+ i + "_" + (j-8) +"' class='timeevents'>" +
-							 "<em>" + events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "</em><br />" +
-							 "<span class='trainer'>" + users[events_dict[formatted_curr_date][0].get(j.toString()).fields.trainer] + "</span><br />" +
+						     "<div id='"+ i + "_" + (j-8) +"' data-event-pk='" + currEventPk.toString() + "' class='timeevents'>" +
+							 "<em>" + currEventName + "</em><br />" +
+							 "<span class='trainer'>" + currEventTrainer + "</span><br />" +
 							 "</div>";
 							 
 						events_flag = true;
@@ -254,36 +166,28 @@ addDatesToCalendar = function(week, year, label){
 				if(classes_this_week.length > 0) {
 					for(var i_cls = 0; i_cls < classes_this_week.length; i_cls++){
 						if((classes_this_week[i_cls].fields.days).includes(i + 1)) {
-							
 							if(classes_this_week[i_cls].fields.time == j.toString()) {
-								if(events_flag == false) {
-									/*
-									$dayElement.find(".timeSlots").append(
-									"<div id='"+ (j-8) +"' class='timeevents'>");
-									*/
-									class_str = "<div id='"+ i + "_" + (j-8) +"' class='timeclasses " + levels[classes_this_week[i_cls].fields.level] +"'>";
-									class_str += "<em>" + classes_this_week[i_cls].fields.name + "</em><br />" +
-									 "<span class='trainer'>" + users[classes_this_week[i_cls].fields.trainer] + "</span><br />";
+								if(events_flag === false) {
+                                    var currClassPk = classes_this_week[i_cls].pk;
+                                    var currClassName = class_pk_mapper[currClassPk].fields.name;
+                                    var currClassTrainerPk = class_pk_mapper[currClassPk].fields.trainer;
+                                    var currClassTrainer = users[currClassTrainerPk];
+
+									class_str = "<div id='"+ i + "_" + (j-8) +"' data-class-pk='"+ currClassPk +"' class='timeclasses " + levels[classes_this_week[i_cls].fields.level] +"'>";
+									class_str += "<em>" + currClassName + "</em><br />" +
+									 "<span class='trainer'>" + currClassTrainer + "</span><br />";
 									class_str += "</div>";
 								} else {
 									//$dayElement.find(".timeSlots").append("--------");
 									class_str = "";
 									
-									class_str = "<div id='"+ i + "_" + (j-8) +"' class='timeevents'>";
+									class_str = "<div id='"+ i + "_" + (j-8) +"' class='timeevents timeclasses multiple'>";
 									class_str += "<em>" + events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "</em><br />" +
 										"-----<br />" +
 										"<em>" + classes_this_week[i_cls].fields.name + "</em>";
 										
 									class_str += "</div>";
-									
 								}
-								/*
-								$dayElement.find(".timeSlots").append(
-									 "Class Name: "+ classes_this_week[i_cls].fields.name + "<br />" +
-									 "Trainer: " + classes_this_week[i_cls].fields.trainer + "<br />" +
-									 "Level: " + classes_this_week[i_cls].fields.level + "<br />"
-								);
-								*/
 								
 								class_flag = true;
 							}
@@ -294,7 +198,7 @@ addDatesToCalendar = function(week, year, label){
 					//$dayElement.find(".timeSlots").append(class_str);
 				}
 				
-				if(events_flag == false && class_flag == false) {
+				if(events_flag === false && class_flag === false) {
 					class_str +=
 						"<div id='"+ (j-8) +"' class='time'>" + 
 							"" +
@@ -310,12 +214,16 @@ addDatesToCalendar = function(week, year, label){
 			}
         }
         console.log("---------__");
+        $dayElement.find('.timeclasses').click(function() {
+            var $this = $(this);
+            expand($this);
+        });
+        $dayElement.find('.timeevents').click(function() {
+            var $this = $(this);
+            expand($this);
+        });
+
         $(".dayElementContainer").append($dayElement);
-        /*
-        if(firstDay+i==dayToday){
-            $dayElement.addClass('active');
-        }
-        */
     }
     console.log("#######################");
     //$(".weeknumber").text("Week "+ week);
@@ -339,66 +247,45 @@ addDatesToCalendar = function(week, year, label){
     console.log("nextWeekMoment = " + nextWeekMoment.format("DD/MM/YYYY"));
     console.log("Isoweek: " + nextWeekMoment.isoWeek());
 	
-	$( "div.Beginner" ).css( "background", "#C2FFDF" );
-	$( "div.Intermediate" ).css( "background", "#70FFB5" );
-	$( "div.Advanced" ).css( "background", "#1FFF8B" );
-	$( "div.Expert" ).css( "background", "#00CC63" );
-
-    //return [nextWeekMoment.isoWeek(),year];
 	return [nextWeekMoment.isoWeek(),nextWeekMoment.isoWeekYear()];
 };
 
 var events_dict = {};
 var classes_dict = {};
+var event_pk_mapper = {};
+var class_pk_mapper = {};
+
 
 
 $(document).ready(function(){
-    /*
-    var date = new Date();
-    var year = date.getFullYear(); //year eg, 2016
-    //var month = date.getMonth() + 1; // month eg, 11
-    var week = date.getWeek();
-    //var day = date.getDate();       //day eg. 21
-    //var weekDay = date.getDayOfWeek();    //day of the week eg. 1. (monday)
-    //var firstDay = getDateRangeOfWeek(week)[0];
-    //console.log("Date = " + year +", " + month +", " + day + ". Day num = " + weekDay);
-    //console.log("Week starts with: " + getDateRangeOfWeek(week));
-
-
-    var dateToday = new Date();
-    var dt = new Date();
-    var daysFromMonday = ((dateToday.getDate() || 6)+1);
-    var mondayDate = dateToday.getDate() - daysFromMonday;
-
-    console.log("mondayDate="+mondayDate);
-
-    mondayDate = (dt.setDate(date.getDate()-7)) -daysFromMonday;
-    console.log("mondayDate last week="+mondayDate);
-*/
-
-
-    //MOMENTMOMENTMOMENTMOMENTMOMENTMOMENTMOMOENTM
+    
 
     console.log("DB_EVENTS:");
     console.log(db_events);
     console.log("\nDB_CLASSES:");
     console.log(db_classes);
-	var m;
-    for (var i = 0 ; i < db_events.length ; i++){
+
+
+
+	var map;
+    for (var i = 0; i < db_events.length; i++){
         //console.log(db_events[i].fields.date);
 		if(!events_dict[db_events[i].fields.date]) {
-			m = new Map();
+			map = new Map();
 			events_dict[db_events[i].fields.date] = [];
-			events_dict[db_events[i].fields.date].push(m.set(db_events[i].fields.time, db_events[i]));
+			events_dict[db_events[i].fields.date].push(map.set(db_events[i].fields.time, db_events[i]));
 		} else {
-			m = events_dict[db_events[i].fields.date][0];
-			m.set(db_events[i].fields.time, db_events[i]);
+			map = events_dict[db_events[i].fields.date][0];
+			map.set(db_events[i].fields.time, db_events[i]);
 		}
-		
+        event_pk_mapper[db_events[i].pk] = db_events[i];
     }
+    for (var i = 0; i < db_classes.length; i++){
+        class_pk_mapper[db_classes[i].pk] = db_classes[i];
+    }
+
 	
 	console.log(events_dict);
-	
 	console.log("\nISO WEEK OF start date \n" + (moment(db_classes[0].fields.begin_date)).isoWeek());
 	
 	
@@ -418,8 +305,6 @@ $(document).ready(function(){
     console.log("MOMENT DMY: " + myear + " " + mmonth +
         " " + mday + " " + mweekday + " week: " + mweek);
 
-    console.log(typeof(mweek));
-
 
     var ar_init = addDatesToCalendar(mweek,myear);
 	mweek = ar_init[0] ;
@@ -437,35 +322,16 @@ $(document).ready(function(){
 
     $(".prev").click(function(){
         console.log("clicked PREVIOUS!");
-        // week-=1;
-        // if (week < 1){
-        //     week = 52;
-        //     year-=1;
-        // }
-		/*
-        if (mweek==1){
-            myear-=1;
-        }
-		*/
         var ar = addDatesToCalendar(mweek,myear, "prev");
         mweek = ar[0] ;
         myear = ar[1];
     });
     $(".next").click(function(){
         console.log("clicked NEXT!");
-        // week+=1;
-        // if (week> 52){
-        //     week = 1;
-        //     year+=1;
-        // }
-		/*
-        if (mweek==52){
-            myear+=1;
-        }
-		*/
         var ar = addDatesToCalendar(mweek,myear, "next");
         mweek = ar[0];
         myear = ar[1];
     });
+    
 	
 });
