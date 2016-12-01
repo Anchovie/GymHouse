@@ -9,6 +9,7 @@ from mainpage.models import Profile
 from mainpage.models import Registration
 import json
 from django.core import serializers
+from django.http import JsonResponse
 
 
 """
@@ -90,4 +91,4 @@ def ajax_entry_registration(request):
         userProfile.save()
         #new entry = ....pk=ajax
         #
-    return HttpResponse()
+    return JsonResponse({'saved':'ok'})
