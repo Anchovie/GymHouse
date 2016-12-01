@@ -13,6 +13,7 @@ expand = function(entry){
     var entryType;
     var pk;
     var entryObj;
+    var date=entry.attr("data-date");
 
     if ($(entry).hasClass('multiple')){     //TWO IN ONE
         console.log("multiple entries in one clicked pk=???");
@@ -45,7 +46,7 @@ expand = function(entry){
     $(".col-lg-12").append($expand_dialog);
     $(".register").click(function(){
         console.log("REGISTER PRESSED");
-        register(entryObj);
+        register(entryObj, entryType, date);
     });
     $(".dialog").click(function(e){
         if (e.target != $(".register"))
@@ -53,9 +54,45 @@ expand = function(entry){
     });
 };
 
-register = function(entryObj){
+register = function(entryObj, entryType, date){
     console.log("AJAX MAGIC HERE");
     console.log(entryObj);
+    var JS = JSON.stringify(entryObj);
+    console.log(JS);
+
+
+
+    console.log(entryType);
+    entryType = entryType.charAt(0);
+    console.log(entryType);
+/*
+    var date;
+    if (entryType=="E"){
+        date=entryObj.fields.date;
+        console.log("date");    
+        console.log(date);
+    }*/
+
+    $.ajax({
+        type: "POST",
+        url: "ajax/register/",
+        data: {
+            csrfmiddlewaretoken: Cookies.get('csrftoken'),
+            JS,
+            eType: entryType,
+            dateOfEntry: date,
+
+        },
+        dataType: 'json',
+        success: function(results) {
+            //$('#result_text').html(results.text);
+            console.log("Ok, REGISTRATION SAVED", results);
+            //changeView("result")
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
 };
 
 
@@ -155,7 +192,8 @@ addDatesToCalendar = function(week, year, label){
                         var currEventTrainer = users[currEventTrainerPk];
 
 						class_str +=
-						     "<div id='"+ i + "_" + (j-8) +"' data-event-pk='" + currEventPk.toString() + "' class='timeevents'>" +
+						     "<div id='"+ i + "_" + (j-8) +"' data-event-pk='" + currEventPk.toString() + 
+                                "' data-date='"+formatted_curr_date+"' class='timeevents'>" +
 							 "<em>" + currEventName + "</em><br />" +
 							 "<span class='trainer'>" + currEventTrainer + "</span><br />" +
 							 "</div>";
@@ -173,7 +211,9 @@ addDatesToCalendar = function(week, year, label){
                                     var currClassTrainerPk = class_pk_mapper[currClassPk].fields.trainer;
                                     var currClassTrainer = users[currClassTrainerPk];
 
-									class_str = "<div id='"+ i + "_" + (j-8) +"' data-class-pk='"+ currClassPk +"' class='timeclasses " + levels[classes_this_week[i_cls].fields.level] +"'>";
+									class_str = "<div id='"+ i + "_" + (j-8) +"' data-class-pk='"+ 
+                                        currClassPk +"' data-date='"+formatted_curr_date+"' class='timeclasses " + 
+                                        levels[classes_this_week[i_cls].fields.level] +"'>";
 									class_str += "<em>" + currClassName + "</em><br />" +
 									 "<span class='trainer'>" + currClassTrainer + "</span><br />";
 									class_str += "</div>";

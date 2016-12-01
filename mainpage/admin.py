@@ -6,6 +6,7 @@ from .models import Profile
 from .models import Event
 from .models import Class
 from .models import Days
+from .models import Registration
 #from .models import Level
 #from .models import UserStatus
 
@@ -38,6 +39,7 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Class, ClassAdmin)
 admin.site.register(Days)
+admin.site.register(Registration)
 
 #admin.site.register(Level)
 #admin.site.register(UserStatus)

@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/weekcalendar.css' %}" />
   <script src="{% static 'scripts/jquery-3.1.1.min.js' %}"></script>
   <script src="{% static 'scripts/moment-with-locales.js' %}"></script>
-
+  <script src="{% static 'scripts/js.cookie.js' %}"></script>
   <script>
     var db_events = {{ events|safe }};
     var db_classes = {{ classes|safe }};

@@ -14,7 +14,13 @@
 
 {% block content %}
 
-<h1> This is the Exercise Diary page </h1>
+<ul>
+{% for reg in registrations %}
+	<div class="entry">
+    	<li>{{ reg.date }} || {{ reg.name }}</li>
+    </div>
+{% endfor %}
+</ul>
 
 
 

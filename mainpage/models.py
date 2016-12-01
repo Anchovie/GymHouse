@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
-import datetime
+from datetime import datetime
 import calendar
 
 BEGINNER =      '1'
@@ -56,6 +56,14 @@ HOUR_CHOICES = (
     (HOUR18, '18:00'),
     (HOUR19, '19:00'),
     (HOUR20, '20:00'),
+)
+
+EVENT = 'E'
+CLASS = 'C'
+
+ENTRY_CHOICES = (
+    (EVENT, 'Event'),
+    (CLASS, 'Class'),
 )
 
 """
@@ -178,6 +186,13 @@ class Profile(models.Model):
             null=True, 
             help_text='Please enter weight in kg'
     )
+
+    registrations = models.ManyToManyField(
+            "Registration",
+            related_name='Registrations_of_user', 
+            blank=True
+    )
+
 
     def __unicode__(self):
         return self.first_name
@@ -307,3 +322,59 @@ class Class(models.Model):
     def __unicode__(self):
         return self.name
 
+
+class Registration(models.Model):
+    name = models.CharField(
+            max_length=40
+    )
+    description = models.CharField(
+            max_length=200
+    )
+    entryType = models.CharField(
+            max_length=1,
+            choices = ENTRY_CHOICES,
+            default = CLASS,
+    )
+    
+    trainer = models.ForeignKey(
+            Profile, 
+            related_name='Trainer_of_entry',
+            null=True,
+            blank=True
+    )
+    level = models.CharField(
+            max_length=1, 
+            choices = LEVEL_TYPE_CHOICES, 
+            default = BEGINNER
+    )
+    date_created = models.DateTimeField(
+            auto_now=True
+    )
+    date = models.DateField(
+            default=datetime.now, 
+            blank=True
+    )
+    time = models.CharField(
+           max_length=4, 
+           choices = HOUR_CHOICES, 
+           default = HOUR08
+    )
+
+    
+    owner = models.ForeignKey(
+            Profile, 
+            related_name='Profile_of_entry', 
+            blank=True, 
+            null=True
+    )
+
+    comment = models.CharField(
+            max_length=300,
+            blank=True,
+    )
+    passed = models.BooleanField(
+            default=False,
+    )
+    
+    def __unicode__(self):
+        return self.name
