@@ -15,9 +15,17 @@
 {% block content %}
 
 <ul>
+To come [{{registrations|length}}]:
 {% for reg in registrations %}
 	<div class="entry">
-    	<li>{{ reg.date }} || {{ reg.name }}</li>
+    	<li>{{ reg.date }} || {{ reg.name }} || {{reg.entryType}}</li>
+    </div>
+{% endfor %}
+<hr/>
+Past registrations [{{passed|length}}]:
+{% for reg in passed %}
+	<div class="entry passed">
+    	<li style="color:red">{{ reg.date }} || {{ reg.name }} || {{reg.entryType}}</li>
     </div>
 {% endfor %}
 </ul>

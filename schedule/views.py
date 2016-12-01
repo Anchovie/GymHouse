@@ -45,28 +45,28 @@ def calendar_view(request):
 def ajax_entry_registration(request):
     csrf_token = get_token(request)
     if request.method == "POST" and request.is_ajax:
-        print("Received post:")
-        print(request.POST)
-        print("mydict:")
+        #print("Received post:")
+        #print(request.POST)
+        #print("mydict:")
         myDict = dict(request.POST.iterlists())
-        print(myDict)
+        #print(myDict)
         #print(hack(myDict,"name"))
-        print(myDict.get("JS"))
+        #print(myDict.get("JS"))
         decoded = json.loads(request.POST.get("JS"))
         date = request.POST.get("dateOfEntry")
         entryType = request.POST.get("eType")
-        print("DATE AND TYPE:")
-        print(date)
-        print(entryType)
-        print("DECODED")
-        print(decoded)
-        print("-------")
+        #print("DATE AND TYPE:")
+        #print(date)
+        #print(entryType)
+        #print("DECODED")
+        #print(decoded)
+        #print("-------")
 
 
 
         obj = decoded.get("fields")
-        print(obj)
-        print(obj.get("date"))
+        #print(obj)
+        #print(obj.get("date"))
         userProfile=Profile.objects.get(user=request.user)
         trainerProfile = Profile.objects.get(pk=obj.get("trainer"))
         newEntry = Registration(
@@ -84,13 +84,10 @@ def ajax_entry_registration(request):
 
         newEntry.save()
         userProfile.registrations.add(newEntry)
-        print(newEntry)
-        print("NEW:")
-        print(userProfile.registrations)
+        #print(newEntry)
+        #print("NEW:")
+        #print(userProfile.registrations)
         userProfile.save()
         #new entry = ....pk=ajax
         #
     return HttpResponse()
-
-def hack(d, var):
-    return d.get("entryObj[fields]["+var+"]")[0]
