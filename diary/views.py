@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from mainpage.models import Profile
 from mainpage.models import Registration
 from datetime import datetime
+from django.http import JsonResponse
 
 
 """
@@ -44,4 +45,28 @@ def diary_view(request):
 
     return render(request, 'diary/diary_template.html', context)
 
-# Create your views here.
+def ajax_remove_entry(request):
+    #csrf_token = get_token(request)
+    if request.method == "POST" and request.is_ajax:
+        
+        entryPk = request.POST.get("entryPk")
+        print("received post:")
+        print(request.POST)
+        print("Entrypk:")
+        print(entryPk)
+
+        
+        userProfile=Profile.objects.get(user=request.user)
+        reg = Registration.objects.get(pk=entryPk)
+        print(reg)
+        #userProfile.registrations.remove(pk=entryPk)
+        userProfile.registrations.remove(reg)
+        reg.delete()
+
+        #entry.delete()
+        
+        #userProfile.registrations.add(newEntry)
+        
+        userProfile.save()
+        
+    return JsonResponse({'removed':'ok'})

@@ -7,6 +7,7 @@
 
 {% block head %}
 	<script src="{% static 'scripts/diary.js' %}"></script>
+	<script src="{% static 'scripts/js.cookie.js' %}"></script>
 {% endblock head %} 
 
 <!-- Overwrite the original menu and test prints from base.html with nothing -->
@@ -20,12 +21,12 @@
 {% block content %}
 
 <ul>
+((THIS NEEDS A REFRESH TO BE CORRECT AFTER REMOVE))
 To come [{{registrations|length}}]:
 <div class="registrations">
 {% for reg in registrations %}
 	<div class="entry" data-pk={{reg.pk}}>
     	<li>{{ reg.date }} | {{reg.time}} || {{ reg.name }} || {{reg.entryType}} <button class=remove_entry data-pk={{reg.pk}}>Remove</button></li>
-		}
     </div>
 {% endfor %}
 </div>

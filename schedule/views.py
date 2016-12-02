@@ -93,7 +93,6 @@ def ajax_entry_registration(request):
 
         newEntry.save()
         userProfile.registrations.add(newEntry)
-        print(newEntry.all())
         #print("NEW:")
         #print(userProfile.registrations)
         userProfile.save()
