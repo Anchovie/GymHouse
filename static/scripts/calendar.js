@@ -28,7 +28,7 @@ expand = function(entry){
         entryObj = class_pk_mapper[pk];
         entryType = "CLASS";
     }
-
+/*
     $expand_dialog = $(
         "<div class='dialog' data-entry-pk='"+pk+"'>  "+
             "<b>" + entryType + "</b><br/>" +
@@ -40,18 +40,35 @@ expand = function(entry){
         "</div> " +
         " "
     );
+*/	
+	
+	$expand_dialog = $(
+        "<div data-entry-pk='"+pk+"'>  "+
+            " "+ entryObj.fields.name + "<br/> " +
+            " "+ users[entryObj.fields.trainer] + "<br/> " +
+            "Description: " + entryObj.fields.description + " <br/>" +
+        "</div> " +
+        " "
+    );
+	$(".modal-title").empty();
+	$(".modal-title").append(entryType);
+	$(".modal-body > p").empty();
+	$(".modal-body > p").append($expand_dialog);
+	$("#myModal").modal('show');
+	
+	
 
-  
-
-    $(".col-lg-12").append($expand_dialog);
+    //$(".col-lg-12").append($expand_dialog);
     $(".register").click(function(){
         console.log("REGISTER PRESSED");
         register(entryObj, entryType, date);
     });
+	/*
     $(".dialog").click(function(e){
         if (e.target != $(".register"))
             $(".dialog").remove();
     });
+	*/
 };
 
 register = function(entryObj, entryType, date){
@@ -88,6 +105,12 @@ register = function(entryObj, entryType, date){
             //$('#result_text').html(results.text);
             console.log("Ok, REGISTRATION SAVED", results);
             //changeView("result")
+			$(".modal-body > p").empty();
+			$(".modal-body > p").append("Registration successful");
+			setTimeout(function(){
+				console.log("Ready to click");
+				$(".modal-header > button").click();
+			}, 700);
         },
         error: function(error) {
             console.log(error);
