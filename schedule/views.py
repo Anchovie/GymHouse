@@ -11,10 +11,12 @@ import json
 from django.core import serializers
 
 
-"""
-def index(request):
-    return HttpResponse("This is the schedule/calendar page");
-"""
+def format_time(timeString):
+    if len(timeString) == 1:
+        timeString = "0" + timeString
+    return timeString + ":00"
+
+
 @ensure_csrf_cookie
 @login_required
 def calendar_view(request):
@@ -61,14 +63,20 @@ def ajax_entry_registration(request):
         #print("DECODED")
         #print(decoded)
         #print("-------")
-
-
+        print("Timestring with 8")
+        print(format_time("8"))
+        print("Timestring with 20")
+        print(format_time("20"))
 
         obj = decoded.get("fields")
         #print(obj)
         #print(obj.get("date"))
         userProfile=Profile.objects.get(user=request.user)
         trainerProfile = Profile.objects.get(pk=obj.get("trainer"))
+        time = obj.get("time");
+        if len(time) == 1:
+            time = "0" + time
+        time = time + ":00"
         newEntry = Registration(
             name=obj.get("name"),
             description=obj.get("description"),
@@ -76,7 +84,7 @@ def ajax_entry_registration(request):
             trainer = trainerProfile,
             level = obj.get("level"),
             date = date,
-            time = obj.get("time"),
+            time = time,
             owner = userProfile,
             comment = "WOW SUCH FUN",
             passed = False,
@@ -84,10 +92,11 @@ def ajax_entry_registration(request):
 
         newEntry.save()
         userProfile.registrations.add(newEntry)
-        #print(newEntry)
+        print(newEntry.all())
         #print("NEW:")
         #print(userProfile.registrations)
         userProfile.save()
         #new entry = ....pk=ajax
         #
     return HttpResponse()
+

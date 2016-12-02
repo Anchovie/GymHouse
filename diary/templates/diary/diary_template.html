@@ -1,8 +1,13 @@
 {% extends 'mainpage/base.html' %}
+{% load staticfiles %}
 
 {% block title %}
 	GymHouse - Exercise Diary
 {% endblock title %}
+
+{% block head %}
+	<script src="{% static 'scripts/diary.js' %}"></script>
+{% endblock head %} 
 
 <!-- Overwrite the original menu and test prints from base.html with nothing -->
 {% block test %} {% endblock test %}
@@ -16,18 +21,23 @@
 
 <ul>
 To come [{{registrations|length}}]:
+<div class="registrations">
 {% for reg in registrations %}
-	<div class="entry">
-    	<li>{{ reg.date }} || {{ reg.name }} || {{reg.entryType}}</li>
+	<div class="entry" data-pk={{reg.pk}}>
+    	<li>{{ reg.date }} | {{reg.time}} || {{ reg.name }} || {{reg.entryType}} <button class=remove_entry data-pk={{reg.pk}}>Remove</button></li>
+		}
     </div>
 {% endfor %}
+</div>
 <hr/>
 Past registrations [{{passed|length}}]:
+<div class="passed">
 {% for reg in passed %}
 	<div class="entry passed">
-    	<li style="color:red">{{ reg.date }} || {{ reg.name }} || {{reg.entryType}}</li>
+    	<li style="color:red">{{ reg.date }} | {{reg.time}} || {{ reg.name }} || {{reg.entryType}}</li>
     </div>
 {% endfor %}
+</div>
 </ul>
 
 
