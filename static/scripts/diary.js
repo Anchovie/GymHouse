@@ -20,6 +20,10 @@ remove = function(pk){
 				console.log("Ready to click");
 				$(".modal-header > button").click();
 			}, 700);*/
+			var badge_str = $(".badge:first").text().replace('[', '').replace(']', '');
+			var badge_count = parseInt(badge_str);
+			$(".badge").empty();
+			$(".badge").append("[" + --badge_count + "]");
         },
         error: function(error) {
             console.log(error);

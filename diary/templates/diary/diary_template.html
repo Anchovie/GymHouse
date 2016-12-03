@@ -20,26 +20,27 @@
 
 {% block content %}
 
-<ul>
-((THIS NEEDS A REFRESH TO BE CORRECT AFTER REMOVE))
-To come [{{registrations|length}}]:
-<div class="registrations">
+
+<h3><span class="label label-default">
+To come <span class="badge">[{{registrations|length}}]</span></span>
+</h3>
+<div class="registrations list-group">
 {% for reg in registrations %}
-	<div class="entry" data-pk={{reg.pk}}>
-    	<li>{{ reg.date }} | {{reg.time}} || {{ reg.name }} || {{reg.entryType}} <button class=remove_entry data-pk={{reg.pk}}>Remove</button></li>
+	<div class="entry list-group-item" data-pk={{reg.pk}}>
+    	<span style="display:inline-block; width: 300px;">{{ reg.date }} | {{reg.time}} || {{ reg.name }} || {{reg.entryType}} </span><span><button class="remove_entry btn-default" data-pk={{reg.pk}}>Remove</button></span>
     </div>
 {% endfor %}
 </div>
 <hr/>
-Past registrations [{{passed|length}}]:
-<div class="passed">
+<h3><span class="label label-default">Past registrations <span class="badge">[{{passed|length}}]</span></span></h3>
+<div class="passed list-group">
 {% for reg in passed %}
 	<div class="entry passed">
-    	<li style="color:red">{{ reg.date }} | {{reg.time}} || {{ reg.name }} || {{reg.entryType}}</li>
+    	<li class="list-group-item list-group-item-danger">{{ reg.date }} | {{reg.time}} || {{ reg.name }} || {{reg.entryType}}</li>
     </div>
 {% endfor %}
 </div>
-</ul>
+
 
 
 
