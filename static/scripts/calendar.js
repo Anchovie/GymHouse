@@ -103,6 +103,7 @@ register = function(entryObj, entryType, date){
         dataType: 'json',
         success: function(results) {
             //$('#result_text').html(results.text);
+			$(".register").unbind('click');
             console.log("Ok, REGISTRATION SAVED", results);
             //changeView("result")
 			$(".modal-body > p").empty();
