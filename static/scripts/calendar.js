@@ -14,6 +14,11 @@ expand = function(entry){
     var pk;
     var entryObj;
     var date=entry.attr("data-date");
+	
+	if(!$(entry).children().first().hasClass("hidden")) {
+		$("#noRegModal").modal('show')
+		return;
+	}
 
     if ($(entry).hasClass('multiple')){     //TWO IN ONE
         console.log("multiple entries in one clicked pk=???");
@@ -50,10 +55,10 @@ expand = function(entry){
         "</div> " +
         " "
     );
-	$(".modal-title").empty();
-	$(".modal-title").append(entryType);
-	$(".modal-body > p").empty();
-	$(".modal-body > p").append($expand_dialog);
+	$("#myModal").find(".modal-title").empty();
+	$("#myModal").find(".modal-title").append(entryType);
+	$("#myModal").find(".modal-body > p").empty();
+	$("#myModal").find(".modal-body > p").append($expand_dialog);
 	$("#myModal").modal('show');
 	
 	
@@ -61,7 +66,7 @@ expand = function(entry){
     //$(".col-lg-12").append($expand_dialog);
     $(".register").click(function(){
         console.log("REGISTER PRESSED");
-        register(entryObj, entryType, date);
+        register(entryObj, entryType, date, entry);
     });
 	/*
     $(".dialog").click(function(e){
@@ -71,7 +76,7 @@ expand = function(entry){
 	*/
 };
 
-register = function(entryObj, entryType, date){
+register = function(entryObj, entryType, date, entry){
     console.log("AJAX MAGIC HERE");
     console.log(entryObj);
     var JS = JSON.stringify(entryObj);
@@ -106,12 +111,15 @@ register = function(entryObj, entryType, date){
 			$(".register").unbind('click');
             console.log("Ok, REGISTRATION SAVED", results);
             //changeView("result")
-			$(".modal-body > p").empty();
-			$(".modal-body > p").append("Registration successful");
+			$("#myModal").find(".modal-body > p").empty();
+			$("#myModal").find(".modal-body > p").append("Registration successful");
 			setTimeout(function(){
 				console.log("Ready to click");
-				$(".modal-header > button").click();
+				$("#myModal").find(".modal-header > button").click();
 			}, 700);
+			if($(entry).children().first().hasClass("hidden")) {
+				$(entry).children().first().removeClass("hidden");
+			}
         },
         error: function(error) {
             console.log(error);
@@ -217,7 +225,23 @@ addDatesToCalendar = function(week, year, label){
 
 						class_str +=
 						     "<div id='"+ i + "_" + (j-8) +"' data-event-pk='" + currEventPk.toString() + 
-                                "' data-date='"+formatted_curr_date+"' class='timeevents'>" +
+                                "' data-date='"+formatted_curr_date+"' class='timeevents'>";
+						if(usr_regs[formatted_curr_date]) {
+							var usr_reg_flag = false;
+							for(var l = 0; l < usr_regs[formatted_curr_date].length; l++){
+								if(usr_regs[formatted_curr_date][l].split(':')[0] == j) {
+									class_str += "<span class='reg_marker'> &nbsp&nbsp</span>";
+									usr_reg_flag = true;
+									break;
+								} 
+							}
+							if(usr_reg_flag == false){
+								class_str += "<span class='reg_marker hidden'> &nbsp&nbsp</span>";
+							}
+						} else {
+							class_str += "<span class='reg_marker hidden'> &nbsp&nbsp</span>";
+						}
+						class_str +=
 							 "<em>" + currEventName + "</em><br />" +
 							 "<span class='trainer'>" + currEventTrainer + "</span><br />" +
 							 "</div>";
@@ -238,6 +262,21 @@ addDatesToCalendar = function(week, year, label){
 									class_str = "<div id='"+ i + "_" + (j-8) +"' data-class-pk='"+ 
                                         currClassPk +"' data-date='"+formatted_curr_date+"' class='timeclasses " + 
                                         levels[classes_this_week[i_cls].fields.level] +"'>";
+									if(usr_regs[formatted_curr_date]) {
+										var usr_reg_flag = false;
+										for(var l = 0; l < usr_regs[formatted_curr_date].length; l++){
+											if(usr_regs[formatted_curr_date][l].split(':')[0] == j) {
+												class_str += "<span class='reg_marker'> &nbsp&nbsp</span>";
+												usr_reg_flag = true;
+												break;
+											}
+										}
+										if(usr_reg_flag == false){
+											class_str += "<span class='reg_marker hidden'> &nbsp&nbsp</span>";
+										}
+									} else {
+										class_str += "<span class='reg_marker hidden'> &nbsp&nbsp</span>";
+									}
 									class_str += "<em>" + currClassName + "</em><br />" +
 									 "<span class='trainer'>" + currClassTrainer + "</span><br />";
 									class_str += "</div>";
@@ -246,6 +285,21 @@ addDatesToCalendar = function(week, year, label){
 									class_str = "";
 									
 									class_str = "<div id='"+ i + "_" + (j-8) +"' class='timeevents timeclasses multiple'>";
+									if(usr_regs[formatted_curr_date]) {
+										var usr_reg_flag = false;
+										for(var l = 0; l < usr_regs[formatted_curr_date].length; l++){
+											if(usr_regs[formatted_curr_date][l].split(':')[0] == j) {
+												class_str += "<span class='reg_marker'> &nbsp&nbsp</span>";
+												usr_reg_flag = true;
+												break;
+											}
+										}
+										if(usr_reg_flag == false){
+											class_str += "<span class='reg_marker hidden'> &nbsp&nbsp</span>";
+										}
+									} else {
+										class_str += "<span class='reg_marker hidden'> &nbsp&nbsp</span>";
+									}
 									class_str += "<em>" + events_dict[formatted_curr_date][0].get(j.toString()).fields.name + "</em><br />" +
 										"-----<br />" +
 										"<em>" + classes_this_week[i_cls].fields.name + "</em>";
@@ -269,6 +323,7 @@ addDatesToCalendar = function(week, year, label){
 						"</div>";
 				}
 				$dayElement.find(".timeSlots").append(class_str);
+				
 			} else {			
 				$dayElement.find(".timeSlots").append(
 					"<div id='"+ (j-8) +"' class='time'>" + 
@@ -328,6 +383,7 @@ $(document).ready(function(){
     console.log(db_events);
     console.log("\nDB_CLASSES:");
     console.log(db_classes);
+	console.log(usr_regs);
 
 
 

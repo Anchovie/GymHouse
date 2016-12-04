@@ -11,6 +11,19 @@
     var db_classes = {{ classes|safe }};
     var users = {{ users|safe }};
     var levels = {{ levels|safe }};
+	var usr_regs = {};
+	var reg_date;
+	var reg_date_str;
+	{% for regs in user_regs %}
+	reg_date = new Date("{{regs.date}}");
+	reg_date_str = reg_date.getFullYear() + "-" + parseInt(reg_date.getMonth() + 1).toString() + "-" + reg_date.getDate();
+	if(!usr_regs[reg_date_str]) {
+			usr_regs[reg_date_str] = [];
+			usr_regs[reg_date_str].push("{{regs.time}}");
+	} else {
+		usr_regs[reg_date_str].push("{{regs.time}}");
+	}
+	{% endfor %}
   </script>
   <style>
 	.modal-body{
@@ -18,7 +31,7 @@
 	padding:15px;
 	color: black;
 	}
-	#myModal{
+	#myModal, #noRegModal{
 	margin-top:100px;
 	}
   </style>
@@ -74,6 +87,23 @@
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-default register">Register</button>
+		  </div>
+		</div>
+
+	  </div>
+	</div>
+	
+	<!-- Modal -->
+	<div id="noRegModal" class="modal fade" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-body">
+			<p>You have already registered for this class</p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
 		  </div>
 		</div>
 

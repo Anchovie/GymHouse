@@ -10,6 +10,7 @@ from mainpage.models import Registration
 import json
 from django.core import serializers
 from django.http import JsonResponse
+from datetime import datetime
 
 
 def format_time(timeString):
@@ -33,6 +34,8 @@ def calendar_view(request):
         users[user.pk]=(str(user.first_name)+" "+str(user.last_name))
 
     levels = {1:'Beginner',2:'Intermediate',3:'Advanced',4:'Expert'}
+	
+    reg_cls_evnts = get_users_reg(Profile.objects.get(user=request.user))
 
 
     context = {'user': request.user, 
@@ -40,7 +43,8 @@ def calendar_view(request):
             'events': events,
             'classes': classes,
             'users': users,
-            'levels':levels}
+            'levels':levels,
+			'user_regs':reg_cls_evnts}
 
     return render(request, 'schedule/schedule_template.html', context);
 
@@ -99,3 +103,24 @@ def ajax_entry_registration(request):
         #new entry = ....pk=ajax
         #
     return JsonResponse({'saved':'ok'})
+	
+def get_users_reg(userProfile):
+    registrations = userProfile.registrations.all().order_by('-date')
+    
+    #print("DATE")
+    #print(datetime.strptime(reg.date, "%Y-%m-%d"))
+
+    for reg in registrations:
+        if reg.passed == False:
+            #print("comparing these dates:")
+            #print(reg.date)
+            #print(datetime.now().date())
+            #d = datetime.strptime(reg.date, "%Y-%m-%d")
+            if reg.date < datetime.now().date():
+                #print("It has passed")
+                reg.passed = True
+                reg.save()
+
+    registrations = registrations.filter(passed=False)
+
+    return registrations

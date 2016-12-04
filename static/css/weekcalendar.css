@@ -159,6 +159,7 @@ body {font-family: Verdana, sans-serif;}
     height: 60px;
 	font-size: 12px; 
 	text-align: center;
+	position: relative;
 }
 
 .timeclasses{
@@ -170,6 +171,7 @@ body {font-family: Verdana, sans-serif;}
     height: 60px;
 	font-size: 12px; 
 	text-align: center;
+	position: relative;
 }
 
 .time:hover {
@@ -262,4 +264,12 @@ em {
     
     background-color: #e6fff2;
     text-align: center;
+}
+
+.reg_marker{
+	background:red;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 8px;
 }
