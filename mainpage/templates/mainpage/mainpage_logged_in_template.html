@@ -6,18 +6,18 @@ GymHouse - Frontpage
 {% endblock title %}
 
 {% block head %}
-    
+
     <!-- THINGS INSIDE THIS "BLOCK HEAD" WILL BE ADDED TO THE PAGES <head>.  -->
 
 
-    <!-- Load CSS 
+    <!-- Load CSS
     ================================================== -->
     <!--
     <link href="{% static 'css/css/reset.css' %}" rel="stylesheet">
     <link href="{% static 'css/css/bootstrap.css' %}" rel="stylesheet">
 
     <link href="{% static 'css/css/animate.css' %}" rel="stylesheet">
-     
+
     <link href="{% static 'fonts/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
 	<link href="{% static 'css/css/flaticon.css' %}" rel="stylesheet" type="text/css" />
 	<link href="{% static 'css/css/style.css' %}" rel="stylesheet">
@@ -27,7 +27,7 @@ GymHouse - Frontpage
     <!--
 	<link href="{% static 'css/css/color-schemes/green.css' %}" id="changeable-colors" rel="stylesheet" type="text/css" />
     -->
-    <!-- Google Fonts  
+    <!-- Google Fonts
     ================================================== -->
     <!--
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -38,7 +38,7 @@ GymHouse - Frontpage
     ================================================== -->
     <!--
     <script src="{% static 'scripts/js/ie10-viewport-bug-workaround.js' %}"></script>
-    
+
     <script src="{% static 'scripts/js/modernizr.js' %}"></script>
     -->
 {% endblock head %}
@@ -54,6 +54,36 @@ GymHouse - Frontpage
 <!-- This will be the actual content for the page -->
 {% block content %}
 
-	USER MAINPAGE
+  <div class='wrapper'>
+	   <div class='main-info'>
+       {{ profile.first_name }} {{ profile.last_name }} <br/>
+       Age: {{ profile.age }} <br/>
+       {{ profile.level }} <br/>
+    </div>
+    <div class='profile-pic'>
+      <img src='http://www.placehold.it/300x300' alt='profile' />
+    </div>
+    <div class='show-personal'>
+      <span class='show-personal-text'> Show personal information
+    </div>
+    <div class='personal-info'>
+      <div class='lcol p-info'>Height: {{ profile.height }} m</div>
+      <div class='rcol p-info'>Weight: {{ profile.weight }} kg</div>
+    </div>
+    <div class='upcoming'>
+      <span class='upcoming-title'> Upcoming Registrations: </span>
+      {% for reg in registrations %}
+        <div class="entry list-group-item" data-pk={{reg.pk}}>
+          <span class='reg-entry'>{{ reg.date }} | {{reg.time}} || {{ reg.name }} </span>
+        </div>
+      {% endfor %}
+    </div>
+    <hr/>
+    <div class='edit-profile'>
+      <span> Edit Profile </span>
+    </div>
+  </div>
+
+
 
 {% endblock content %}
