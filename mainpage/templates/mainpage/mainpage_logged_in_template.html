@@ -6,7 +6,8 @@ GymHouse - Frontpage
 {% endblock title %}
 
 {% block head %}
-
+  <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+  <script src="{% static 'scripts/profile.js' %}"></script>
     <!-- THINGS INSIDE THIS "BLOCK HEAD" WILL BE ADDED TO THE PAGES <head>.  -->
 
 
@@ -61,7 +62,7 @@ GymHouse - Frontpage
        {{ profile.level }} <br/>
     </div>
     <div class='profile-pic'>
-      <img src='http://www.placehold.it/300x300' alt='profile' />
+      <img src={{ profile.image.url }} height='300' width='300' alt='profile' />
     </div>
     <div class='show-personal'>
       <span class='show-personal-text'> Show personal information

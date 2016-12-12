@@ -1,0 +1,33 @@
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #EEE;
+}
+
+.wrapper div{
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  border: 3px solid #777;
+  background-color: #DDD;
+}
+
+.main-info{
+  width: 40%;
+  height: 350px;
+}
+
+.profile-pic {
+  width: 40%;
+  height: 350px;
+  vertical-align: baseline;
+}
+
+.show-personal {
+  display: inline;
+}
+
+.personal-info {
+  display: inline;
+}
