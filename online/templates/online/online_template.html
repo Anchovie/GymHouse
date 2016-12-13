@@ -1,8 +1,17 @@
 {% extends 'mainpage/base.html' %}
+{% load staticfiles %}
 
 {% block title %}
 GymHouse - Online Virtual Gym
 {% endblock title %}
+
+{% block head %}
+  <script language="javascript" type="text/javascript" src="{% static 'scripts/p5/p5.min.js' %}"></script>
+  <script language="javascript" type="text/javascript" src="{% static 'scripts/p5/sketch.js' %}"></script>
+  <script language="javascript" type="text/javascript" src="{% static 'scripts/p5/particle.js' %}"></script>
+  <script language="javascript" type="text/javascript" src="{% static 'scripts/p5/rocket.js' %}"></script>
+{% endblock head %}
+
 
 <!-- Overwrite the original menu and test prints from base.html with nothing -->
 {% block test %} {% endblock test %}
@@ -14,8 +23,16 @@ GymHouse - Online Virtual Gym
 
 {% block content %}
 
-	<h1> This is the Virtual Personal trainer page </h1>
+<div class='wrapper'>
+  <div class='canvas'>
+    <!--
+    <script>
+       new p5('sketch.js', window.document.getElementById('canvas'));
+    </script>
+  -->
+  </div>
 
+</div>
 
 
 {% endblock content %}
