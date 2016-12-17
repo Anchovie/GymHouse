@@ -29,19 +29,31 @@
 {% endblock pagetitle %}
 
 {% block content %}
-<h2> Create new Event </h2>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#new_Events">Create New Events</a></li>
+  <li><a data-toggle="tab" href="#new_class">Create New Class</a></li>
+ 
+</ul>
+
+<div class="tab-content">
+  <div id="new_Events" class="tab-pane fade in active">
+    <h2> Create new Event </h2>
 <form action="{% url 'create:create_new_event' %}" method="post">
     {% csrf_token %}
     {{ event_form.as_p }}
     <input type="submit" value="Submit" />
 </form>
 <hr><hr>
-
-<h2> Create new Class </h2>
+  </div>
+  <div id="new_class" class="tab-pane fade">
+    <h2> Create new Class </h2>
 <form action="{% url 'create:create_new_class' %}" method="post">
     {% csrf_token %}
     {{ class_form.as_p }}
     <input type="submit" value="Submit" />
 </form>
+  </div>
+  
+</div>
 
 {% endblock content %}
