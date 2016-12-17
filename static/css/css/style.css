@@ -250,7 +250,7 @@ h2 { font-weight: 300; }
 /* Header Style
 ================================================== */
 #top{
-	min-height:110px;	
+	/*min-height:110px;	*/	
 }
 .navbar {
 	background: #34495e;
