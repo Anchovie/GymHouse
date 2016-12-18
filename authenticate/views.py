@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.conf import settings
@@ -10,7 +11,7 @@ from mainpage.models import Profile
 
 def login_view(request):
 
-    context = {'user': request.user, 
+    context = {'user': request.user,
                 'logged_in': request.user.is_authenticated}
 
     if(request.POST):
@@ -28,10 +29,15 @@ def login_view(request):
             else:
                 settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = False
                 print("YEEEEEESSSS REMEMBER")
-            
-            context = {'user': user, 
+
+            context = {'user': user,
                 'logged_in': request.user.is_authenticated}
-            return render(request, 'mainpage/mainpage_logged_in_template.html', context);
+            print(request);
+            print("-----");
+            print(context);
+            print("----");
+            return redirect('/') #IS THIS OK WITHOUT CONTEXT AND REQUEST???? (Fixes login redirect bug)
+            #return render(request, 'mainpage/mainpage_logged_in_template.html', context)
         else:
             print("No user found")
             return HttpResponse("NO USER MATCH")

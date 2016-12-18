@@ -27,7 +27,7 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_URL = '/authenticate/login'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/PASKAA'
 
 
 # Quick-start development settings - unsuitable for production
