@@ -32,10 +32,10 @@ def login_view(request):
 
             context = {'user': user,
                 'logged_in': request.user.is_authenticated}
-            print(request);
-            print("-----");
-            print(context);
-            print("----");
+            #print(request);
+            #print("-----");
+            #print(context);
+            #print("----");
             return redirect('/') #IS THIS OK WITHOUT CONTEXT AND REQUEST???? (Fixes login redirect bug)
             #return render(request, 'mainpage/mainpage_logged_in_template.html', context)
         else:
