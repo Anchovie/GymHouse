@@ -4,13 +4,13 @@
   {% load static %} {# load static files like css, images etc #}
   <title>{% block title %} GymHouse - the gym of the future! {% endblock title %}</title>
 
-  <!-- REMEMBER, THIS IS THE BASE TEMPLATE WHICH EVERY OTHER PAGE EXTENDS. LIST HERE ONLY THINGS (CSS,JS,etc) 
-       THAT ARE NECESSARY FOR EVERY PAGE. DO __NOT__ ADD PAGE-SPECIFIC STUFF HERE. (Rather, put them inside the 
+  <!-- REMEMBER, THIS IS THE BASE TEMPLATE WHICH EVERY OTHER PAGE EXTENDS. LIST HERE ONLY THINGS (CSS,JS,etc)
+       THAT ARE NECESSARY FOR EVERY PAGE. DO __NOT__ ADD PAGE-SPECIFIC STUFF HERE. (Rather, put them inside the
        respective pages' "block head" tag)
   -->
-  
 
-  <!-- Meta and Favicon 
+
+  <!-- Meta and Favicon
   ================================================== -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +19,8 @@
   <meta name="author" content="">
   <link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'images/favicon.ico' %}" />
 
-      
-  <!-- Load CSS 
+
+  <!-- Load CSS
   ================================================== -->
   <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" />
   <link href="{% static 'css/css/reset.css' %}" rel="stylesheet">
@@ -33,8 +33,8 @@
 
   <!-- Skin Colors -->
   <link href="{% static 'css/css/color-schemes/green.css' %}" id="changeable-colors" rel="stylesheet" type="text/css" />
-  
-  <!-- Google Fonts  
+
+  <!-- Google Fonts
   ================================================== -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -43,7 +43,7 @@
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
   ================================================== -->
   <script src="{% static 'scripts/js/ie10-viewport-bug-workaround.js' %}"></script>
-  
+
   <script src="{% static 'scripts/js/modernizr.js' %}"></script>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -54,13 +54,13 @@
   <![endif]-->
 
     <!-- Javascrit Core
-  ================================================== -->        
+  ================================================== -->
   <script src="{% static 'scripts/js/jquery-1.11.1.min.js' %}"></script>
   <script src="{% static 'scripts/js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'scripts/js/jquery.easing.1.3.js' %}"></script>    
+  <script src="{% static 'scripts/js/jquery.easing.1.3.js' %}"></script>
   <script src="{% static 'scripts/js/jquery.flexisel.js' %}"></script>
   <script src="{% static 'scripts/js/jquery.appear.js' %}"></script>
-  <script src="{% static 'scripts/js/jquery.custom.js' %}"></script>   
+  <script src="{% static 'scripts/js/jquery.custom.js' %}"></script>
 
   <!-- Color -->
 
@@ -68,7 +68,7 @@
 
 
 
- 
+
 
   <!-- Custom CSS -->
   <link href="{% static 'css/css/sb-admin.css' %}" rel="stylesheet">
@@ -132,6 +132,7 @@ bpabpabpa
     <li><a href= "{% url 'diary:diary_view' %}"> Exercise Diary </a></li>
     <li><a href= "{% url 'schedule:calendar_view' %}"> Schedule </a></li>
     <li><a href= "{% url 'services:services_view' %}"> Services </a></li>
+    <li><a href= "{% url 'services:trainers_view' %}"> Trainers </a></li>
     <li><a href= "{% url 'online:online_view' %}"> Online </a></li>
     <li><a href= "{% url 'create:show_forms' %}"> New Entry </a></li>
 
@@ -180,64 +181,8 @@ bpabpabpa
       <!-- Top Menu Items -->
 
       <ul class="nav navbar-right top-nav">
-          <!-- WE ARE NOT GOING TO IMPLEMENT MESSAGING
-          <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-              <ul class="dropdown-menu message-dropdown">
-                  <li class="message-preview">
-                      <a href="#">
-                          <div class="media">
-                              <span class="pull-left">
-                                  <img class="media-object" src="http://placehold.it/50x50" alt="">
-                              </span>
-                              <div class="media-body">
-                                  <h5 class="media-heading">
-                                      <strong>John Smith</strong>
-                                  </h5>
-                                  <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                  <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                              </div>
-                          </div>
-                      </a>
-                  </li>
-                  <li class="message-preview">
-                      <a href="#">
-                          <div class="media">
-                              <span class="pull-left">
-                                  <img class="media-object" src="http://placehold.it/50x50" alt="">
-                              </span>
-                              <div class="media-body">
-                                  <h5 class="media-heading">
-                                      <strong>John Smith</strong>
-                                  </h5>
-                                  <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                  <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                              </div>
-                          </div>
-                      </a>
-                  </li>
-                  <li class="message-preview">
-                      <a href="#">
-                          <div class="media">
-                              <span class="pull-left">
-                                  <img class="media-object" src="http://placehold.it/50x50" alt="">
-                              </span>
-                              <div class="media-body">
-                                  <h5 class="media-heading">
-                                      <strong>John Smith</strong>
-                                  </h5>
-                                  <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                  <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                              </div>
-                          </div>
-                      </a>
-                  </li>
-                  <li class="message-footer">
-                      <a href="#">Read All New Messages</a>
-                  </li>
-              </ul>
-          </li>
-          -->
+
+        <!-- NO DROPDOWN
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
               <ul class="dropdown-menu alert-dropdown">
@@ -265,17 +210,20 @@ bpabpabpa
                   </li>
               </ul>
           </li>
+        -->
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{user}} <b class="caret"></b></a>
               <ul class="dropdown-menu">
                   <li>
                       <a href="{% url 'mainpage:main_view_not_logged_in' %}"><i class="fa fa-fw fa-user"></i> Profile</a>
                   </li>
+                  <!-- NO INBOX
                   <li>
                       <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                   </li>
+                  -->
                   <li>
-                      <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                      <a href="{% url 'mainpage:main_view_not_logged_in' %}"><i class="fa fa-fw fa-gear"></i> Settings</a>
                   </li>
                   <li class="divider"></li>
                   <li>
@@ -300,13 +248,16 @@ bpabpabpa
                   <a href="{% url 'services:services_view' %}"><i class="fa fa-fw fa-edit"></i> Services</a>
               </li>
               <li>
+                  <a href="{% url 'services:trainers_view' %}"><i class="fa fa-fw fa-user-md"></i> Trainers</a>
+              </li>
+              <li>
                   <a href="{% url 'online:online_view' %}"><i class="fa fa-fw fa-desktop"></i> Online</a>
               </li>
               <li>
                   <a href="{% url 'create:show_forms' %}"><i class="fa fa-fw fa-wrench"></i> New Entries</a>
               </li>
-              
-             
+
+
           </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -330,7 +281,7 @@ bpabpabpa
                       <li>
                           <i class="fa fa-dashboard"></i>  <a href={% url 'mainpage:main_view_not_logged_in' %}>Dashboard</a>
                       </li>
-                      
+
                   </ol>
                   -->
                   {% block content %}
