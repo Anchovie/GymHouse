@@ -1,11 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
+from django.core.files import File
+from django import forms
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.conf import settings
 
+from GymHouse.forms import RegistrationForm
 from mainpage.models import Profile
+
+import os
 
 
 
@@ -50,3 +56,65 @@ def logout_view(request):
     logout(request)
     print("Logout successfull??")
     return HttpResponse("Logged out successfully")
+
+
+def register_view(request):
+    print("IN REGISTER")
+
+    context = {'user': request.user,
+                'logged_in': request.user.is_authenticated}
+
+
+    if(request.POST):
+        #username = request.POST.get('username')
+        #password = request.POST.get('password')
+        #remember = request.POST.get('remember')
+
+
+        form = RegistrationForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            #do stuff
+            print("FORM VALID, doing stuff")
+            username = clean_username(form)#.cleaned_data.get('username')
+            pwd = form.cleaned_data.get('password')
+            email = form.cleaned_data.get('email')
+            if (not username):
+                HttpResponse("ERROR")
+
+            user = User.objects.create_user(username=username,
+                    email=email,
+                    password=pwd)
+            print("New user created ")
+            print(user)
+            new_profile = form.save(commit=False)
+            """
+            if (not new_profile.image):
+                path = os.path.join(settings.MEDIA_ROOT, "nopic.png")
+                #path = settings.MEDIA_ROOT + "/nopic.png"
+                f = open(path, 'r')
+                new_profile.image.save('nopic.png', f.read(), save=True)
+                f.close()
+                #new_profile.image(path, File().read())
+            """
+            new_profile.user = user
+            new_profile.save() # Now you can send it to DB
+
+            return HttpResponse("REGISTERED???")
+
+        else:
+            print("FORM NOT VALID")
+
+    else:
+        form = RegistrationForm()
+        context['form']=form
+
+        return render(request, 'authenticate/register_template.html', context)
+
+
+def clean_username(self):
+    username = self.cleaned_data['username']
+    if User.objects.exclude(pk=self.instance.pk).filter(username=username).exists():
+        raise forms.ValidationError(u'Username "%s" is already in use.' % username)
+        HttpResponse("validation error, username exists")
+    return username

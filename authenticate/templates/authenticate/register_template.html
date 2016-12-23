@@ -1,0 +1,22 @@
+{% extends 'mainpage/base.html' %}
+{% load static %} {# load static files like css, images etc #}
+  {% block title %} GymHouse - LOGIN {% endblock title %}
+
+  {% block head %}
+  <!-- <script src="{% static 'scripts/jquery-3.1.1.min.js' %}"></script> -->
+  <link rel="stylesheet" type="text/css" href=" {% static 'css/form_login_css.css' %}" />
+  {% endblock head %}
+
+
+{% block menu %} {% endblock menu %}
+{% block test %} {% endblock test %}
+{% block footer %} {% endblock footer %}
+
+{% block content2 %}
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Register</button>
+</form>
+{% endblock content2 %}

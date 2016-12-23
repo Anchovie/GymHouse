@@ -1,10 +1,12 @@
 from __future__ import unicode_literals
 from django import forms
 from django.forms import ModelForm
-from mainpage.models import Event
+from django.contrib.auth.models import User
+from mainpage.models import Profile, Event, Class, Days
+"""
 from mainpage.models import Class
 from mainpage.models import Days
-
+"""
 class NewEventForm(ModelForm):
     class Meta:
         model = Event
@@ -24,13 +26,13 @@ class NewEventForm(ModelForm):
         help_texts = {
             'name': _('Event name will be shown in the calendar'),
         }
-        
+
         error_messages = {
             'name': {
                 'max_length': _("This writer's name is too long."),
             },
         }
-        
+
         """
 
 
@@ -64,7 +66,7 @@ class NewClassForm(ModelForm):
         exclude = ['creator']
         #'time': forms.TimeInput(format='%H:00'),
         #days = forms.ModelMultipleChoiceField(queryset=Days.objects.all(), widget=forms.CheckboxSelectMultiple)
-        
+
         widgets = {
                 'begin_date': forms.DateInput(attrs={'class': 'datepicker'}),
                 'end_date': forms.DateInput(attrs={'class': 'datepicker'}),
@@ -72,5 +74,25 @@ class NewClassForm(ModelForm):
         }
         #days = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
         days = forms.ModelMultipleChoiceField(queryset=Days.objects.all(), widget=forms.CheckboxSelectMultiple)
+
+
 class NameForm(forms.Form):
     your_name = forms.CharField(label='Your name', max_length=100)
+
+
+class RegistrationForm(ModelForm):
+
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
+    password2 = forms.CharField(widget=forms.PasswordInput)
+    email = forms.CharField(widget=forms.EmailInput)
+
+    class Meta:
+        model = Profile
+        exclude = ['user', 'status', 'registrations']
+
+
+
+        """
+
+        """
