@@ -70,3 +70,24 @@ def ajax_remove_entry(request):
         userProfile.save()
         
     return JsonResponse({'removed':'ok'})
+
+	
+def ajax_add_comment(request):
+    #csrf_token = get_token(request)
+    if request.method == "POST" and request.is_ajax:
+        
+        entryPk = request.POST.get("entryPk")
+        comment = request.POST.get("comment")
+
+        userProfile=Profile.objects.get(user=request.user)
+
+        userProfile.registrations.filter(pk=entryPk).update(comment = comment)
+        
+
+        #entry.delete()
+        
+        #userProfile.registrations.add(newEntry)
+        
+        userProfile.save()
+        
+    return JsonResponse({'add_comment':'ok'})

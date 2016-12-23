@@ -91,7 +91,7 @@ def ajax_entry_registration(request):
             date = date,
             time = time,
             owner = userProfile,
-            comment = "WOW SUCH FUN",
+            comment = "",
             passed = False,
         )
 

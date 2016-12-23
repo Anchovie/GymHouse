@@ -24,6 +24,51 @@
 <h3><span class="label label-default">
 To come <span class="badge">[{{registrations|length}}]</span></span>
 </h3>
+
+<div class="panel-group registrations" id="diary-accordion">
+  {% for reg in registrations %}
+	{% with forloop.counter|stringformat:"s" as counter %}
+		{% with "collapse-"|add:counter as collapse %}
+			{% with "#collapse-"|add:counter as collapse_url %}
+			{% with "comment-"|add:counter as comment %}
+		
+		  <div class="panel panel-default" data-pk={{reg.pk}}>
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+				<div class="entry" data-pk={{reg.pk}}>
+				<a data-toggle="collapse" data-parent="#diary-accordion" href="{{collapse_url}}" style="display:inline-block; width: 400px; text-decoration: none; color: black;">
+					
+						<!--span style="display:inline-block; width: 400px;"-->{{ reg.date }} | {{reg.time}} || {{ reg.name }} || {{reg.entryType}} <!--/span-->
+					
+				</a>
+				<span><button class="remove_entry btn-default" data-pk={{reg.pk}}>Remove</button></span>
+				</div>
+			  </h4>
+			</div>
+			<div id="{{collapse}}" class="panel-collapse collapse">
+				<div class="panel-body">
+					{% if reg.comment == "" %}
+						<div class="comm_area" comm-id={{comment}}>
+							<div class="form-group">
+							  <textarea class="form-control" rows="3" id="{{comment}}"></textarea>
+							</div>
+							<button class="add_comment btn-default" data-comm={{comment}} data-pk={{reg.pk}}>Add comment</button>
+						</div>
+					{% else %}
+						<div class="comment_area" comm-id={{comment}} data-pk={{reg.pk}}>
+							{{reg.comment}}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		  </div>
+		  {% endwith %}
+		  {% endwith %}
+		{% endwith %}
+	{% endwith %}
+  {% endfor %}
+ </div>
+<!--
 <div class="registrations list-group">
 {% for reg in registrations %}
 	<div class="entry list-group-item" data-pk={{reg.pk}}>
@@ -31,15 +76,61 @@ To come <span class="badge">[{{registrations|length}}]</span></span>
     </div>
 {% endfor %}
 </div>
+-->
+
 <hr/>
 <h3><span class="label label-default">Past registrations <span class="badge">[{{passed|length}}]</span></span></h3>
-<div class="passed list-group">
+
+<div class="panel-group passed" id="diary-accordion">
+  {% for reg in passed %}
+	{% with forloop.counter|stringformat:"s" as counter %}
+		{% with "pass-collapse-"|add:counter as collapse %}
+			{% with "#pass-collapse-"|add:counter as collapse_url %}
+			{% with "pass-comment-"|add:counter as comment %}
+		
+		  <div class="panel panel-danger" data-pk={{reg.pk}}>
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+				<div class="entry" data-pk={{reg.pk}}>
+				<a data-toggle="collapse" data-parent="#diary-accordion" href="{{collapse_url}}" style="display:inline-block; width: 400px; text-decoration: none; color: black;">
+					
+						<!--span style="display:inline-block; width: 400px;"-->{{ reg.date }} | {{reg.time}} || {{ reg.name }} || {{reg.entryType}} <!--/span-->
+					
+				</a>
+				</div>
+			  </h4>
+			</div>
+			<div id="{{collapse}}" class="panel-collapse collapse">
+				<div class="panel-body">
+					{% if reg.comment == "" %}
+						<div class="comm_area" comm-id={{comment}}>
+							<div class="form-group">
+							  <textarea class="form-control" rows="3" id="{{comment}}"></textarea>
+							</div>
+							<button class="add_comment btn-default" data-comm={{comment}} data-pk={{reg.pk}}>Add comment</button>
+						</div>
+					{% else %}
+						<div class="comment_area" comm-id={{comment}} data-pk={{reg.pk}}>
+							{{reg.comment}}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		  </div>
+		  {% endwith %}
+		  {% endwith %}
+		{% endwith %}
+	{% endwith %}
+  {% endfor %}
+ </div>
+ 
+<!--div class="passed list-group">
 {% for reg in passed %}
 	<div class="entry passed">
     	<li class="list-group-item list-group-item-danger">{{ reg.date }} | {{reg.time}} || {{ reg.name }} || {{reg.entryType}}</li>
     </div>
 {% endfor %}
-</div>
+</div-->
 
 
 

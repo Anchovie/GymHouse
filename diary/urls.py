@@ -6,4 +6,5 @@ app_name = 'diary' #This enables namespacing (eg. using links in templates <a hr
 urlpatterns = [
     url(r'^$', views.diary_view, name='diary_view'),
     url(r'^ajax/remove_entry/$', views.ajax_remove_entry, name='remove'),
+	url(r'^ajax/add_comment/$', views.ajax_add_comment, name='add_comment'),
 ]
