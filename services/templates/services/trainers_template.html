@@ -1,8 +1,13 @@
 {% extends 'mainpage/base.html' %}
+{% load staticfiles %}
 
 {% block title %}
 GymHouse - Services
 {% endblock title %}
+	
+{% block head %}
+	<link href="{% static 'css/trainers.css' %}" rel="stylesheet">
+{% endblock head %}
 
 <!-- Overwrite the original menu and test prints from base.html with nothing -->
 {% block test %} {% endblock test %}
@@ -14,17 +19,22 @@ GymHouse - Services
 
 {% block content %}
 
-  <div class='wrapper'>
-    <div class='trainers'>
-
-      <div class='trainer tr-1'>
-        Image
-        Bio
-        etc
-      </div>
-
-    </div>
-  </div>
+	{% for trainer in trainers %}
+		{% with trainer.level as level %}
+	<div class="card">
+		{% if trainer.image %}
+			<img src={{ profile.image.url }} alt="Card image cap" style="width:100%">
+		{% else %}
+			<img src='http://www.placehold.it/300x300' alt="Card image cap" style="width:100%">
+		{% endif %}
+		<div class="container">
+			<h4><b>{{trainer.first_name}} {{trainer.last_name}}</b></h4> 
+			<p>Age: {{trainer.age}}</p>
+			<p>Level: {{ trainer_lvl|get_item:level }}</p>
+		</div>
+	</div>
+		{% endwith %}
+	{% endfor %}
 
 
 {% endblock content %}
