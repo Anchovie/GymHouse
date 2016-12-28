@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^$', views.main_view_not_logged_in, name='main_view_not_logged_in'), #name enables using links?
     url(r'^$', views.main_view_logged_in, name='main_view_logged_in'),
     #url(r'^test', views.test, name='test'), #MOVED TO SCHEDULE
+    url(r'^ajax/edit_profile/$', views.ajax_edit_profile, name='profile_edit'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -8,6 +8,7 @@ GymHouse - Frontpage
 {% block head %}
   <link href="{% static 'css/profile.css' %}" rel="stylesheet">
   <script src="{% static 'scripts/profile.js' %}"></script>
+  <script src="{% static 'scripts/js.cookie.js' %}"></script>
     <!-- THINGS INSIDE THIS "BLOCK HEAD" WILL BE ADDED TO THE PAGES <head>.  -->
 
 
@@ -55,6 +56,72 @@ GymHouse - Frontpage
 <!-- This will be the actual content for the page -->
 {% block content %}
 
+	<!-- Modal -->
+<div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Edit Profile
+                </h4>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+                
+                <form role="form">
+					<div class='pic' style="width: 300px; margin: 0 auto;">
+					  {% if profile.image %}
+						<img src={{ profile.image.url }} class="img-rounded" height='300' width='300' alt='profile' />
+					  {% else %}
+						<img src='http://www.placehold.it/300x300' class="img-rounded" height='300' width='300' alt='profile' />
+					  {% endif %}
+					</div>
+					<div class="form-group">
+						<label for="picture">Change picture</label>
+						  <input type="file" id="disp_picture" name="picture" accept="image/*" />
+					</div>
+                  <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                      <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter First and Last name seperated by a space"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="age">Age</label>
+                      <input type="number" class="form-control" id="age" name="age" placeholder=""/>
+                  </div>
+					<div class="form-group">
+					  <label for="level">Level</label>
+					  <select class="form-control" id="level" name="level">
+						<option>Beginner</option>
+						<option>Intermediate</option>
+						<option>Advanced</option>
+						<option>Expert</option>
+					  </select>
+					</div>
+					  <div class="form-group">
+						<label for="height">Height</label>
+						  <input type="number" class="form-control" id="height" name="height" placeholder=""/>
+					  </div>
+					  <div class="form-group">
+						<label for="weight">Weight</label>
+						  <input type="number" class="form-control" id="weight" name="weight" placeholder=""/>
+					  </div>
+					<button type="submit" id="submit" class="btn btn-primary">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </form>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
   <div class='wrapper'>
 	   <div class='main-info'>
        {{ profile.first_name }} {{ profile.last_name }} <br/>
@@ -86,7 +153,10 @@ GymHouse - Frontpage
     </div>
     <hr/>
     <div class='edit-profile'>
-      <span> Edit Profile </span>
+      <!--span> Edit Profile </span-->
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalNorm" style="margin-top: -10px;">
+			Edit Profile
+		</button>
     </div>
   </div>
 
