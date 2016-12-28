@@ -27,9 +27,8 @@
 }
 
 .profile-pic {
-  width: 40%;
-  height: 350px;
-  vertical-align: baseline;
+  width: 300px;
+  margin: 0 auto 10px auto;
 }
 
 .show-personal-text {
@@ -46,4 +45,16 @@
 .personal-info {
   display: inline;
   float:none;
+}
+
+.info-list li {
+	padding-left: 110px;
+}
+
+.hide_class {
+	display: none;
+}
+
+.show_class {
+	display: block;
 }

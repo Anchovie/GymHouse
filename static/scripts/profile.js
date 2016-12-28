@@ -1,6 +1,7 @@
 var personal_toggle = false;
 
 function togglePersonal() {
+	/*
   var div = document.getElementById('p-info');
   personal_toggle = div.style.display == "none" ? false : true;
 
@@ -11,6 +12,7 @@ function togglePersonal() {
     $(".show-personal-text").html("Hide personal information");
     div.style.display = "block";
   }
+  */
   //div.style.display = div.style.display == "none" ? "block" : "none";
 }
 
@@ -68,6 +70,23 @@ $(document).ready(function(){
 		form_dict.weight = form_data[4]['value'];
 		console.log(form_dict);
 		save_profile(form_dict);
+	})
+	
+	var click_count = 0;
+	
+	$(".caret_sym").click(function(){
+		click_count++;
+		if(click_count % 2 != 0){
+			$(".text-info[hide='yes']").show("slow", function(){
+				$(".caret_sym").empty();
+				$(".caret_sym").html("&#9650;");
+			});
+		} else {
+			$(".text-info[hide='yes']").hide("slow", function(){
+				$(".caret_sym").empty();
+				$(".caret_sym").html("&#9660;");
+			});
+		}
 	})
 
 });

@@ -50,7 +50,7 @@ GymHouse - Frontpage
 {% block menu %} {% endblock menu %}
 
 {% block pagetitle %}
-    Profile
+    
 {% endblock pagetitle %}
 
 <!-- This will be the actual content for the page -->
@@ -122,37 +122,61 @@ GymHouse - Frontpage
 </div>
 
 
-  <div class='wrapper'>
-	   <div class='main-info'>
-       {{ profile.first_name }} {{ profile.last_name }} <br/>
-       Age: {{ profile.age }} <br/>
-       {{ profile.level }} <br/>
-    </div>
-    <div class='profile-pic'>
-      {% if profile.image %}
-        <img src={{ profile.image.url }} height='300' width='300' alt='profile' />
-      {% else %}
-        <img src='http://www.placehold.it/300x300' height='300' width='300' alt='profile' />
-        NEED TO HANDLE NO IMAGES PROPERLY
-      {% endif %}
-    </div>
-    <div class='show-personal'>
-      <span class='show-personal-text'> Show personal information
-    </div>
-    <div class='personal-info' id='p-info'>
-      <div class='lcol p-info'>Height: {{ profile.height }} m</div>
-      <div class='rcol p-info'>Weight: {{ profile.weight }} kg</div>
-    </div>
-    <div class='upcoming'>
-      <span class='upcoming-title'> Upcoming Registrations: </span>
-      {% for reg in registrations %}
-        <div class="entry list-group-item" data-pk={{reg.pk}}>
-          <span class='reg-entry'>{{ reg.date }} | {{reg.time}} || {{ reg.name }} </span>
-        </div>
-      {% endfor %}
-    </div>
+<div class="container">
+	<div class="panel-group">
+
+		<div class = "row">
+			<div class = "col-sm-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						Profile
+					</div>
+					<div class="panel-body">
+						<div class="profile-pic">
+						  {% if profile.image %}
+							<img src={{ profile.image.url }} class="img-rounded" height='300' width='300' alt='profile' />
+						  {% else %}
+							<img src='http://www.placehold.it/300x300' class="img-rounded" height='300' width='300' alt='profile' />
+						  {% endif %}
+						</div>
+						
+						<ul class="list-group">
+						  <li class="list-group-item text-center text-info"><dt>{{ profile.first_name }} {{ profile.last_name }}</dt></li>
+						  <li class="list-group-item text-center text-info"><b>Age:</b> {{ profile.age }}</li>
+						  <li class="list-group-item text-center text-info"><b>Level:</b> {{ profile.level }}</li>
+						  <li class="list-group-item text-center text-info hide_class" hide="yes"><b>Height:</b> {{ profile.height }} m</li>
+						  <li class="list-group-item text-center text-info hide_class" hide="yes"><b>Weight:</b> {{ profile.weight }} kg</li>
+						</ul>
+						<div class="text-center" style="margin-top: -10px;">
+							<span class="caret_sym" style="padding: 5px; cursor: pointer;">&#9660;</span>
+						</div>
+					</div>
+				</div>
+				<br />
+				
+			</div>
+			<div class = "col-sm-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						Upcoming Registrations
+					</div>
+					<div class="panel-body">
+						<div class='upcoming list-group'>
+						  {% for reg in registrations %}
+							<div class="entry list-group-item" data-pk={{reg.pk}}>
+							  <span class='reg-entry'>{{ reg.date }} | {{reg.time}} || {{ reg.name }} </span>
+							</div>
+						  {% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+    
     <hr/>
-    <div class='edit-profile'>
+    <div class='edit-profile text-center'>
       <!--span> Edit Profile </span-->
 		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalNorm" style="margin-top: -10px;">
 			Edit Profile
