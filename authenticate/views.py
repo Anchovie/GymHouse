@@ -110,7 +110,7 @@ def register_view(request):
                 print("Creator group:")
                 print(creator_group)
                 creator_group.user_set.add(user)
-                creator_group.user_set.add(new_profile)
+                #creator_group.user_set.add(new_profile)
                 print("Added new user to Creators group")
 
 
