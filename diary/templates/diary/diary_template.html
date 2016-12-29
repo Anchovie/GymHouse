@@ -45,7 +45,7 @@ To come <span class="badge">[{{registrations|length}}]</span></span>
 				</div>
 			  </h4>
 			</div>
-			<div id="{{collapse}}" class="panel-collapse collapse">
+			<div id="{{collapse}}" class="panel-collapse collapse {% if reg.comment != "" %} in {% endif %}">
 				<div class="panel-body">
 					{% if reg.comment == "" %}
 						<div class="comm_area" comm-id={{comment}}>
@@ -100,7 +100,7 @@ To come <span class="badge">[{{registrations|length}}]</span></span>
 				</div>
 			  </h4>
 			</div>
-			<div id="{{collapse}}" class="panel-collapse collapse">
+			<div id="{{collapse}}" class="panel-collapse collapse {% if reg.comment != "" %} in {% endif %}">
 				<div class="panel-body">
 					{% if reg.comment == "" %}
 						<div class="comm_area" comm-id={{comment}}>
