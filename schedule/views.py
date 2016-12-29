@@ -34,11 +34,11 @@ def calendar_view(request):
         users[user.pk]=(str(user.first_name)+" "+str(user.last_name))
 
     levels = {1:'Beginner',2:'Intermediate',3:'Advanced',4:'Expert'}
-	
+
     reg_cls_evnts = get_users_reg(Profile.objects.get(user=request.user))
 
 
-    context = {'user': request.user, 
+    context = {'user': request.user,
             'logged_in': request.user.is_authenticated,
             'events': events,
             'classes': classes,
@@ -68,10 +68,10 @@ def ajax_entry_registration(request):
         #print("DECODED")
         #print(decoded)
         #print("-------")
-        print("Timestring with 8")
-        print(format_time("8"))
-        print("Timestring with 20")
-        print(format_time("20"))
+        #print("Timestring with 8")
+        #print(format_time("8"))
+        #print("Timestring with 20")
+        #print(format_time("20"))
 
         obj = decoded.get("fields")
         #print(obj)
@@ -79,9 +79,12 @@ def ajax_entry_registration(request):
         userProfile=Profile.objects.get(user=request.user)
         trainerProfile = Profile.objects.get(pk=obj.get("trainer"))
         time = obj.get("time");
+        print("TIME = ")
+        print(time)
         if len(time) == 1:
             time = "0" + time
-        time = time + ":00"
+        #time = time + ":00"
+        time = time + "00"
         newEntry = Registration(
             name=obj.get("name"),
             description=obj.get("description"),
@@ -103,10 +106,10 @@ def ajax_entry_registration(request):
         #new entry = ....pk=ajax
         #
     return JsonResponse({'saved':'ok'})
-	
+
 def get_users_reg(userProfile):
     registrations = userProfile.registrations.all().order_by('-date')
-    
+
     #print("DATE")
     #print(datetime.strptime(reg.date, "%Y-%m-%d"))
 
