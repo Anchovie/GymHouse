@@ -51,7 +51,7 @@ def create_new_event(request):
     context['form']=form
     return render(request, 'create/new_entry_template.html', context);
 
-@permission_required('polls.can_vote')
+@permission_required('mainpage.can_create')
 @login_required
 def create_new_class(request):
     print("IN NEW CLASS");
@@ -91,12 +91,17 @@ def create_new_class(request):
     context['form']=form
     return render(request, 'create/new_entry_template.html', context);
 
-
+@permission_required('mainpage.can_create')
 @login_required
 def show_forms(request):
     context = {'user': request.user,
             'logged_in': request.user.is_authenticated
             }
+
+    if (request.user.has_perm('mainpage.can_create')):
+        print("HAS PERMISSION")
+    else:
+        print("NO PERM")
     """
     event_form = NewEventForm(prefix = "event")
     class_form = NewClassForm(prefix = "class")
