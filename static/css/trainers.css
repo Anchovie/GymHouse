@@ -14,11 +14,11 @@
 }
 
 /* Add some padding inside the card container */
-.container {
+.info_container {
     padding: 2px 16px;
 }
 
-.container p {
+.info_container p {
 	font-weight: bold;
 	font-variant: small-caps;
 }
@@ -33,3 +33,4 @@ img {
   text-decoration: none;
   color: black;
 }
+

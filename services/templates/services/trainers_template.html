@@ -7,6 +7,11 @@ GymHouse - Services
 
 {% block head %}
 	<link href="{% static 'css/trainers.css' %}" rel="stylesheet">
+	<script>
+		var classes = {{classes | safe}};
+		var events = {{events | safe}};
+	</script>
+	<script src="{% static 'scripts/trainer.js' %}"></script>
 {% endblock head %}
 
 <!-- Overwrite the original menu and test prints from base.html with nothing -->
@@ -19,15 +24,50 @@ GymHouse - Services
 
 {% block content %}
 
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content" style="background-color: rgba(0,0,0,0.0); border: 0; margin-top: 8rem;">
+			  <!--div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">Panel inside of Modal window</h4>
+			  </div-->
+			  <div class="modal-body" style="padding: 0px;">
+					<div class="panel panel-info">
+					  <div class="panel-heading">
+						<span class="panel-title">Panel title</span>
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+					  </div>
+					  <div class="panel-body text-center">
+							<ul class="list-group">
+								<li class="list-group-item text-center info_height"></li>
+								<li class="list-group-item text-center info_weight"></li>
+							</ul>
+							<span class="label label-info">Classes and Events</span>
+							<ul class="list-group c_and_e_list" style="margin-top: 2rem;">
+
+							</ul>
+					  </div>
+					</div>
+			  <!--div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			  </div-->
+			</div>
+		  </div>
+		</div>
+
+		</div>
+        
 	{% for trainer in trainers %}
 		{% with trainer.level as level %}
-	<div class="card">
+	<div class="card" data-trainer="{{trainer.first_name}}-{{trainer.height}}-{{trainer.weight}}">
 		{% if trainer.image %}
 			<img src={{ profile.image.url }} alt="Card image cap" style="width:100%">
 		{% else %}
 			<img src='https://www.placehold.it/300x300' alt="Card image cap" style="width:100%">
 		{% endif %}
-		<div>
+		<div class="info_container">
 			<h4><b>{{trainer.first_name}} {{trainer.last_name}}</b></h4>
 			<p>Age: {{trainer.age}}</p>
 			<p>Level: {{ trainer_lvl|get_item:level }}</p>
@@ -35,6 +75,8 @@ GymHouse - Services
 	</div>
 		{% endwith %}
 	{% endfor %}
+	
+	
 
 
 {% endblock content %}
