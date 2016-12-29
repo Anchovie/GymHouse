@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.conf import settings
+from django.contrib.auth.models import Group
 
 from GymHouse.forms import RegistrationForm
 from mainpage.models import Profile
@@ -61,6 +62,11 @@ def logout_view(request):
 def register_view(request):
     print("IN REGISTER")
 
+    if (request.user.has_perm('mainpage.can_create')):
+        print("HAS PERMISSION")
+    else:
+        print("NO PERM")
+
     context = {'user': request.user,
                 'logged_in': request.user.is_authenticated}
 
@@ -98,6 +104,17 @@ def register_view(request):
                 #new_profile.image(path, File().read())
             """
             new_profile.user = user
+
+            if (new_profile.status is not 'REG'):
+                creator_group = Group.objects.get(name='Creators')
+                print("Creator group:")
+                print(creator_group)
+                creator_group.user_set.add(user)
+                creator_group.user_set.add(new_profile)
+                print("Added new user to Creators group")
+
+
+
             new_profile.save() # Now you can send it to DB
             login(request, user)
             return HttpResponseRedirect('/')
