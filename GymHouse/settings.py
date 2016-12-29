@@ -13,18 +13,32 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 from django.core.urlresolvers import reverse
 
+heroku = True
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print("BASE_DIR:")
+print(BASE_DIR)
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 MEDIA_URL = '/media/'
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static/"),
-]
+if heroku:
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+    STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'), ) #OR PROJECT DIR
+
+    print("PROJECT_ROOT: {}".format(PROJECT_ROOT))
+    print("STATIC_ROOT: {}".format(STATIC_ROOT))
+    print("STATICFILE_DIRS: {}".format(STATICFILES_DIRS))
+else:
+    # Static files (CSS, JavaScript, Images)
+    # https://docs.djangoproject.com/en/1.10/howto/static-files/
+    STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+    STATICFILES_DIRS = [ # Extra places for collectstatic to find static files.
+        os.path.join(BASE_DIR, "static"),
+    ]
 
 LOGIN_URL = '/authenticate/login'
 LOGIN_REDIRECT_URL = '/'
