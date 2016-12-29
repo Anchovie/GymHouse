@@ -1,8 +1,13 @@
 {% extends 'mainpage/base.html' %}
+{% load staticfiles %}
 
 {% block title %}
 GymHouse - Services
 {% endblock title %}
+
+{% block head %}
+	<link href="{% static 'css/trainers.css' %}" rel="stylesheet">
+{% endblock head %}
 
 <!-- Overwrite the original menu and test prints from base.html with nothing -->
 {% block test %} {% endblock test %}
@@ -14,24 +19,22 @@ GymHouse - Services
 
 {% block content %}
 
-	<ul>
-		<li>Supervised Gym </li>
-		<li>High Intensity Interval Training </li>
-		<li>Lifting Basics </li>
-		<li>Kettleball Training</li>
-		<li>Pilates </li>
-		<li>Yoga </li>
-		<li>Zumba </li>
-		<li>Pet Acrobatics </li>
-		<li>Salsa </li>
-		<li>Judo </li>
-		<li>Supervised Gym </li>
-		<li>Supervised Gym </li>
-		<li>&nbsp</li>
-		<li>Sauna </li>
-		<li>Massage </li>
-		<li> idk </li>
-	</ul>
+	<div class='servicelist'>
+		<div>Supervised Gym </div>
+		<div>High Intensity Interval Training </div>
+		<div>Lifting Basics </div>
+		<div>Kettleball Training</div>
+		<div>Pilates </div>
+		<div>Yoga </div>
+		<div>Zumba </div>
+		<div>Pet Acrobatics </div>
+		<div>Salsa </div>
+		<div>Judo </div>
+		<div>Supervised Gym </div>
+		<div>&nbsp</div>
+		<div>Sauna </div>
+		<div>Massage </div>
+	</div>
 
 
 

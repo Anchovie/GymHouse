@@ -26,3 +26,10 @@
 img {
     border-radius: 5px 5px 0 0;
 }
+
+.servicelist div{
+  display:inline-block;
+  width: 400px;
+  text-decoration: none;
+  color: black;
+}

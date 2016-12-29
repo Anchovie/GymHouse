@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect
 from django.core.files import File
 from django import forms
@@ -99,8 +99,9 @@ def register_view(request):
             """
             new_profile.user = user
             new_profile.save() # Now you can send it to DB
-
-            return HttpResponse("REGISTERED???")
+            login(request, user)
+            return HttpResponseRedirect('/')
+            #return HttpResponse("REGISTERED???")
 
         else:
             print("FORM NOT VALID")
