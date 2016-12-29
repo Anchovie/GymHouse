@@ -4,7 +4,7 @@
 {% block title %}
 GymHouse - Services
 {% endblock title %}
-	
+
 {% block head %}
 	<link href="{% static 'css/trainers.css' %}" rel="stylesheet">
 {% endblock head %}
@@ -25,10 +25,10 @@ GymHouse - Services
 		{% if trainer.image %}
 			<img src={{ profile.image.url }} alt="Card image cap" style="width:100%">
 		{% else %}
-			<img src='http://www.placehold.it/300x300' alt="Card image cap" style="width:100%">
+			<img src='https://www.placehold.it/300x300' alt="Card image cap" style="width:100%">
 		{% endif %}
 		<div>
-			<h4><b>{{trainer.first_name}} {{trainer.last_name}}</b></h4> 
+			<h4><b>{{trainer.first_name}} {{trainer.last_name}}</b></h4>
 			<p>Age: {{trainer.age}}</p>
 			<p>Level: {{ trainer_lvl|get_item:level }}</p>
 		</div>
