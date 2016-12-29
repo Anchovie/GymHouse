@@ -118,6 +118,11 @@ class Days(models.Model):
     get so crowded.
 """
 class Profile(models.Model):
+
+    class Meta:
+        permissions = (
+            ("can_create", "Can create new events and classes"),
+            )
     user = models.OneToOneField(
             User,
             on_delete=models.CASCADE

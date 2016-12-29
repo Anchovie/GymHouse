@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 
 from GymHouse.forms import NewEventForm, NewClassForm
 from mainpage.models import Profile
@@ -12,10 +12,11 @@ def index(request):
 """
 
 
+@permission_required('mainpage.can_create')
 @login_required
 def create_new_event(request):
     print("IN NEW EVENT");
-    context = {'user': request.user, 
+    context = {'user': request.user,
             'logged_in': request.user.is_authenticated,
             'form': NewEventForm()}
 
@@ -37,7 +38,7 @@ def create_new_event(request):
             new_event.save() # Now you can send it to DB
             return HttpResponse(
                     "New event saved! <br/>" +
-                    "Redirecting to homepage..." + 
+                    "Redirecting to homepage..." +
                     "<meta http-equiv=\"refresh\" content=\"3; url=/\" />"
             )
 
@@ -50,10 +51,11 @@ def create_new_event(request):
     context['form']=form
     return render(request, 'create/new_entry_template.html', context);
 
+@permission_required('polls.can_vote')
 @login_required
 def create_new_class(request):
     print("IN NEW CLASS");
-    context = {'user': request.user, 
+    context = {'user': request.user,
             'logged_in': request.user.is_authenticated,
             'form': NewClassForm()}
 
@@ -75,7 +77,7 @@ def create_new_class(request):
             new_class.save() # Now you can send it to DB
             return HttpResponse(
                     "New class saved! <br/>" +
-                    "Redirecting to homepage..." + 
+                    "Redirecting to homepage..." +
                     "<meta http-equiv=\"refresh\" content=\"3; url=/create\" />"
             )
         else:
@@ -92,7 +94,7 @@ def create_new_class(request):
 
 @login_required
 def show_forms(request):
-    context = {'user': request.user, 
+    context = {'user': request.user,
             'logged_in': request.user.is_authenticated
             }
     """
