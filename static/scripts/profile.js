@@ -61,16 +61,19 @@ $(document).ready(function(){
 	$("#submit").click(function(event){
 		event.preventDefault();
 		var form_dict = {};
-		var form_data = $('form').serializeArray();
+		//var form_data = $('form').serializeArray();
+		var form_data = new FormData($('#edit_prf_form')[0]);
 		console.log(form_data);
+		/*
 		form_dict.name = form_data[0]['value'];
 		form_dict.age = form_data[1]['value'];
 		form_dict.level = form_data[2]['value'];
 		form_dict.height = form_data[3]['value'];
 		form_dict.weight = form_data[4]['value'];
 		console.log(form_dict);
-		save_profile(form_dict);
-	})
+		*/
+		save_profile(form_data);
+	});
 	
 	var click_count = 0;
 	
@@ -91,21 +94,41 @@ $(document).ready(function(){
 
 });
 
-function save_profile(form_dict) {
+function save_profile(form_data) {
 	$.ajax({
         type: "POST",
         url: "ajax/edit_profile/",
-        data: {
-            csrfmiddlewaretoken: Cookies.get('csrftoken'),
-            name: form_dict['name'],
-			age: form_dict['age'],
-			height: form_dict['height'],
-			weight: form_dict['weight'],
-			level: form_dict['level'],
-        },
-        dataType: 'json',
+        data: form_data,
+		contentType: false,
+        cache: false,
+        processData: false,
         success: function(results) {
             $("#myModalNorm").modal('hide');
+			console.log(results);
+			if('name' in results) {
+				$(".given_name").empty();
+				$(".given_name").html("<dt>"+results['name']+"</dt>");
+			}
+			if('age' in results) {
+				$(".given_age").empty();
+				$(".given_age").html("<b>Age: </b>"+results['age']);
+			}
+			if('height' in results) {
+				$(".given_height").empty();
+				$(".given_height").html("<b>Height: </b>"+results['height']);
+			}
+			if('weight' in results) {
+				$(".given_weight").empty();
+				$(".given_weight").html("<b>Weight: </b>"+results['weight']);
+			}
+			if('level' in results) {
+				$(".given_level").empty();
+				$(".given_level").html("<b>Level: </b>"+results['level']);
+			}
+			if('img_url' in results) {
+				$(".profile-pic img").attr("src", results['img_url']);
+			}
+				
         },
         error: function(error) {
             console.log(error);

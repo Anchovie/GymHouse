@@ -74,7 +74,8 @@ GymHouse - Frontpage
             <!-- Modal Body -->
             <div class="modal-body">
                 
-                <form role="form">
+                <form role="form" id="edit_prf_form">
+					{% csrf_token %}
 					<div class='pic' style="width: 300px; margin: 0 auto;">
 					  {% if profile.image %}
 						<img src={{ profile.image.url }} class="img-rounded" height='300' width='300' alt='profile' />
@@ -84,7 +85,7 @@ GymHouse - Frontpage
 					</div>
 					<div class="form-group">
 						<label for="picture">Change picture</label>
-						  <input type="file" id="disp_picture" name="picture" accept="image/*" />
+						  <input type="file" id="disp_picture" name="picture" accept="image/*" enctype="multipart/form-data" />
 					</div>
                   <div class="form-group">
                     <label for="fullName">Full Name</label>
@@ -97,10 +98,13 @@ GymHouse - Frontpage
 					<div class="form-group">
 					  <label for="level">Level</label>
 					  <select class="form-control" id="level" name="level">
-						<option>Beginner</option>
-						<option>Intermediate</option>
-						<option>Advanced</option>
-						<option>Expert</option>
+					    {% for level in trainer_lvl %}
+							{% if profile.level == level %}
+								<option selected="selected">{{ trainer_lvl|get_item:level }}</option>
+							{% else %}
+								<option>{{ trainer_lvl|get_item:level }}</option>
+							{% endif %}
+						{% endfor %}
 					  </select>
 					</div>
 					  <div class="form-group">
@@ -132,20 +136,20 @@ GymHouse - Frontpage
 						Profile
 					</div>
 					<div class="panel-body">
-						<div class="profile-pic">
+						<div class="profile-pic text-center">
 						  {% if profile.image %}
-							<img src={{ profile.image.url }} class="img-rounded" height='300' width='300' alt='profile' />
+							<img src={{ profile.image.url }} class="img-rounded" height='70%' width='70%' alt='profile' />
 						  {% else %}
-							<img src='http://www.placehold.it/300x300' class="img-rounded" height='300' width='300' alt='profile' />
+							<img src='http://www.placehold.it/300x300' class="img-rounded" height='70%' width='70%' alt='profile' />
 						  {% endif %}
 						</div>
 						
 						<ul class="list-group">
-						  <li class="list-group-item text-center text-info"><dt>{{ profile.first_name }} {{ profile.last_name }}</dt></li>
-						  <li class="list-group-item text-center text-info"><b>Age:</b> {{ profile.age }}</li>
-						  <li class="list-group-item text-center text-info"><b>Level:</b> {{ profile.level }}</li>
-						  <li class="list-group-item text-center text-info hide_class" hide="yes"><b>Height:</b> {{ profile.height }} m</li>
-						  <li class="list-group-item text-center text-info hide_class" hide="yes"><b>Weight:</b> {{ profile.weight }} kg</li>
+						  <li class="list-group-item text-center text-info given_name"><dt>{{ profile.first_name }} {{ profile.last_name }}</dt></li>
+						  <li class="list-group-item text-center text-info given_age"><b>Age:</b> {{ profile.age }}</li>
+						  <li class="list-group-item text-center text-info given_level"><b>Level:</b> {{ trainer_lvl|get_item:profile.level }}</li>
+						  <li class="list-group-item text-center text-info hide_class given_height" hide="yes"><b>Height:</b> {{ profile.height }} m</li>
+						  <li class="list-group-item text-center text-info hide_class given_weight" hide="yes"><b>Weight:</b> {{ profile.weight }} kg</li>
 						</ul>
 						<div class="text-center" style="margin-top: -10px;">
 							<span class="caret_sym" style="padding: 5px; cursor: pointer;">&#9660;</span>
@@ -182,6 +186,7 @@ GymHouse - Frontpage
 			Edit Profile
 		</button>
     </div>
+	<br/>
   </div>
 
 
