@@ -314,7 +314,7 @@ class Class(models.Model):
     # )
 
     time = models.CharField(
-            max_length=4,
+            max_length=5,
             choices = HOUR_CHOICES,
             default = HOUR08
     )

@@ -83,8 +83,7 @@ def ajax_entry_registration(request):
         print(time)
         if len(time) == 1:
             time = "0" + time
-        #time = time + ":00"
-        time = time + "00"
+        time = time + ":00"
         newEntry = Registration(
             name=obj.get("name"),
             description=obj.get("description"),
