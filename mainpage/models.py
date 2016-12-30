@@ -243,7 +243,7 @@ class Event(models.Model):
     )
 
     time = models.CharField(
-           max_length=4,
+           max_length=5,
            choices = HOUR_CHOICES,
            default = HOUR08
     )
@@ -358,7 +358,7 @@ class Registration(models.Model):
             blank=True
     )
     time = models.CharField(
-           max_length=4,
+           max_length=5,
            choices = HOUR_CHOICES,
            default = HOUR08
     )
