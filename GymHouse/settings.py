@@ -27,7 +27,10 @@ STATIC_URL = '/static/'
 if heroku:
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-    STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'), ) #OR PROJECT DIR
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+        os.path.join(BASE_DIR, "media")
+     ) #OR PROJECT DIR
 
     print("PROJECT_ROOT: {}".format(PROJECT_ROOT))
     print("STATIC_ROOT: {}".format(STATIC_ROOT))
@@ -38,6 +41,7 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR, "static/")
     STATICFILES_DIRS = [ # Extra places for collectstatic to find static files.
         os.path.join(BASE_DIR, "static"),
+        os.path.join(BASE_DIR, "media")
     ]
 
 LOGIN_URL = '/authenticate/login'

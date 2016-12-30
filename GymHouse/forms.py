@@ -89,7 +89,7 @@ class RegistrationForm(ModelForm):
 
     class Meta:
         model = Profile
-        exclude = ['user', 'registrations']
+        exclude = ['user', 'image', 'registrations']
 
     def clean(self):
         cleaned_data = super(RegistrationForm, self).clean()

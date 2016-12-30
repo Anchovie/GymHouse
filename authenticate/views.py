@@ -36,7 +36,7 @@ def login_view(request):
                 print("NO REMEMBER")
             else:
                 settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-                print("YEEEEEESSSS REMEMBER")
+                print("REMEMBER")
 
             context = {'user': user,
                 'logged_in': request.user.is_authenticated}
@@ -95,9 +95,18 @@ def register_view(request):
             print("New user created ")
             print(user)
             new_profile = form.save(commit=False)
-            """
+
+            #new_profile.image=settings.MEDIA_ROOT + "nopic.png"
+
+            print(new_profile.image)
             if (not new_profile.image):
-                path = os.path.join(settings.MEDIA_ROOT, "nopic.png")
+                path = 'nopic.png'#os.path.join('media', "nopic.png")
+                print("NO IMAGE")
+                new_profile.image=path
+            else:
+                print("IMAGE FOUND")
+                print(new_profile.image)
+                """
                 #path = settings.MEDIA_ROOT + "/nopic.png"
                 f = open(path, 'r')
                 new_profile.image.save('nopic.png', f.read(), save=True)
@@ -121,6 +130,12 @@ def register_view(request):
 
 
             new_profile.save() # Now you can send it to DB
+
+            print(new_profile.image)
+            if (not new_profile.image):
+                print("NO IMG STILL")
+
+
             login(request, user)
             return HttpResponseRedirect('/')
             #return HttpResponse("REGISTERED???")
