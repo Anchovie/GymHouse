@@ -14,7 +14,8 @@ def index(request):
 @login_required
 def services_view(request):
     context = {'user': request.user,
-			'logged_in': request.user.is_authenticated}
+			'logged_in': request.user.is_authenticated,
+            'permission': request.user.has_perm('mainpage.can_create')}
 
     return render(request, 'services/services_template.html', context);
 
@@ -35,7 +36,8 @@ def trainers_view(request):
 			'trainers': userProfiles,
 			'trainer_lvl': trainer_lvl,
             'classes': class_list,
-			'events': event_list}
+			'events': event_list,
+            'permission': request.user.has_perm('mainpage.can_create')}
 
     return render(request, 'services/trainers_template.html', context);
 

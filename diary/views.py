@@ -15,7 +15,7 @@ def index(request):
 def diary_view(request):
     userProfile=Profile.objects.get(user=request.user)
     registrations = userProfile.registrations.all().order_by('-date')
-    
+
     #print("DATE")
     #print(datetime.strptime(reg.date, "%Y-%m-%d"))
 
@@ -39,23 +39,24 @@ def diary_view(request):
     #print("Passed")
     #print(passed_registrations)
     context = {'user': request.user,
-            'registrations': registrations, 
+            'registrations': registrations,
             'passed': passed_registrations,
-            'logged_in': request.user.is_authenticated}
+            'logged_in': request.user.is_authenticated,
+            'permission': request.user.has_perm('mainpage.can_create')}
 
     return render(request, 'diary/diary_template.html', context)
 
 def ajax_remove_entry(request):
     #csrf_token = get_token(request)
     if request.method == "POST" and request.is_ajax:
-        
+
         entryPk = request.POST.get("entryPk")
         print("received post:")
         print(request.POST)
         print("Entrypk:")
         print(entryPk)
 
-        
+
         userProfile=Profile.objects.get(user=request.user)
         reg = Registration.objects.get(pk=entryPk)
         print(reg)
@@ -64,30 +65,30 @@ def ajax_remove_entry(request):
         reg.delete()
 
         #entry.delete()
-        
+
         #userProfile.registrations.add(newEntry)
-        
+
         userProfile.save()
-        
+
     return JsonResponse({'removed':'ok'})
 
-	
+
 def ajax_add_comment(request):
     #csrf_token = get_token(request)
     if request.method == "POST" and request.is_ajax:
-        
+
         entryPk = request.POST.get("entryPk")
         comment = request.POST.get("comment")
 
         userProfile=Profile.objects.get(user=request.user)
 
         userProfile.registrations.filter(pk=entryPk).update(comment = comment)
-        
+
 
         #entry.delete()
-        
+
         #userProfile.registrations.add(newEntry)
-        
+
         userProfile.save()
-        
+
     return JsonResponse({'add_comment':'ok'})

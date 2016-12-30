@@ -18,7 +18,8 @@ def create_new_event(request):
     print("IN NEW EVENT");
     context = {'user': request.user,
             'logged_in': request.user.is_authenticated,
-            'form': NewEventForm()}
+            'form': NewEventForm(),
+            'permission': request.user.has_perm('mainpage.can_create')}
 
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -57,7 +58,8 @@ def create_new_class(request):
     print("IN NEW CLASS");
     context = {'user': request.user,
             'logged_in': request.user.is_authenticated,
-            'form': NewClassForm()}
+            'form': NewClassForm(),
+            'permission': request.user.has_perm('mainpage.can_create')}
 
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -95,7 +97,8 @@ def create_new_class(request):
 @login_required
 def show_forms(request):
     context = {'user': request.user,
-            'logged_in': request.user.is_authenticated
+            'logged_in': request.user.is_authenticated,
+            'permission': request.user.has_perm('mainpage.can_create')
             }
 
     if (request.user.has_perm('mainpage.can_create')):

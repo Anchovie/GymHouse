@@ -242,9 +242,11 @@ bpabpabpa
               <li>
                   <a href="{% url 'online:online_view' %}"><i class="fa fa-fw fa-desktop"></i> Online</a>
               </li>
+              {% if permission %}
               <li>
                   <a href="{% url 'create:show_forms' %}"><i class="fa fa-fw fa-wrench"></i> New Entries</a>
               </li>
+              {% endif %}
 
 
           </ul>
@@ -266,6 +268,10 @@ bpabpabpa
                       <!--<small>Subheading</small>-->
                   </h1>
                   <!--
+                  permission:
+                  {{permission}}
+                -->
+                  <!--
                   <ol class="breadcrumb">
                       <li>
                           <i class="fa fa-dashboard"></i>  <a href={% url 'mainpage:main_view_not_logged_in' %}>Dashboard</a>
@@ -274,7 +280,7 @@ bpabpabpa
                   </ol>
                   -->
                   {% block content %}
-                    <h1>PLAIN BASE.HTML; NOTHING EXTENDED</h1>
+                    <h1>PLAIN BASE.HTML; NOTHING EXTENDED (SOMETHING WENT WRONG)</h1>
 
 
                   {% endblock content %}

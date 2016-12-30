@@ -123,6 +123,7 @@ class Profile(models.Model):
         permissions = (
             ("can_create", "Can create new events and classes"),
             )
+
     user = models.OneToOneField(
             User,
             on_delete=models.CASCADE
@@ -131,7 +132,9 @@ class Profile(models.Model):
     status = models.CharField(
             max_length = 3,
             choices = STATUS_CHOICES,
-            default = REGULAR
+            default = REGULAR,
+            help_text='Choose your user type. Regular users cannot create entries'
+                    ' [THIS FIELD IS VISIBLE FOR TESTING PURPOSES]'
     )
     #level = models.ForeignKey(Level, related_name='Training_level_of_user')
     level = models.CharField(
@@ -155,22 +158,22 @@ class Profile(models.Model):
     age = models.IntegerField(
             blank=True,
             null=True,
-            help_text='Please enter age'
+            help_text='Please enter age. [optional]'
     )
     height = models.IntegerField(
             blank=True,
             null=True,
-            help_text='Please enter height in cm.'
+            help_text='Please enter height in cm. [optional]'
     )
     weight = models.IntegerField(
             blank=True,
             null=True,
-            help_text='Please enter weight in kg'
+            help_text='Please enter weight in kg. [optional]'
     )
     heart_rate = models.IntegerField(
             blank=True,
             null=True,
-            help_text='Please enter your resting heart rate'
+            help_text='Please enter your resting heart rate. [optional]'
     )
     """
     bmi = models.IntegerField(
@@ -183,7 +186,8 @@ class Profile(models.Model):
     image = models.ImageField(
             upload_to=get_user_path,
             blank=True,
-            null=True
+            null=True,
+            help_text='Add your profile picture [optional]'
     )
 
     registrations = models.ManyToManyField(

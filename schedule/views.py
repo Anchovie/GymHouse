@@ -44,7 +44,8 @@ def calendar_view(request):
             'classes': classes,
             'users': users,
             'levels':levels,
-			'user_regs':reg_cls_evnts}
+			'user_regs':reg_cls_evnts,
+            'permission': request.user.has_perm('mainpage.can_create')}
 
     return render(request, 'schedule/schedule_template.html', context);
 

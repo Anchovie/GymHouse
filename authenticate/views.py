@@ -11,6 +11,7 @@ from django.contrib.auth.models import Group
 
 from GymHouse.forms import RegistrationForm
 from mainpage.models import Profile
+from mainpage import models
 
 import os
 
@@ -104,15 +105,19 @@ def register_view(request):
                 #new_profile.image(path, File().read())
             """
             new_profile.user = user
-
-            if (new_profile.status is not 'REG'):
+            #print("NEW PROFILE STATUS = ")
+            #print(new_profile.status)
+            #print(models.REGULAR)
+            #print(type(new_profile.status))
+            #print(type(models.REGULAR))
+            if (new_profile.status != models.REGULAR):
                 creator_group = Group.objects.get(name='Creators')
-                print("Creator group:")
-                print(creator_group)
+                #print("Creator group:")
+                #print(creator_group)
                 creator_group.user_set.add(user)
-                #creator_group.user_set.add(new_profile)
                 print("Added new user to Creators group")
-
+            else:
+                print("User is regular, no permission granted")
 
 
             new_profile.save() # Now you can send it to DB
@@ -122,6 +127,11 @@ def register_view(request):
 
         else:
             print("FORM NOT VALID")
+            return HttpResponseRedirect('/')
+            """
+            context = {'form':form}
+            return render_to_response('pageRegistration.html', context,context_instance=RequestContext(request))
+            """
 
     else:
         form = RegistrationForm()

@@ -89,7 +89,18 @@ class RegistrationForm(ModelForm):
 
     class Meta:
         model = Profile
-        exclude = ['user', 'status', 'registrations']
+        exclude = ['user', 'registrations']
+
+    def clean(self):
+        cleaned_data = super(RegistrationForm, self).clean()
+        password1 = cleaned_data.get("password")
+        password2 = cleaned_data.get("password2")
+
+        if password1 != password2:
+            print("OASSWORDS DONT MATCH")
+            raise forms.ValidationError(
+                "Passwords don't match. "
+            )
 
 
 
