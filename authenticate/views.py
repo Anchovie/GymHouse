@@ -147,6 +147,11 @@ def register_view(request):
 
         else:
             print("FORM NOT VALID")
+            return HttpResponse(
+                    "Passwords don't match or other problem with form. <br/>" +
+                    "Redirecting..." +
+                    "<meta http-equiv=\"refresh\" content=\"3; url=/authenticate/register\" />"
+            )
             return HttpResponseRedirect('/')
             """
             context = {'form':form}
