@@ -58,12 +58,12 @@ GymHouse - Services
 		</div>
 
 		</div>
-        
+
 	{% for trainer in trainers %}
 		{% with trainer.level as level %}
 	<div class="card" data-trainer="{{trainer.first_name}}-{{trainer.height}}-{{trainer.weight}}">
 		{% if trainer.image %}
-			<img src={{ profile.image.url }} alt="Card image cap" style="width:100%">
+			<img src={{ trainer.image.url }} alt="Card image cap" style="width:100%">
 		{% else %}
 			<img src='https://www.placehold.it/300x300' alt="Card image cap" style="width:100%">
 		{% endif %}
@@ -75,8 +75,8 @@ GymHouse - Services
 	</div>
 		{% endwith %}
 	{% endfor %}
-	
-	
+
+
 
 
 {% endblock content %}
