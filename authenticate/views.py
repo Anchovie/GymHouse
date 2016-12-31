@@ -48,7 +48,12 @@ def login_view(request):
             #return render(request, 'mainpage/mainpage_logged_in_template.html', context)
         else:
             print("No user found")
-            return HttpResponse("NO USER MATCH")
+            #return HttpResponse("NO USER MATCH")
+            return HttpResponse(
+                    "Invalid username or password. <br/>" +
+                    "Redirecting..." +
+                    "<meta http-equiv=\"refresh\" content=\"3; url=/authenticate/login\" />"
+            )
 
     else:
         return render(request, 'authenticate/login_template.html',context)
