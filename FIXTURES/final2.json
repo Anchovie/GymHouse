@@ -1,0 +1,5 @@
+BASE_DIR:
+/home/anchovie/Koodit/WWW/GymHouse
+PROJECT_ROOT: /home/anchovie/Koodit/WWW/GymHouse/GymHouse
+STATIC_ROOT: /home/anchovie/Koodit/WWW/GymHouse/GymHouse/staticfiles
+STATICFILE_DIRS: ('/home/anchovie/Koodit/WWW/GymHouse/static', '/home/anchovie/Koodit/WWW/GymHouse/media')
